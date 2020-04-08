@@ -13,11 +13,33 @@ $(document).ready(function() {
         $('#masterPlan').attr('viewBox' , '0,275,200,225');
      });
 
+     //toggle menus
+
      var toggleButton = $('.toggle-button');
+         areaIcon = $('#area');
+         nameIcon = $('#name');
+
+
+         areaPath = $('.area-path');
+         areaText = $('.area-text');
+
+         namePath = $('.name-path');
+         nameText = $('.name-text');
+
+
      toggleButton.on('click', function() {
        $('.left-gap').toggle();
-       $('.svg-icon').toggleClass('active');
      });
+
+     areaIcon.on('click', function() {
+        areaPath.toggleClass('active');
+        areaText.toggleClass('active');
+      });
+
+      nameIcon.on('click', function() {
+        namePath.toggleClass('active');
+        nameText.toggleClass('active');
+      });
 
      /*
      svg path

@@ -61,7 +61,7 @@ a:active svg path, a:active svg text, a:active svg rect
      fill: #FECB00 !important;
     }
     
-a:active {
+.active {
     fill: #FECB00 !important;
 }
 
