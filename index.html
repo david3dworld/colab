@@ -1,52 +1,1416 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="src/styles.css" />
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <title>JCCC CoLab Event Planner</title>
-  </head>
-  <body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" />
+        <link rel="stylesheet" href="./src/styles.css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" /> 
+        <link rel="stylesheet" href="https://use.typekit.net/vge4ncm.css" />
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        
+        <script src="src/jquery-3.4.1.js"></script>
+        
+        <script src="./JS/anseki-plain-draggable-827c122/plain-draggable.min.js"></script>
+
+       <script src="./JS/index.js"></script>
+       <!-- <script src="./JS/interact.js" type="module"></script> -->
+        
+        <title>JCCC CoLab Event Planner</title>
+      </head>
+<body>
     <div class="grid-container">
-      
-      <div class="header">
-        <h1>Colab Event Planner</h1>
-      </div>
 
-      <div class="floor-selection">
-        <h3>Floor Selection</h3>
-      </div>
-      
-      <div class="inputinfo">
-        <form>
-          <input type="text" id="eventName">
-          <input type="date" id="eventDate">
-        </form>
-      </div>
+        <div class="header">
+            <img src="assets/tumbnails/colab-logo.png" class="bannerLogo"></img>
+            <h1>Colab Event Planner</h1>
+        </div> <!--end of "header"-->
 
-      <div class="floor-map">
-        <div class="grid-system"></div>
-      </div>
+        <div class="left-gutter"></div> <!--end of "left-gutter"-->
 
-      <div class="assets">
-        <h3>Furniture Selection</h3>
-      </div>
+            <div class="left-nav">
+                <nav id="left">
+                    <ul class="parent-ul">
+                        <li id="area">
+                               <!-- <object type="image/svg+xml" data="assets/XD_Export/area-nav-icon.svg" class="icon icon-svg" href="#">
+                                    Area
+                                </object>
+                                -->
+                             <a href="#" >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="48.061" viewBox="0 0 36 48.061" class="svg-icon toggle-button">
+                                <g transform="translate(-208 -149.578)">
+                                    <text class="a" transform="translate(208 193.639)"><tspan x="0" y="0">AREA</tspan></text>
+                                    <path class="b" d="M26.463,14.317H15.146V22.8H26.463Zm5.658,11.317V5.8A2.813,2.813,0,0,0,29.292,3H3.829A2.813,2.813,0,0,0,1,5.8V25.633a2.837,2.837,0,0,0,2.829,2.829H29.292A2.837,2.837,0,0,0,32.121,25.633Zm-2.829.028H3.829V5.787H29.292Z" transform="translate(209 146.578)"/>
+                                </g>
+                            </svg>
+                            </a>
+                        </li>
 
-      <div class="footer">
-        <button type="submit">Reset</button>
-        <button type="submit">Submit</button>
-      </div>
-    </div>
-  </body>
+                        <li id="name">
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="46" height="52.764" viewBox="0 0 46 52.764"><defs><style>.a,.b{fill:#fff;}.a{font-size:15px;font-family:UniversLTStd, Univers LT Std;}</style></defs><g transform="translate(-203 -215.889)"><text class="a" transform="translate(203 264.654)"><tspan x="0" y="0">NAME</tspan></text><path class="b" d="M24.407,0H4.49V2.49H24.407ZM4.49,29.876H24.407v-2.49H4.49Zm19.917-24.9H4.49A2.5,2.5,0,0,0,2,7.469V22.407A2.5,2.5,0,0,0,4.49,24.9H24.407a2.5,2.5,0,0,0,2.49-2.49V7.469A2.5,2.5,0,0,0,24.407,4.979ZM14.448,8.4a2.8,2.8,0,1,1-2.8,2.8A2.805,2.805,0,0,1,14.448,8.4Zm6.224,12.76H8.224V19.295c0-2.079,4.145-3.112,6.224-3.112s6.224,1.033,6.224,3.112Z" transform="translate(211 215.889)"/></g></svg>
+                            </a>
+                        </li>
+
+                        <li id="date">
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="50.624" viewBox="0 0 34 50.624"><defs><style>.a,.b{fill:#fff;}.a{font-size:13px;font-family:UniversLTStd, Univers LT Std;}</style></defs><g transform="translate(-209 -286.937)"><text class="a" transform="translate(209 333.561)"><tspan x="0" y="0">DATE</tspan></text><path class="b" d="M23.118,15.958l-1.576-1.576-7.256,7.256-3.152-3.152L9.557,20.062l4.728,4.728,8.832-8.832ZM26.79,3.974H25.3V1H22.33V3.974h-11.9V1H7.461V3.974H5.974A2.96,2.96,0,0,0,3.015,6.948L3,27.764a2.973,2.973,0,0,0,2.974,2.974H26.79a2.983,2.983,0,0,0,2.974-2.974V6.948A2.983,2.983,0,0,0,26.79,3.974Zm0,23.79H5.974V11.408H26.79Z" transform="translate(209 285.937)"/></g></svg>
+                            </a>
+                        </li>
+
+                        <li id="reset">
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="50.423" viewBox="0 0 42 50.423"><defs><style>.a,.b{fill:#fff;}.a{font-size:13px;font-family:UniversLTStd, Univers LT Std;}</style></defs><g transform="translate(-205 -431.169)"><g transform="translate(-3)"><text class="a" transform="translate(208 477.592)"><tspan x="0" y="0">RESET</tspan></text></g><path class="b" d="M15.92,5.47V1L9.96,6.96l5.96,5.96V8.45a8.947,8.947,0,0,1,8.94,8.94,8.747,8.747,0,0,1-1.043,4.172l2.175,2.175A11.9,11.9,0,0,0,15.92,5.47Zm0,20.86a8.947,8.947,0,0,1-8.94-8.94,8.747,8.747,0,0,1,1.043-4.172L5.848,11.043A11.9,11.9,0,0,0,15.92,29.311v4.47l5.96-5.96-5.96-5.96Z" transform="translate(210 430.169)"/></g></svg>
+                            </a>
+                        </li>
+
+                        <li id="clear">
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="45.182" viewBox="0 0 42 45.182"><defs><style>.a,.b{fill:#fff;}.a{font-size:13px;font-family:UniversLTStd, Univers LT Std;}</style></defs><g transform="translate(-205 -504.818)"><text class="a" transform="translate(205 546)"><tspan x="0" y="0">CLEAR</tspan></text><path class="b" d="M14.448,2A12.448,12.448,0,1,0,26.9,14.448,12.485,12.485,0,0,0,14.448,2ZM4.49,14.448A9.988,9.988,0,0,1,14.448,4.49a9.811,9.811,0,0,1,6.1,2.116L6.606,20.548A9.811,9.811,0,0,1,4.49,14.448Zm9.959,9.959a9.811,9.811,0,0,1-6.1-2.116L22.291,8.349a9.811,9.811,0,0,1,2.116,6.1A9.988,9.988,0,0,1,14.448,24.407Z" transform="translate(211 502.818)"/></g></svg>
+                            </a>
+                        </li>
+
+                        <li id="next">
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="45.395" viewBox="0 0 36 45.395"><defs><style>.a,.b{fill:#fff;}.a{font-size:13px;font-family:UniversLTStd, Univers LT Std;}</style></defs><g transform="translate(-208 -573.498)"><text class="a" transform="translate(208 614.893)"><tspan x="0" y="0">NEXT</tspan></text><path class="b" d="M16.033,4,13.913,6.121l8.393,8.408H4v3.008H22.306l-8.393,8.408,2.121,2.121L28.067,16.033Z" transform="translate(209 569.498)"/></g></svg>
+                            </a>
+                        </li>
+
+                    </ul> <!--end of parent-ul-->
+                </nav>
+            </div> <!--end of "left-nav"-->
+
+            <div class="left-gap">
+
+                <ul id="areas"> <!--mainuplate the display here...-->
+                    <li>
+                        <figure>
+                            <img src="assets/tumbnails/circle_corner.png" class="colab"></img>
+                            <figcaption>MAIN COLAB<br>Capacity:30</figcaption>
+                        </figure>
+                    </li>
+
+                    <li>
+                        <figure>
+                            <img src="assets/tumbnails/presentation_area.png" class="present"></img>
+                            <figcaption>PRESENTATION<br>Capacity:30</figcaption>
+                        </figure>
+                    </li>
+
+                    <li>
+                        <figure>
+                            <img src="assets/tumbnails/couch_corner.png" class="couchCorner"></img>
+                            <figcaption>COUCH CORNER<br>Capacity:30<br></figcaption>
+                        </figure>
+                    </li>
+
+                    <li>
+                        <figure>
+                            <img src="assets/tumbnails/circle_corner.png" class="circleCafe"></img>
+                            <figcaption>CIRCLE CAFE<br>Capacity:30</figcaption>
+                        </figure>
+                    </li>
+
+                  <!-- <li>
+                        <img src="assets/tumbnails/CLB_107.png" class="oneOhSeven"></img>
+                        <figcaption>CLB 107<br>Capacity:30</figcaption>
+                    </li> -->
+
+                </ul> <!--end of areas -->
+            </div>
+
+            <div class="right-nav">
+                <nav id="right">
+                    <ul class="parent-ul">
+                        <li id="select">
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="49" height="44.459" viewBox="0 0 49 44.459"><defs><style>.a,.b{fill:#fff;}.a{font-size:13px;font-family:UniversLTStd, Univers LT Std;}</style></defs><g transform="translate(-0.286 0)"><text class="a" transform="translate(0.286 40.459)"><tspan x="0" y="0">SELECT</tspan></text><path class="b" d="M272.156,977l-4.44-5.109,2.825-2.287,0,0a.842.842,0,0,0,.195-.239c.007-.011.019-.018.025-.03s0-.02.009-.029a.839.839,0,0,0,.077-.269.732.732,0,0,0,0-.086.876.876,0,0,0-.024-.211c-.007-.027-.009-.052-.017-.078a.863.863,0,0,0-.124-.227c-.02-.027-.041-.051-.064-.076a.872.872,0,0,0-.187-.15c-.015-.008-.022-.022-.038-.03l-15.191-7.952-.1-.055a.862.862,0,0,0-.293-.089c-.018,0-.036,0-.054,0a.831.831,0,0,0-.245.021c-.012,0-.025,0-.037,0s-.019.012-.03.015a.866.866,0,0,0-.261.133l-.015.01,0,0a.871.871,0,0,0-.19.224c-.011.02-.02.04-.03.059a.811.811,0,0,0-.078.234c0,.022-.009.041-.011.063a.841.841,0,0,0,.023.317l.018.065,4.634,16.56c0,.014.015.025.02.039a.818.818,0,0,0,.119.229c.01.014.013.033.024.047s.022.015.032.026a.852.852,0,0,0,.207.17c.027.016.055.025.083.038a.866.866,0,0,0,.205.062c.024,0,.046.012.07.014a.859.859,0,0,0,.273-.025.676.676,0,0,0,.07-.022.849.849,0,0,0,.267-.141l3.155-2.555c.023.031.041.064.067.094l4.5,5.179a1.717,1.717,0,0,0,2.421.17l1.942-1.689A1.714,1.714,0,0,0,272.156,977Z" transform="translate(-240.501 -960.074)"/></g></svg>
+                            </a>
+                        </li>
+
+                        <li id="group">
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="47" height="51" viewBox="0 0 47 51"><defs><style>.a,.b{fill:#fff;}.a{font-size:13px;font-family:UniversLTStd, Univers LT Std;}</style></defs><g transform="translate(-1132 -218)"><text class="a" transform="translate(1132 265)"><tspan x="0" y="0">GROUP</tspan></text><g transform="translate(475.206 -141.052)"><rect class="b" width="1" height="3" transform="translate(660.794 376.838)"/><rect class="b" width="3" height="1" transform="translate(675.794 359.052)"/><path class="b" d="M663.794,360.052h3v-1h-3a3.011,3.011,0,0,0-1.9.678l.633.774A1.986,1.986,0,0,1,663.794,360.052Z"/><rect class="b" width="3" height="1" transform="translate(671.794 359.052)"/><rect class="b" width="1" height="3" transform="translate(660.794 380.838)"/><rect class="b" width="1" height="3" transform="translate(660.794 372.838)"/><rect class="b" width="1" height="3" transform="translate(660.794 364.838)"/><rect class="b" width="1" height="3" transform="translate(660.794 368.838)"/><rect class="b" width="3" height="1" transform="translate(667.794 359.052)"/><rect class="b" width="1" height="3" transform="translate(694.794 369.124)"/><rect class="b" width="1" height="3" transform="translate(694.794 377.124)"/><rect class="b" width="1" height="3" transform="translate(694.794 373.124)"/><path class="b" d="M694.794,362.052v2.072h1v-2.072a2.976,2.976,0,0,0-.2-1.088l-.932.363A2,2,0,0,1,694.794,362.052Z"/><rect class="b" width="3" height="1" transform="translate(687.794 359.052)"/><rect class="b" width="3" height="1" transform="translate(683.794 359.052)"/><rect class="b" width="3" height="1" transform="translate(679.794 359.052)"/><rect class="b" width="1" height="3" transform="translate(694.794 365.124)"/><path class="b" d="M694.229,360.659l.716-.7a2.976,2.976,0,0,0-2.151-.909h-1v1h1A1.986,1.986,0,0,1,694.229,360.659Z"/><path class="b" d="M661.794,362.052a1.98,1.98,0,0,1,.231-.933l-.884-.467a3,3,0,0,0-.347,1.4v1.786h1Z"/><rect class="b" width="3" height="1" transform="translate(678.651 388.053)"/><path class="b" d="M695.794,381.124h-1v1.753l1,.523Z"/><rect class="b" width="3" height="1" transform="translate(682.651 388.053)"/><rect class="b" width="3" height="1" transform="translate(674.651 388.053)"/><path class="b" d="M661.794,384.838h-1v1.215a3,3,0,0,0,.733,1.964l.756-.655a2,2,0,0,1-.489-1.309Z"/><path class="b" d="M695.686,386.8c.014-.055.035-.107.046-.163l-.111.089Z"/><path class="b" d="M686.651,388.053v1h2.365l-.28-1Z"/><path class="b" d="M662.911,387.849l-.442.9a2.979,2.979,0,0,0,1.325.308h1.857v-1h-1.857A1.993,1.993,0,0,1,662.911,387.849Z"/><rect class="b" width="3" height="1" transform="translate(666.651 388.053)"/><rect class="b" width="3" height="1" transform="translate(670.651 388.053)"/><path class="b" d="M698.595,390.152l0,0-2.907-3.345a3,3,0,0,1-.864,1.458l-.676-.737a2,2,0,0,0,.648-1.473v-.929h1v.929a2.974,2.974,0,0,1-.062.589l1.78-1.441a.558.558,0,0,0,.13-.16c0-.008.013-.012.017-.02l.006-.02a.532.532,0,0,0,.052-.18.27.27,0,0,0,0-.057.564.564,0,0,0-.016-.141.158.158,0,0,0-.012-.052.61.61,0,0,0-.083-.152.514.514,0,0,0-.042-.05.555.555,0,0,0-.125-.1c-.01-.006-.015-.015-.025-.02l-1.62-.848v.723h-1v-1.246l-7.546-3.951-.07-.037a.6.6,0,0,0-.2-.059h-.035a.6.6,0,0,0-.164.014h-.026c-.008,0-.013.008-.02.01a.6.6,0,0,0-.175.089l-.01.006a.6.6,0,0,0-.126.15c-.008.013-.013.026-.021.04a.591.591,0,0,0-.052.157.331.331,0,0,1-.007.042.584.584,0,0,0,.016.212l.012.044,2.366,8.458h.915v1h-.635l.454,1.624c0,.009.01.017.013.026a.574.574,0,0,0,.08.153c.007.01.009.022.016.031s.015.01.021.017a.58.58,0,0,0,.138.114.838.838,0,0,0,.193.067c.016,0,.031.008.047.009a.562.562,0,0,0,.183-.017.371.371,0,0,0,.047-.015.549.549,0,0,0,.179-.094l2.112-1.71c.016.021.028.043.045.063l3.013,3.466a1.148,1.148,0,0,0,1.62.114l1.3-1.131A1.147,1.147,0,0,0,698.595,390.152Zm-5.8-1.1h-2.143v-1h2.143a2.01,2.01,0,0,0,.672-.115l.336.941A3,3,0,0,1,692.794,389.053Z"/><path class="b" d="M695.794,385.124h-1v.929a2,2,0,0,1-.648,1.473l.676.737a3,3,0,0,0,.864-1.458l-.065-.074.111-.089a2.974,2.974,0,0,0,.062-.589Z"/><path class="b" d="M689.651,388.053h-.915l.28,1h.635Z"/><path class="b" d="M692.794,388.053h-2.143v1h2.143a3,3,0,0,0,1.008-.174l-.336-.941A2.01,2.01,0,0,1,692.794,388.053Z"/><path class="b" d="M695.794,384.124V383.4l-1-.523v1.247Z"/><path class="b" d="M684.864,372.592a2.536,2.536,0,1,0,2.108-2.9A2.536,2.536,0,0,0,684.864,372.592Z"/><path class="b" d="M676.059,367.425a2.536,2.536,0,1,0-2.108,2.9A2.536,2.536,0,0,0,676.059,367.425Z"/><path class="b" d="M680.021,381.63a2.536,2.536,0,1,0-2.108,2.9A2.536,2.536,0,0,0,680.021,381.63Z"/><path class="b" d="M684.19,372.841a5.071,5.071,0,1,0-4.215,5.8A5.071,5.071,0,0,0,684.19,372.841Z"/></g></g></svg>
+                            </a>
+                        </li>
+
+                        <li id="move">
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="39" height="52.549" viewBox="0 0 39 52.549"><defs><style>.a,.b{fill:#fff;}.a{font-size:13px;font-family:UniversLTStd, Univers LT Std;}</style></defs><g transform="translate(-1137 -287.451)"><text class="a" transform="translate(1137 336)"><tspan x="0" y="0">MOVE</tspan></text><path class="b" d="M589.1,1220.311l-5.541-5.541a1.208,1.208,0,0,0-2.063.854v2.789h-6.067v-6.041h2.558a1.208,1.208,0,0,0,.854-2.062l-5.541-5.541a1.209,1.209,0,0,0-1.708,0l-5.541,5.541a1.209,1.209,0,0,0,.854,2.063h2.483v6.041h-6.016v-2.789a1.208,1.208,0,0,0-2.062-.854l-5.541,5.541a1.209,1.209,0,0,0,0,1.709l5.541,5.541a1.208,1.208,0,0,0,2.062-.854v-2.252h6.016v6.041H566.83a1.208,1.208,0,0,0-.854,2.063l5.541,5.541a1.209,1.209,0,0,0,1.708,0l5.541-5.541a1.208,1.208,0,0,0-.854-2.063h-2.483v-6.041H581.5v2.252a1.208,1.208,0,0,0,2.063.854l5.541-5.541A1.209,1.209,0,0,0,589.1,1220.311Z" transform="translate(582.585 -916.964)"/></g></svg>
+                            </a>
+                        </li>
+
+                        <li id="edit">
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="35.481" height="53" viewBox="0 0 35.481 53">
+                                <g id="Group_498" data-name="Group 498" transform="translate(-1141 -358)">
+                                  <text id="EDIT" transform="translate(1141 407)" fill="#fff" font-size="13" font-family="UniversLTStd, Univers LT Std"><tspan x="0" y="0">EDIT</tspan></text>
+                                  <rect id="Rectangle_9445" data-name="Rectangle 9445" width="28" height="22" rx="3" transform="translate(1141.5 364.868)" fill="none" stroke="#fff" stroke-width="1"/>
+                                  <path id="ic_edit_24px" data-name="ic edit 24px" d="M674.106,331.265v4.153h4.153l12.247-12.25-4.15-4.154Zm19.616-11.309a1.1,1.1,0,0,0,.006-1.556l-.006-.006L691.13,315.8a1.1,1.1,0,0,0-1.556-.007l-.006.007-2.027,2.027,4.154,4.152,2.027-2.027Z" transform="translate(482.434 42.524)" fill="#fff"/>
+                                </g>
+                              </svg>
+                            </a>
+                        </li>
+
+                        <li id="chairs">
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="49" height="53.389" viewBox="0 0 49 53.389"><defs><style>.a,.b{fill:#fff;}.a{font-size:13px;font-family:UniversLTStd, Univers LT Std;}</style></defs><g transform="translate(-0.286)"><text class="a" transform="translate(0.286 49.389)"><tspan x="0" y="0">CHAIRS</tspan></text><path class="b" d="M5.446,28.844v5.169h5.169V28.844H27.844v5.169h5.169V23.675H5.446ZM31.289,15.06h5.169v5.169H31.289ZM2,15.06H7.169v5.169H2Zm25.844,5.169H10.615V6.446A3.456,3.456,0,0,1,14.06,3H24.4a3.456,3.456,0,0,1,3.446,3.446Z" transform="translate(4.702 -3)"/></g></svg>
+                            </a>
+                        </li>
+
+                        <li id="tables">
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="49" height="43.918" viewBox="0 0 49 43.918"><defs><style>.a,.b{fill:#fff;}.a{font-size:13px;font-family:UniversLTStd, Univers LT Std;}</style></defs><g transform="translate(-0.286)"><text class="a" transform="translate(0.286 39.918)"><tspan x="0" y="0">TABLES</tspan></text><path class="b" d="M127.458,341.459v6.2H133.5V362.53h3.036V347.655H154.2V362.53h3.036V347.655h6.229v-6.2Z" transform="translate(-121.964 -341.459)"/></g></svg>
+                            </a>
+                        </li>
+
+                        <li id="stools">
+                            <a href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="52" height="47.188" viewBox="0 0 52 47.188"><defs><style>.a,.b{fill:#fff;}.a{font-size:13px;font-family:UniversLTStd, Univers LT Std;}</style></defs><g transform="translate(-0.47)"><text class="a" transform="translate(0.47 43.188)"><tspan x="0" y="0">STOOLS</tspan></text><g transform="translate(16.344)"><path class="b" d="M737.4,720.113A3.113,3.113,0,0,0,734.282,717H722.738a3.113,3.113,0,0,0-3.113,3.113v3.068h2.125l-.772,22.379,1.544.054.174-5.049H734.32L734.5,746l1.544-.051-.749-22.767h2.1Zm-3.647,3.094.521,15.813h-11.52l.545-15.812-.772-.027h12Z" transform="translate(-719.625 -717)"/></g></g></svg>
+                            </a>
+                        </li>
+                    </ul> <!--end of parent-ul -->
+                </nav>
+            </div> <!--end of "right-nav"-->
+
+        <div class="floor-map">
+                <svg version="1.1" id="masterPlan" class="clippingMask" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 469 499" enable-background="new 0 0 469 499" xml:space="preserve">
+            <g id="text"> <!--Layer for Text -->
+                
+            </g> <!--End of Text Layer -->
+        
+            <g id="moveableObjects"> <!--Layer for Moveable Objects -->
+        
+                <!--Southeast Couches-->
+                <rect id="southEastCouch-1" class="southEastCouch moveable" x="4.8" y="334" fill="#0094B3" width="34" height="15.5"/>
+                <rect id="southEastCouch-2" class="southEastCouch moveable" x="4.8" y="361" fill="#0094B3" width="34" height="15.5"/>
+                <!--End of Southeast Couches-->
+                
+                <!--22" Tables-->
+                <g id="twentytwoInchTable-7" class="twentytwoInchTable moveable" transform="translate(930 434)">
+                    <path fill="#FFFFFF" d="M-476.4-167.5h8c0.8,0,1.5,0.7,1.5,1.5v8c0,0.8-0.7,1.5-1.5,1.5h-8c-0.8,0-1.5-0.7-1.5-1.5v-8
+                        C-477.9-166.8-477.2-167.5-476.4-167.5z"/>
+                    <path fill="none" stroke="#0094B3" stroke-width="0.5" d="M-476.4-167.2h8c0.7,0,1.3,0.6,1.3,1.3v8c0,0.7-0.6,1.3-1.3,1.3h-8
+                        c-0.7,0-1.3-0.6-1.3-1.3v-8C-477.7-166.7-477.1-167.2-476.4-167.2z"/>
+                </g>
+                <g id="twentytwoInchTable-6" class="twentytwoInchTable moveable" transform="translate(930 434)">
+                    <path fill="#FFFFFF" d="M-565.2-226h8c0.8,0,1.5,0.7,1.5,1.5v8c0,0.8-0.7,1.5-1.5,1.5h-8c-0.8,0-1.5-0.7-1.5-1.5v-8
+                        C-566.7-225.4-566-226-565.2-226z"/>
+                    <path fill="none" stroke="#0094B3" stroke-width="0.5" d="M-565.2-225.8h8c0.7,0,1.3,0.6,1.3,1.3v8c0,0.7-0.6,1.3-1.3,1.3h-8
+                        c-0.7,0-1.3-0.6-1.3-1.3v-8C-566.4-225.2-565.9-225.8-565.2-225.8z"/>
+                </g>
+                <g id="twentytwoInchTable-5" class="twentytwoInchTable moveable" transform="translate(930 395)">
+                    <path fill="#FFFFFF" d="M-565.2-206.5h8c0.8,0,1.5,0.7,1.5,1.5v8c0,0.8-0.7,1.5-1.5,1.5h-8c-0.8,0-1.5-0.7-1.5-1.5v-8
+                        C-566.7-205.9-566-206.5-565.2-206.5z"/>
+                    <path fill="none" stroke="#0094B3" stroke-width="0.5" d="M-565.2-206.3h8c0.7,0,1.3,0.6,1.3,1.3v8c0,0.7-0.6,1.3-1.3,1.3h-8
+                        c-0.7,0-1.3-0.6-1.3-1.3v-8C-566.4-205.7-565.9-206.3-565.2-206.3z"/>
+                </g>
+                <g id="twentytwoInchTable-4" class="twentytwoInchTable moveable" transform="translate(930 360)">
+                    <path fill="#FFFFFF" d="M-565.2-189h8c0.8,0,1.5,0.7,1.5,1.5v8c0,0.8-0.7,1.5-1.5,1.5h-8c-0.8,0-1.5-0.7-1.5-1.5v-8
+                        C-566.7-188.4-566-189-565.2-189z"/>
+                    <path fill="none" stroke="#0094B3" stroke-width="0.5" d="M-565.2-188.8h8c0.7,0,1.3,0.6,1.3,1.3v8c0,0.7-0.6,1.3-1.3,1.3h-8
+                        c-0.7,0-1.3-0.6-1.3-1.3v-8C-566.4-188.2-565.9-188.8-565.2-188.8z"/>
+                </g>
+                <g id="twentytwoInchTable-3" class="twentytwoInchTable moveable" transform="translate(930 321)">
+                    <path fill="#FFFFFF" d="M-565.2-169.5h8c0.8,0,1.5,0.7,1.5,1.5v8c0,0.8-0.7,1.5-1.5,1.5h-8c-0.8,0-1.5-0.7-1.5-1.5v-8
+                        C-566.7-168.9-566-169.5-565.2-169.5z"/>
+                    <path fill="none" stroke="#0094B3" stroke-width="0.5" d="M-565.2-169.3h8c0.7,0,1.3,0.6,1.3,1.3v8c0,0.7-0.6,1.3-1.3,1.3h-8
+                        c-0.7,0-1.3-0.6-1.3-1.3v-8C-566.4-168.7-565.9-169.3-565.2-169.3z"/>
+                </g>
+                <g id="twentytwoInchTable-2" class="twentytwoInchTable moveable" transform="translate(930 276)">
+                    <path fill="#FFFFFF" d="M-565.2-147h8c0.8,0,1.5,0.7,1.5,1.5v8c0,0.8-0.7,1.5-1.5,1.5h-8c-0.8,0-1.5-0.7-1.5-1.5v-8
+                        C-566.7-146.4-566-147-565.2-147z"/>
+                    <path fill="none" stroke="#0094B3" stroke-width="0.5" d="M-565.2-146.8h8c0.7,0,1.3,0.6,1.3,1.3v8c0,0.7-0.6,1.3-1.3,1.3h-8
+                        c-0.7,0-1.3-0.6-1.3-1.3v-8C-566.4-146.2-565.9-146.8-565.2-146.8z"/>
+                </g>
+                <g id="twentytwoInchTable-1" class="twentytwoInchTable moveable" transform="translate(930 228)">
+                    <path fill="#FFFFFF" d="M-565.2-123h8c0.8,0,1.5,0.7,1.5,1.5v8c0,0.8-0.7,1.5-1.5,1.5h-8c-0.8,0-1.5-0.7-1.5-1.5v-8
+                        C-566.7-122.4-566-123-565.2-123z"/>
+                    <path fill="none" stroke="#0094B3" stroke-width="0.5" d="M-565.2-122.8h8c0.7,0,1.3,0.6,1.3,1.3v8c0,0.7-0.6,1.3-1.3,1.3h-8
+                        c-0.7,0-1.3-0.6-1.3-1.3v-8C-566.4-122.2-565.9-122.8-565.2-122.8z"/>
+                </g>
+                <!--End of 22" Tables-->
+        
+                <!--Blue Stools-->
+                <g id="blueStool-22" class="blueStool moveable">
+                    <path fill="#4AB9F0" d="M454,355.2l3,0.3c1.4,0.1,2.6-0.9,2.8-2.2l0.3-3c0.1-1.4-0.9-2.6-2.2-2.8l-3-0.3c-1.4-0.1-2.6,0.9-2.8,2.2
+                        l-0.3,3C451.6,353.8,452.6,355.1,454,355.2z"/>
+                    <path fill="#4AB9F0" d="M460.6,352.4l-0.3,3c-0.1,0.7-0.7,1.2-1.4,1.1l-7-0.7c-0.3,0-0.6-0.2-0.8-0.5c-0.2-0.3-0.3-0.6-0.3-0.9
+                        l0.3-3l-1.2-0.1l-0.3,3c-0.1,0.7,0.1,1.3,0.5,1.8c0.4,0.5,1,0.8,1.7,0.9l5.2,0.6l1.8,0.2c0.1,0,0.2,0,0.3,0c1.3,0,2.3-1,2.5-2.2
+                        l0.3-3L460.6,352.4z"/>
+                </g>
+                <g id="blueStool-21" class="blueStool moveable">
+                    <path fill="#4AB9F0" d="M437.5,343.9l-1.4,2.6c-0.6,1.2-0.2,2.7,1,3.4l2.6,1.4c1.2,0.6,2.7,0.2,3.4-1l1.4-2.6
+                        c0.6-1.2,0.2-2.7-1-3.4l-2.6-1.4C439.6,342.2,438.1,342.6,437.5,343.9z"/>
+                    <path fill="#4AB9F0" d="M444.2,349.7l-1.4,2.6c-0.3,0.6-1.1,0.8-1.7,0.5l-6.2-3.3c-0.3-0.2-0.5-0.4-0.6-0.7
+                        c-0.1-0.3-0.1-0.7,0.1-1l1.4-2.6l-1.1-0.6l-1.2,2.2l-0.2,0.4c-0.3,0.6-0.4,1.3-0.2,1.9c0.2,0.6,0.6,1.2,1.2,1.5l4.8,2.6l1.3,0.7h0
+                        c0.4,0.2,0.8,0.3,1.2,0.3c0.9,0,1.8-0.5,2.2-1.3l0.7-1.3l0.7-1.4L444.2,349.7z"/>
+                </g>
+                <g id="blueStool-20" class="blueStool moveable">
+                    <path fill="#4AB9F0" d="M459.2,300.5c-0.2-1.4-1.5-2.3-2.9-2l-3,0.5c-1.4,0.2-2.3,1.5-2,2.9l0.5,3c0.2,1.4,1.5,2.3,2.9,2l3-0.5
+                        c1.4-0.2,2.3-1.5,2-2.9L459.2,300.5z"/>
+                    <path fill="#4AB9F0" d="M461.1,299.7l-0.3-1.6c-0.2-1.4-1.5-2.3-2.9-2l-6.9,1.2c-1.4,0.2-2.3,1.5-2,2.9l0.5,3l1.2-0.2l-0.5-3
+                        c-0.1-0.7,0.3-1.3,1-1.4l6.9-1.2c0.7-0.1,1.3,0.3,1.4,1l0.5,3l1.2-0.2L461.1,299.7z"/>
+                </g>
+                <g id="blueStool-19" class="blueStool moveable">
+                    <path fill="#4AB9F0" d="M441.4,313.1l2.5-1.6c1.2-0.7,1.5-2.3,0.8-3.4l-1.6-2.5c-0.7-1.2-2.3-1.5-3.4-0.8l-2.5,1.6
+                        c-1.2,0.7-1.5,2.3-0.8,3.4l1.6,2.5C438.7,313.4,440.2,313.8,441.4,313.1z"/>
+                    <path fill="#4AB9F0" d="M442.2,301.6c-0.7-0.2-1.3,0-1.9,0.3l-5.9,3.7c-0.6,0.4-1,0.9-1.1,1.6c-0.2,0.7,0,1.3,0.3,1.9l1.6,2.5
+                        l1.1-0.7l-1.6-2.5c-0.2-0.3-0.2-0.6-0.2-0.9c0.1-0.3,0.3-0.6,0.6-0.8l5.9-3.7c0.2-0.1,0.4-0.2,0.7-0.2c0.1,0,0.2,0,0.3,0
+                        c0.3,0.1,0.6,0.3,0.8,0.6l1.6,2.5l1.1-0.7l-0.1-0.1l-1.5-2.4C443.5,302.1,442.9,301.7,442.2,301.6z"/>
+                </g>
+                <g id="blueStool-18" class="blueStool moveable">
+                    <path fill="#4AB9F0" d="M297.3,239v3c0,1.4,1.1,2.5,2.5,2.5h3c1.4,0,2.5-1.1,2.5-2.5v-3c0-1.4-1.1-2.5-2.5-2.5h-3
+                        C298.4,236.5,297.3,237.6,297.3,239z"/>
+                    <path fill="#4AB9F0" d="M306.1,244c0,0.7-0.6,1.3-1.3,1.3h-7c-0.7,0-1.3-0.6-1.3-1.3v-3h-1.3v3c0,1.4,1.1,2.5,2.5,2.5h7
+                        c1.4,0,2.5-1.1,2.5-2.5v-3h-1.2V244z"/>
+                </g>
+                <g id="blueStool-17" class="blueStool moveable">
+                    <path fill="#4AB9F0" d="M279.3,239v3c0,1.4,1.1,2.5,2.5,2.5h3c1.4,0,2.5-1.1,2.5-2.5v-3c0-1.4-1.1-2.5-2.5-2.5h-3
+                        C280.4,236.5,279.3,237.6,279.3,239z"/>
+                    <path fill="#4AB9F0" d="M288.1,244c0,0.7-0.6,1.3-1.3,1.3h-7c-0.7,0-1.3-0.6-1.3-1.3v-3h-1.3v3c0,1.4,1.1,2.5,2.5,2.5h7
+                        c1.4,0,2.5-1.1,2.5-2.5v-3h-1.2V244z"/>
+                </g>
+                <g id="blueStool-16" class="blueStool moveable">
+                    <path fill="#4AB9F0" d="M261.3,239v3c0,1.4,1.1,2.5,2.5,2.5h3c1.4,0,2.5-1.1,2.5-2.5v-3c0-1.4-1.1-2.5-2.5-2.5h-3
+                        C262.4,236.5,261.3,237.6,261.3,239z"/>
+                    <path fill="#4AB9F0" d="M270.1,244c0,0.7-0.6,1.3-1.3,1.3h-7c-0.7,0-1.3-0.6-1.3-1.3v-3h-1.3v3c0,1.4,1.1,2.5,2.5,2.5h7
+                        c1.4,0,2.5-1.1,2.5-2.5v-3h-1.2V244z"/>
+                </g>
+                <g id="blueStool-15" class="blueStool moveable">
+                    <path fill="#4AB9F0" d="M305.3,207v-3c0-1.4-1.1-2.5-2.5-2.5h-3c-1.4,0-2.5,1.1-2.5,2.5v3c0,1.4,1.1,2.5,2.5,2.5h3
+                        C304.2,209.5,305.3,208.3,305.3,207z"/>
+                    <path fill="#4AB9F0" d="M307.3,205v-3c0-1.4-1.1-2.5-2.5-2.5h-7c-1.4,0-2.5,1.1-2.5,2.5v3h1.3v-3c0-0.7,0.6-1.3,1.3-1.3h7
+                        c0.7,0,1.3,0.6,1.3,1.3v3H307.3z"/>
+                </g>
+                <g id="blueStool-14" class="blueStool moveable">
+                    <path fill="#4AB9F0" d="M287.3,207v-3c0-1.4-1.1-2.5-2.5-2.5h-3c-1.4,0-2.5,1.1-2.5,2.5v3c0,1.4,1.1,2.5,2.5,2.5h3
+                        C286.2,209.5,287.3,208.3,287.3,207z"/>
+                    <path fill="#4AB9F0" d="M289.3,205v-3c0-1.4-1.1-2.5-2.5-2.5h-7c-1.4,0-2.5,1.1-2.5,2.5v3h1.3v-3c0-0.7,0.6-1.3,1.3-1.3h7
+                        c0.7,0,1.3,0.6,1.3,1.3v3H289.3z"/>
+                </g>
+                <g id="blueStool-13" class="blueStool moveable">
+                    <path fill="#4AB9F0" d="M269.3,207v-3c0-1.4-1.1-2.5-2.5-2.5h-3c-1.4,0-2.5,1.1-2.5,2.5v3c0,1.4,1.1,2.5,2.5,2.5h3
+                        C268.2,209.5,269.3,208.3,269.3,207z"/>
+                    <path fill="#4AB9F0" d="M271.3,205v-3c0-1.4-1.1-2.5-2.5-2.5h-7c-1.4,0-2.5,1.1-2.5,2.5v3h1.3v-3c0-0.7,0.6-1.3,1.3-1.3h7
+                        c0.7,0,1.3,0.6,1.3,1.3v3H271.3z"/>
+                </g>
+                <g id="blueStool-12" class="blueStool moveable">
+                    <path fill="#4AB9F0" d="M297.3,174.5v3c0,1.4,1.1,2.5,2.5,2.5h3c1.4,0,2.5-1.1,2.5-2.5v-3c0-1.4-1.1-2.5-2.5-2.5h-3
+                        C298.4,172,297.3,173.1,297.3,174.5z"/>
+                    <path fill="#4AB9F0" d="M306.1,179.5c0,0.7-0.6,1.3-1.3,1.3h-7c-0.7,0-1.3-0.6-1.3-1.3v-3h-1.3v3c0,1.4,1.1,2.5,2.5,2.5h7
+                        c1.4,0,2.5-1.1,2.5-2.5v-3h-1.2V179.5z"/>
+                </g>
+                <g id="blueStool-11" class="blueStool moveable">
+                    <path fill="#4AB9F0" d="M279.3,174.5v3c0,1.4,1.1,2.5,2.5,2.5h3c1.4,0,2.5-1.1,2.5-2.5v-3c0-1.4-1.1-2.5-2.5-2.5h-3
+                        C280.4,172,279.3,173.1,279.3,174.5z"/>
+                    <path fill="#4AB9F0" d="M288.1,179.5c0,0.7-0.6,1.3-1.3,1.3h-7c-0.7,0-1.3-0.6-1.3-1.3v-3h-1.3v3c0,1.4,1.1,2.5,2.5,2.5h7
+                        c1.4,0,2.5-1.1,2.5-2.5v-3h-1.2V179.5z"/>
+                </g>
+                <g id="blueStool-10" class="blueStool moveable">
+                    <path fill="#4AB9F0" d="M261.3,174.5v3c0,1.4,1.1,2.5,2.5,2.5h3c1.4,0,2.5-1.1,2.5-2.5v-3c0-1.4-1.1-2.5-2.5-2.5h-3
+                        C262.4,172,261.3,173.1,261.3,174.5z"/>
+                    <path fill="#4AB9F0" d="M270.1,179.5c0,0.7-0.6,1.3-1.3,1.3h-7c-0.7,0-1.3-0.6-1.3-1.3v-3h-1.3v3c0,1.4,1.1,2.5,2.5,2.5h7
+                        c1.4,0,2.5-1.1,2.5-2.5v-3h-1.2V179.5z"/>
+                </g>
+                <g id="blueStool-9" class="blueStool moveable">
+                    <path fill="#4AB9F0" d="M305.3,142.5v-3c0-1.4-1.1-2.5-2.5-2.5h-3c-1.4,0-2.5,1.1-2.5,2.5v3c0,1.4,1.1,2.5,2.5,2.5h3
+                        C304.2,145,305.3,143.8,305.3,142.5z"/>
+                    <path fill="#4AB9F0" d="M307.3,140.5v-3c0-1.4-1.1-2.5-2.5-2.5h-7c-1.4,0-2.5,1.1-2.5,2.5v3h1.3v-3c0-0.7,0.6-1.3,1.3-1.3h7
+                        c0.7,0,1.3,0.6,1.3,1.3v3H307.3z"/>
+                </g>
+                <g id="blueStool-8" class="blueStool moveable">
+                    <path fill="#4AB9F0" d="M287.3,142.5v-3c0-1.4-1.1-2.5-2.5-2.5h-3c-1.4,0-2.5,1.1-2.5,2.5v3c0,1.4,1.1,2.5,2.5,2.5h3
+                        C286.2,145,287.3,143.8,287.3,142.5z"/>
+                    <path fill="#4AB9F0" d="M289.3,140.5v-3c0-1.4-1.1-2.5-2.5-2.5h-7c-1.4,0-2.5,1.1-2.5,2.5v3h1.3v-3c0-0.7,0.6-1.3,1.3-1.3h7
+                        c0.7,0,1.3,0.6,1.3,1.3v3H289.3z"/>
+                </g>
+                <g id="blueStool-7" class="blueStool moveable">
+                    <path fill="#4AB9F0" d="M269.3,142.5v-3c0-1.4-1.1-2.5-2.5-2.5h-3c-1.4,0-2.5,1.1-2.5,2.5v3c0,1.4,1.1,2.5,2.5,2.5h3
+                        C268.2,145,269.3,143.8,269.3,142.5z"/>
+                    <path fill="#4AB9F0" d="M271.3,140.5v-3c0-1.4-1.1-2.5-2.5-2.5h-7c-1.4,0-2.5,1.1-2.5,2.5v3h1.3v-3c0-0.7,0.6-1.3,1.3-1.3h7
+                        c0.7,0,1.3,0.6,1.3,1.3v3H271.3z"/>
+                </g>
+                <g id="blueStool-6" class="blueStool moveable">
+                    <path fill="#4AB9F0" d="M125.8,387.5v3c0,1.4,1.1,2.5,2.5,2.5h3c1.4,0,2.5-1.1,2.5-2.5v-3c0-1.4-1.1-2.5-2.5-2.5h-3
+                        C126.9,385,125.8,386.1,125.8,387.5z"/>
+                    <path fill="#4AB9F0" d="M134.6,392.5c0,0.7-0.6,1.3-1.3,1.3h-7c-0.7,0-1.3-0.6-1.3-1.3v-3h-1.3v3c0,1.4,1.1,2.5,2.5,2.5h7
+                        c1.4,0,2.5-1.1,2.5-2.5v-3h-1.2V392.5z"/>
+                </g>
+                <g id="blueStool-5" class="blueStool moveable">
+                    <path fill="#4AB9F0" d="M107.8,387.5v3c0,1.4,1.1,2.5,2.5,2.5h3c1.4,0,2.5-1.1,2.5-2.5v-3c0-1.4-1.1-2.5-2.5-2.5h-3
+                        C108.9,385,107.8,386.1,107.8,387.5z"/>
+                    <path fill="#4AB9F0" d="M116.6,392.5c0,0.7-0.6,1.3-1.3,1.3h-7c-0.7,0-1.3-0.6-1.3-1.3v-3h-1.3v3c0,1.4,1.1,2.5,2.5,2.5h7
+                        c1.4,0,2.5-1.1,2.5-2.5v-3h-1.2V392.5z"/>
+                </g>
+                <g id="blueStool-4" class="blueStool moveable">
+                    <path fill="#4AB9F0" d="M89.8,387.5v3c0,1.4,1.1,2.5,2.5,2.5h3c1.4,0,2.5-1.1,2.5-2.5v-3c0-1.4-1.1-2.5-2.5-2.5h-3
+                        C90.9,385,89.8,386.1,89.8,387.5z"/>
+                    <path fill="#4AB9F0" d="M98.6,392.5c0,0.7-0.6,1.3-1.3,1.3h-7c-0.7,0-1.3-0.6-1.3-1.3v-3h-1.3v3c0,1.4,1.1,2.5,2.5,2.5h7
+                        c1.4,0,2.5-1.1,2.5-2.5v-3h-1.2V392.5z"/>
+                </g>
+                <g id="blueStool-3" class="blueStool moveable">
+                    <path fill="#4AB9F0" d="M133.8,355.5v-3c0-1.4-1.1-2.5-2.5-2.5h-3c-1.4,0-2.5,1.1-2.5,2.5v3c0,1.4,1.1,2.5,2.5,2.5h3
+                        C132.7,358,133.8,356.8,133.8,355.5z"/>
+                    <path fill="#4AB9F0" d="M135.8,353.5v-3c0-1.4-1.1-2.5-2.5-2.5h-7c-1.4,0-2.5,1.1-2.5,2.5v3h1.3v-3c0-0.7,0.6-1.3,1.3-1.3h7
+                        c0.7,0,1.3,0.6,1.3,1.3v3H135.8z"/>
+                </g>
+                <g id="blueStool-2" class="blueStool moveable">
+                    <path fill="#4AB9F0" d="M115.8,355.5v-3c0-1.4-1.1-2.5-2.5-2.5h-3c-1.4,0-2.5,1.1-2.5,2.5v3c0,1.4,1.1,2.5,2.5,2.5h3
+                        C114.7,358,115.8,356.8,115.8,355.5z"/>
+                    <path fill="#4AB9F0" d="M117.8,353.5v-3c0-1.4-1.1-2.5-2.5-2.5h-7c-1.4,0-2.5,1.1-2.5,2.5v3h1.3v-3c0-0.7,0.6-1.3,1.3-1.3h7
+                        c0.7,0,1.3,0.6,1.3,1.3v3H117.8z"/>
+                </g>
+                <g id="blueStool-1" class="blueStool moveable">
+                    <path fill="#4AB9F0" d="M97.8,355.5v-3c0-1.4-1.1-2.5-2.5-2.5h-3c-1.4,0-2.5,1.1-2.5,2.5v3c0,1.4,1.1,2.5,2.5,2.5h3
+                        C96.7,358,97.8,356.8,97.8,355.5z"/>
+                    <path fill="#4AB9F0" d="M99.8,353.5v-3c0-1.4-1.1-2.5-2.5-2.5h-7c-1.4,0-2.5,1.1-2.5,2.5v3h1.3v-3c0-0.7,0.6-1.3,1.3-1.3h7
+                        c0.7,0,1.3,0.6,1.3,1.3v3H99.8z"/>
+                </g>
+                <!--End of Blue Stools-->
+        
+                <!--36" Table-->
+                <g id="thirtySixInchTable" class="moveable" transform="translate(499 628)">
+                    <path fill="#FFFFFF" d="M-349.7-323h15c0.8,0,1.5,0.7,1.5,1.5v15c0,0.8-0.7,1.5-1.5,1.5h-15c-0.8,0-1.5-0.7-1.5-1.5v-15
+                        C-351.2-322.4-350.5-323-349.7-323z"/>
+                    <path fill="none" stroke="#0094B3" stroke-width="0.5" d="M-349.7-322.8h15c0.7,0,1.3,0.6,1.3,1.3v15c0,0.7-0.6,1.3-1.3,1.3h-15
+                        c-0.7,0-1.3-0.6-1.3-1.3v-15C-350.9-322.2-350.4-322.8-349.7-322.8z"/>
+                </g>
+                <!--End of 36" Table-->
+        
+                <!--Blue Chairs-->
+                <g id="blueChair-27" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M463,284.2h-1c0,0,0,0.1,0,0.1c0,2.8-2.2,5.1-5,5.1c-2.8,0-5-2.3-5-5.1c0,0,0-0.1,0-0.1h-1
+                        c0,0,0,0.1,0,0.1c0,1.7,0.7,3.2,1.8,4.3c1.1,1.1,2.6,1.8,4.2,1.8c0,0,0,0,0,0c1.7,0,3.2-0.7,4.2-1.8c1.1-1.1,1.7-2.6,1.7-4.3
+                        C463,284.3,463,284.3,463,284.2z"/>
+                    <path fill="#4AB9F0" d="M456.9,288.4c2.2,0,3.9-1.8,3.9-4c0-0.1,0-0.1,0-0.2c-0.1-2.1-1.8-3.8-3.9-3.8s-3.8,1.7-3.9,3.8
+                        c0,0.1,0,0.1,0,0.2C452.9,286.6,454.7,288.4,456.9,288.4z"/>
+                </g>
+                <g id="blueChair-26" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M456.8,253.6c-3.3,0-6,2.7-6,6.1c0,0,0,0.1,0,0.1h1c0,0,0-0.1,0-0.1c0-2.8,2.2-5.1,5-5.1s5,2.3,5,5.1
+                        c0,0,0,0.1,0,0.1h1c0,0,0-0.1,0-0.1C462.8,256.4,460.1,253.6,456.8,253.6z"/>
+                    <path fill="#4AB9F0" d="M456.9,255.6c-2.2,0-3.9,1.8-3.9,4c0,2.2,1.8,4,3.9,4c2.2,0,3.9-1.8,3.9-4
+                        C460.8,257.4,459,255.6,456.9,255.6z"/>
+                </g>
+                <g id="blueChair-25" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M404.8,298.3h-1c0,0,0,0.1,0,0.1c0,2.8-2.2,5.1-5,5.1s-5-2.3-5-5.1c0,0,0-0.1,0-0.1h-1c0,0,0,0.1,0,0.1
+                        c0,1.7,0.7,3.2,1.8,4.3c1.1,1.1,2.6,1.8,4.2,1.8c0,0,0,0,0,0c1.7,0,3.2-0.7,4.2-1.8C404.2,301.6,404.8,300,404.8,298.3
+                        C404.8,298.3,404.8,298.3,404.8,298.3z"/>
+                    <path fill="#4AB9F0" d="M398.7,302.5c2.2,0,3.9-1.8,3.9-4c0-0.1,0-0.1,0-0.2c-0.1-2.1-1.8-3.8-3.9-3.8c-2.1,0-3.8,1.7-3.9,3.8
+                        c0,0.1,0,0.1,0,0.2C394.8,300.7,396.5,302.5,398.7,302.5z"/>
+                </g>
+                <g id="blueChair-24" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M425.3,286.4c0-1.7-0.7-3.2-1.8-4.2c-1.1-1.1-2.6-1.7-4.3-1.7c0,0-0.1,0-0.1,0v1c0,0,0.1,0,0.1,0
+                        c2.8,0,5.1,2.2,5.1,5s-2.3,5-5.1,5c0,0-0.1,0-0.1,0v1c0,0,0.1,0,0.1,0c1.7,0,3.2-0.7,4.3-1.8C424.6,289.6,425.3,288.1,425.3,286.4
+                        C425.3,286.5,425.3,286.5,425.3,286.4z"/>
+                    <path fill="#4AB9F0" d="M419.3,290.5c2.2,0,4-1.8,4-3.9c0-2.2-1.8-3.9-4-3.9c-0.1,0-0.1,0-0.2,0c-2.1,0.1-3.8,1.8-3.8,3.9
+                        c0,2.1,1.7,3.8,3.8,3.9C419.2,290.5,419.3,290.5,419.3,290.5z"/>
+                </g>
+                <g id="blueChair-23" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M373.8,286.5c0-2.8,2.3-5,5.1-5c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0c-1.7,0-3.2,0.7-4.3,1.7
+                        c-1.1,1.1-1.8,2.6-1.8,4.3c0,0,0,0,0,0c0,1.7,0.7,3.2,1.8,4.2c1.1,1.1,2.6,1.7,4.3,1.7c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0
+                        C376.1,291.5,373.8,289.2,373.8,286.5z"/>
+                    <path fill="#4AB9F0" d="M379,282.4c-0.1,0-0.1,0-0.2,0c-2.2,0-4,1.8-4,3.9c0,2.2,1.8,3.9,4,3.9c0.1,0,0.1,0,0.2,0
+                        c2.1-0.1,3.8-1.8,3.8-3.9C382.8,284.2,381.1,282.5,379,282.4z"/>
+                </g>
+                <g id="blueChair-22" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M425.3,271.4c0-1.7-0.7-3.2-1.8-4.2c-1.1-1.1-2.6-1.7-4.3-1.7c0,0-0.1,0-0.1,0v1c0,0,0.1,0,0.1,0
+                        c2.8,0,5.1,2.2,5.1,5s-2.3,5-5.1,5c0,0-0.1,0-0.1,0v1c0,0,0.1,0,0.1,0c1.7,0,3.2-0.7,4.3-1.8C424.6,274.6,425.3,273.1,425.3,271.4
+                        C425.3,271.5,425.3,271.5,425.3,271.4z"/>
+                    <path fill="#4AB9F0" d="M419.3,275.5c2.2,0,4-1.8,4-3.9c0-2.2-1.8-3.9-4-3.9c-0.1,0-0.1,0-0.2,0c-2.1,0.1-3.8,1.8-3.8,3.9
+                        c0,2.1,1.7,3.8,3.8,3.9C419.2,275.5,419.3,275.5,419.3,275.5z"/>
+                </g>
+                <g id="blueChair-21" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M373.8,271.5c0-2.8,2.3-5,5.1-5c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0c-1.7,0-3.2,0.7-4.3,1.7
+                        c-1.1,1.1-1.8,2.6-1.8,4.3c0,0,0,0,0,0c0,1.7,0.7,3.2,1.8,4.2c1.1,1.1,2.6,1.7,4.3,1.7c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0
+                        C376.1,276.5,373.8,274.2,373.8,271.5z"/>
+                    <path fill="#4AB9F0" d="M379,267.4c-0.1,0-0.1,0-0.2,0c-2.2,0-4,1.8-4,3.9c0,2.2,1.8,3.9,4,3.9c0.1,0,0.1,0,0.2,0
+                        c2.1-0.1,3.8-1.8,3.8-3.9C382.8,269.2,381.1,267.5,379,267.4z"/>
+                </g>
+                <g id="blueChair-20" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M403.1,254.2c-1.1-1.1-2.6-1.8-4.3-1.8c0,0,0,0,0,0c-1.7,0-3.2,0.7-4.2,1.8c-1.1,1.1-1.8,2.6-1.8,4.3
+                        c0,0,0,0.1,0,0.1h1c0,0,0-0.1,0-0.1c0-2.8,2.2-5.1,5-5.1s5,2.3,5,5.1c0,0,0,0.1,0,0.1h1c0,0,0-0.1,0-0.1
+                        C404.8,256.9,404.2,255.4,403.1,254.2z"/>
+                    <path fill="#4AB9F0" d="M398.9,254.5c-2.2,0-3.9,1.8-3.9,4c0,0.1,0,0.1,0,0.2c0.1,2.1,1.8,3.8,3.9,3.8s3.8-1.7,3.9-3.8
+                        c0-0.1,0-0.1,0-0.2C402.9,256.2,401.1,254.5,398.9,254.5z"/>
+                </g>
+                <g id="blueChair-19" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M351.3,214.5c0-2.8,2.3-5,5.1-5c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0c-1.7,0-3.2,0.7-4.3,1.7
+                        c-1.1,1.1-1.8,2.6-1.8,4.3c0,0,0,0,0,0c0,1.7,0.7,3.2,1.8,4.2c1.1,1.1,2.6,1.7,4.3,1.7c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0
+                        C353.6,219.5,351.3,217.2,351.3,214.5z"/>
+                    <path fill="#4AB9F0" d="M356.5,210.4c-0.1,0-0.1,0-0.2,0c-2.2,0-4,1.8-4,3.9c0,2.2,1.8,3.9,4,3.9c0.1,0,0.1,0,0.2,0
+                        c2.1-0.1,3.8-1.8,3.8-3.9C360.3,212.2,358.6,210.5,356.5,210.4z"/>
+                </g>
+                <g id="blueChair-18" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M351.3,194.5c0-2.8,2.3-5,5.1-5c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0c-1.7,0-3.2,0.7-4.3,1.7
+                        c-1.1,1.1-1.8,2.6-1.8,4.3c0,0,0,0,0,0c0,1.7,0.7,3.2,1.8,4.2c1.1,1.1,2.6,1.7,4.3,1.7c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0
+                        C353.6,199.5,351.3,197.2,351.3,194.5z"/>
+                    <path fill="#4AB9F0" d="M356.5,190.4c-0.1,0-0.1,0-0.2,0c-2.2,0-4,1.8-4,3.9c0,2.2,1.8,3.9,4,3.9c0.1,0,0.1,0,0.2,0
+                        c2.1-0.1,3.8-1.8,3.8-3.9C360.3,192.2,358.6,190.5,356.5,190.4z"/>
+                </g>
+                <g id="blueChair-17" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M351.3,177c0-2.8,2.3-5,5.1-5c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0c-1.7,0-3.2,0.7-4.3,1.7
+                        c-1.1,1.1-1.8,2.6-1.8,4.3c0,0,0,0,0,0c0,1.7,0.7,3.2,1.8,4.2c1.1,1.1,2.6,1.7,4.3,1.7c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0
+                        C353.6,182,351.3,179.7,351.3,177z"/>
+                    <path fill="#4AB9F0" d="M356.5,172.9c-0.1,0-0.1,0-0.2,0c-2.2,0-4,1.8-4,3.9c0,2.2,1.8,3.9,4,3.9c0.1,0,0.1,0,0.2,0
+                        c2.1-0.1,3.8-1.8,3.8-3.9C360.3,174.7,358.6,173,356.5,172.9z"/>
+                </g>
+                <g id="blueChair-16" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M351.3,157c0-2.8,2.3-5,5.1-5c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0c-1.7,0-3.2,0.7-4.3,1.7
+                        c-1.1,1.1-1.8,2.6-1.8,4.3c0,0,0,0,0,0c0,1.7,0.7,3.2,1.8,4.2c1.1,1.1,2.6,1.7,4.3,1.7c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0
+                        C353.6,162,351.3,159.7,351.3,157z"/>
+                    <path fill="#4AB9F0" d="M356.5,152.9c-0.1,0-0.1,0-0.2,0c-2.2,0-4,1.8-4,3.9c0,2.2,1.8,3.9,4,3.9c0.1,0,0.1,0,0.2,0
+                        c2.1-0.1,3.8-1.8,3.8-3.9C360.3,154.7,358.6,153,356.5,152.9z"/>
+                </g>
+                <g id="blueChair-15" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M351.3,135c0-2.8,2.3-5,5.1-5c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0c-1.7,0-3.2,0.7-4.3,1.7
+                        c-1.1,1.1-1.8,2.6-1.8,4.3c0,0,0,0,0,0c0,1.7,0.7,3.2,1.8,4.2c1.1,1.1,2.6,1.7,4.3,1.7c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0
+                        C353.6,140,351.3,137.7,351.3,135z"/>
+                    <path fill="#4AB9F0" d="M356.5,130.9c-0.1,0-0.1,0-0.2,0c-2.2,0-4,1.8-4,3.9c0,2.2,1.8,3.9,4,3.9c0.1,0,0.1,0,0.2,0
+                        c2.1-0.1,3.8-1.8,3.8-3.9C360.3,132.7,358.6,131,356.5,130.9z"/>
+                </g>
+                <g id="blueChair-14" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M351.3,111c0-2.8,2.3-5,5.1-5c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0c-1.7,0-3.2,0.7-4.3,1.7
+                        c-1.1,1.1-1.8,2.6-1.8,4.3c0,0,0,0,0,0c0,1.7,0.7,3.2,1.8,4.2c1.1,1.1,2.6,1.7,4.3,1.7c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0
+                        C353.6,116,351.3,113.7,351.3,111z"/>
+                    <path fill="#4AB9F0" d="M356.5,106.9c-0.1,0-0.1,0-0.2,0c-2.2,0-4,1.8-4,3.9c0,2.2,1.8,3.9,4,3.9c0.1,0,0.1,0,0.2,0
+                        c2.1-0.1,3.8-1.8,3.8-3.9C360.3,108.7,358.6,107,356.5,106.9z"/>
+                </g>
+                <g id="blueChair-13" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M167.8,246.9c0-1.7-0.7-3.2-1.8-4.2c-1.1-1.1-2.6-1.7-4.3-1.7c0,0-0.1,0-0.1,0v1c0,0,0.1,0,0.1,0
+                        c2.8,0,5.1,2.2,5.1,5s-2.3,5-5.1,5c0,0-0.1,0-0.1,0v1c0,0,0.1,0,0.1,0c1.7,0,3.2-0.7,4.3-1.8C167.1,250.1,167.8,248.6,167.8,246.9
+                        C167.8,247,167.8,247,167.8,246.9z"/>
+                    <path fill="#4AB9F0" d="M161.8,251c2.2,0,4-1.8,4-3.9c0-2.2-1.8-3.9-4-3.9c-0.1,0-0.1,0-0.2,0c-2.1,0.1-3.8,1.8-3.8,3.9
+                        c0,2.1,1.7,3.8,3.8,3.9C161.7,251,161.8,251,161.8,251z"/>
+                </g>
+                <g id="blueChair-12" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M89.3,324.8h-1c0,0,0,0.1,0,0.1c0,2.8-2.2,5.1-5,5.1s-5-2.3-5-5.1c0,0,0-0.1,0-0.1h-1c0,0,0,0.1,0,0.1
+                        c0,1.7,0.7,3.2,1.8,4.3c1.1,1.1,2.6,1.8,4.2,1.8c0,0,0,0,0,0c1.7,0,3.2-0.7,4.2-1.8C88.7,328.1,89.3,326.5,89.3,324.8
+                        C89.3,324.8,89.3,324.8,89.3,324.8z"/>
+                    <path fill="#4AB9F0" d="M83.2,329c2.2,0,3.9-1.8,3.9-4c0-0.1,0-0.1,0-0.2c-0.1-2.1-1.8-3.8-3.9-3.8c-2.1,0-3.8,1.7-3.9,3.8
+                        c0,0.1,0,0.1,0,0.2C79.3,327.2,81,329,83.2,329z"/>
+                </g>
+                <g id="blueChair-11" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M109.8,312.9c0-1.7-0.7-3.2-1.8-4.2c-1.1-1.1-2.6-1.7-4.3-1.7c0,0-0.1,0-0.1,0v1c0,0,0.1,0,0.1,0
+                        c2.8,0,5.1,2.2,5.1,5s-2.3,5-5.1,5c0,0-0.1,0-0.1,0v1c0,0,0.1,0,0.1,0c1.7,0,3.2-0.7,4.3-1.8C109.1,316.1,109.8,314.6,109.8,312.9
+                        C109.8,313,109.8,313,109.8,312.9z"/>
+                    <path fill="#4AB9F0" d="M103.8,317c2.2,0,4-1.8,4-3.9c0-2.2-1.8-3.9-4-3.9c-0.1,0-0.1,0-0.2,0c-2.1,0.1-3.8,1.8-3.8,3.9
+                        c0,2.1,1.7,3.8,3.8,3.9C103.7,317,103.8,317,103.8,317z"/>
+                </g>
+                <g id="blueChair-10" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M58.3,313c0-2.8,2.3-5,5.1-5c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0c-1.7,0-3.2,0.7-4.3,1.7
+                        c-1.1,1.1-1.8,2.6-1.8,4.3c0,0,0,0,0,0c0,1.7,0.7,3.2,1.8,4.2c1.1,1.1,2.6,1.7,4.3,1.7c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0
+                        C60.6,318,58.3,315.7,58.3,313z"/>
+                    <path fill="#4AB9F0" d="M63.5,308.9c-0.1,0-0.1,0-0.2,0c-2.2,0-4,1.8-4,3.9c0,2.2,1.8,3.9,4,3.9c0.1,0,0.1,0,0.2,0
+                        c2.1-0.1,3.8-1.8,3.8-3.9C67.3,310.7,65.6,309,63.5,308.9z"/>
+                </g>
+                <g id="blueChair-9" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M109.8,297.9c0-1.7-0.7-3.2-1.8-4.2c-1.1-1.1-2.6-1.7-4.3-1.7c0,0-0.1,0-0.1,0v1c0,0,0.1,0,0.1,0
+                        c2.8,0,5.1,2.2,5.1,5s-2.3,5-5.1,5c0,0-0.1,0-0.1,0v1c0,0,0.1,0,0.1,0c1.7,0,3.2-0.7,4.3-1.8C109.1,301.1,109.8,299.6,109.8,297.9
+                        C109.8,298,109.8,298,109.8,297.9z"/>
+                    <path fill="#4AB9F0" d="M103.8,302c2.2,0,4-1.8,4-3.9c0-2.2-1.8-3.9-4-3.9c-0.1,0-0.1,0-0.2,0c-2.1,0.1-3.8,1.8-3.8,3.9
+                        c0,2.1,1.7,3.8,3.8,3.9C103.7,302,103.8,302,103.8,302z"/>
+                </g>
+                <g id="blueChair-8" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M58.3,298c0-2.8,2.3-5,5.1-5c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0c-1.7,0-3.2,0.7-4.3,1.7
+                        c-1.1,1.1-1.8,2.6-1.8,4.3c0,0,0,0,0,0c0,1.7,0.7,3.2,1.8,4.2c1.1,1.1,2.6,1.7,4.3,1.7c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0
+                        C60.6,303,58.3,300.7,58.3,298z"/>
+                    <path fill="#4AB9F0" d="M63.5,293.9c-0.1,0-0.1,0-0.2,0c-2.2,0-4,1.8-4,3.9c0,2.2,1.8,3.9,4,3.9c0.1,0,0.1,0,0.2,0
+                        c2.1-0.1,3.8-1.8,3.8-3.9C67.3,295.7,65.6,294,63.5,293.9z"/>
+                </g>
+                <g id="blueChair-7" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M87.6,280.7c-1.1-1.1-2.6-1.8-4.3-1.8c0,0,0,0,0,0c-1.7,0-3.2,0.7-4.2,1.8c-1.1,1.1-1.8,2.6-1.8,4.3
+                        c0,0,0,0.1,0,0.1h1c0,0,0-0.1,0-0.1c0-2.8,2.2-5.1,5-5.1s5,2.3,5,5.1c0,0,0,0.1,0,0.1h1c0,0,0-0.1,0-0.1
+                        C89.3,283.4,88.7,281.9,87.6,280.7z"/>
+                    <path fill="#4AB9F0" d="M83.4,281c-2.2,0-3.9,1.8-3.9,4c0,0.1,0,0.1,0,0.2c0.1,2.1,1.8,3.8,3.9,3.8s3.8-1.7,3.9-3.8
+                        c0-0.1,0-0.1,0-0.2C87.4,282.7,85.6,281,83.4,281z"/>
+                </g>
+                <g id="blueChair-6" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M89.3,245.3h-1c0,0,0,0.1,0,0.1c0,2.8-2.2,5.1-5,5.1s-5-2.3-5-5.1c0,0,0-0.1,0-0.1h-1c0,0,0,0.1,0,0.1
+                        c0,1.7,0.7,3.2,1.8,4.3c1.1,1.1,2.6,1.8,4.2,1.8c0,0,0,0,0,0c1.7,0,3.2-0.7,4.2-1.8C88.7,248.6,89.3,247,89.3,245.3
+                        C89.3,245.3,89.3,245.3,89.3,245.3z"/>
+                    <path fill="#4AB9F0" d="M83.2,249.5c2.2,0,3.9-1.8,3.9-4c0-0.1,0-0.1,0-0.2c-0.1-2.1-1.8-3.8-3.9-3.8c-2.1,0-3.8,1.7-3.9,3.8
+                        c0,0.1,0,0.1,0,0.2C79.3,247.7,81,249.5,83.2,249.5z"/>
+                </g>
+                <g id="blueChair-5" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M109.8,233.4c0-1.7-0.7-3.2-1.8-4.2c-1.1-1.1-2.6-1.7-4.3-1.7c0,0-0.1,0-0.1,0v1c0,0,0.1,0,0.1,0
+                        c2.8,0,5.1,2.2,5.1,5s-2.3,5-5.1,5c0,0-0.1,0-0.1,0v1c0,0,0.1,0,0.1,0c1.7,0,3.2-0.7,4.3-1.8C109.1,236.6,109.8,235.1,109.8,233.4
+                        C109.8,233.5,109.8,233.5,109.8,233.4z"/>
+                    <path fill="#4AB9F0" d="M103.8,237.5c2.2,0,4-1.8,4-3.9c0-2.2-1.8-3.9-4-3.9c-0.1,0-0.1,0-0.2,0c-2.1,0.1-3.8,1.8-3.8,3.9
+                        c0,2.1,1.7,3.8,3.8,3.9C103.7,237.5,103.8,237.5,103.8,237.5z"/>
+                </g>
+                <g id="blueChair-4" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M58.3,233.5c0-2.8,2.3-5,5.1-5c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0c-1.7,0-3.2,0.7-4.3,1.7
+                        c-1.1,1.1-1.8,2.6-1.8,4.3c0,0,0,0,0,0c0,1.7,0.7,3.2,1.8,4.2c1.1,1.1,2.6,1.7,4.3,1.7c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0
+                        C60.6,238.5,58.3,236.2,58.3,233.5z"/>
+                    <path fill="#4AB9F0" d="M63.5,229.4c-0.1,0-0.1,0-0.2,0c-2.2,0-4,1.8-4,3.9c0,2.2,1.8,3.9,4,3.9c0.1,0,0.1,0,0.2,0
+                        c2.1-0.1,3.8-1.8,3.8-3.9C67.3,231.2,65.6,229.5,63.5,229.4z"/>
+                </g>
+                <g id="blueChair-3" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M109.8,218.4c0-1.7-0.7-3.2-1.8-4.2c-1.1-1.1-2.6-1.7-4.3-1.7c0,0-0.1,0-0.1,0v1c0,0,0.1,0,0.1,0
+                        c2.8,0,5.1,2.2,5.1,5s-2.3,5-5.1,5c0,0-0.1,0-0.1,0v1c0,0,0.1,0,0.1,0c1.7,0,3.2-0.7,4.3-1.8C109.1,221.6,109.8,220.1,109.8,218.4
+                        C109.8,218.5,109.8,218.5,109.8,218.4z"/>
+                    <path fill="#4AB9F0" d="M103.8,222.5c2.2,0,4-1.8,4-3.9c0-2.2-1.8-3.9-4-3.9c-0.1,0-0.1,0-0.2,0c-2.1,0.1-3.8,1.8-3.8,3.9
+                        c0,2.1,1.7,3.8,3.8,3.9C103.7,222.5,103.8,222.5,103.8,222.5z"/>
+                </g>
+                <g id="blueChair-2" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M58.3,218.5c0-2.8,2.3-5,5.1-5c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0c-1.7,0-3.2,0.7-4.3,1.7
+                        c-1.1,1.1-1.8,2.6-1.8,4.3c0,0,0,0,0,0c0,1.7,0.7,3.2,1.8,4.2c1.1,1.1,2.6,1.7,4.3,1.7c0,0,0.1,0,0.1,0v-1c0,0-0.1,0-0.1,0
+                        C60.6,223.5,58.3,221.2,58.3,218.5z"/>
+                    <path fill="#4AB9F0" d="M63.5,214.4c-0.1,0-0.1,0-0.2,0c-2.2,0-4,1.8-4,3.9c0,2.2,1.8,3.9,4,3.9c0.1,0,0.1,0,0.2,0
+                        c2.1-0.1,3.8-1.8,3.8-3.9C67.3,216.2,65.6,214.5,63.5,214.4z"/>
+                </g>
+                <g id="blueChair-1" class="blueChair moveable">
+                    <path fill="#4AB9F0" d="M87.6,201.2c-1.1-1.1-2.6-1.8-4.3-1.8c0,0,0,0,0,0c-1.7,0-3.2,0.7-4.2,1.8c-1.1,1.1-1.8,2.6-1.8,4.3
+                        c0,0,0,0.1,0,0.1h1c0,0,0-0.1,0-0.1c0-2.8,2.2-5.1,5-5.1s5,2.3,5,5.1c0,0,0,0.1,0,0.1h1c0,0,0-0.1,0-0.1
+                        C89.3,203.9,88.7,202.4,87.6,201.2z"/>
+                    <path fill="#4AB9F0" d="M83.4,201.5c-2.2,0-3.9,1.8-3.9,4c0,0.1,0,0.1,0,0.2c0.1,2.1,1.8,3.8,3.9,3.8s3.8-1.7,3.9-3.8
+                        c0-0.1,0-0.1,0-0.2C87.4,203.2,85.6,201.5,83.4,201.5z"/>
+                </g>
+                <!--End of Blue Chairs-->
+        
+                <!--Large Red Gray Chairs-->
+                <g id="redGrayChair-4" class="redGrayChair moveable" transform="translate(533 688) rotate(180)">
+                    <path fill="#FFFFFF" d="M372.2,353h8c2.2,0,4,1.8,4,4v3.5c0,2.2-1.8,4-4,4h-8c-2.2,0-4-1.8-4-4V357C368.2,354.8,370,353,372.2,353
+                        z"/>
+                    <path fill="#BCBCBC" stroke="#FF0D0D" stroke-width="1.5" d="M372.2,353.8h8c1.8,0,3.3,1.5,3.3,3.3v3.5c0,1.8-1.5,3.3-3.3,3.3h-8
+                        c-1.8,0-3.3-1.5-3.3-3.3V357C368.9,355.3,370.4,353.8,372.2,353.8z"/>
+                </g>
+                <g id="redGrayChair-3" class="redGrayChair moveable" transform="translate(558.5 630.5) rotate(90)">
+                    <path fill="#FFFFFF" d="M-320.3,380.9h8c2.2,0,4,1.8,4,4v3.5c0,2.2-1.8,4-4,4h-8c-2.2,0-4-1.8-4-4v-3.5
+                        C-324.3,382.7-322.5,380.9-320.3,380.9z"/>
+                    <path fill="#BCBCBC" stroke="#FF0D0D" stroke-width="1.5" d="M-320.3,381.7h8c1.8,0,3.3,1.5,3.3,3.3v3.5c0,1.8-1.5,3.3-3.3,3.3h-8
+                        c-1.8,0-3.3-1.5-3.3-3.3v-3.5C-323.5,383.1-322.1,381.7-320.3,381.7z"/>
+                </g>
+                <g id="redGrayChair-2" class="redGrayChair moveable" transform="translate(497.5 630.5) rotate(90)">
+                    <path fill="#FFFFFF" d="M-320.3,350.4h8c2.2,0,4,1.8,4,4v3.5c0,2.2-1.8,4-4,4h-8c-2.2,0-4-1.8-4-4v-3.5
+                        C-324.3,352.2-322.5,350.4-320.3,350.4z"/>
+                    <path fill="#BCBCBC" stroke="#FF0D0D" stroke-width="1.5" d="M-320.3,351.2h8c1.8,0,3.3,1.5,3.3,3.3v3.5c0,1.8-1.5,3.3-3.3,3.3h-8
+                        c-1.8,0-3.3-1.5-3.3-3.3v-3.5C-323.5,352.6-322.1,351.2-320.3,351.2z"/>
+                </g>
+                <g id="redGrayChair-1" class="redGrayChair moveable" transform="translate(501 604)">
+                    <path fill="#FFFFFF" d="M-348.2-311h8c2.2,0,4,1.8,4,4v3.5c0,2.2-1.8,4-4,4h-8c-2.2,0-4-1.8-4-4v-3.5
+                        C-352.2-309.3-350.4-311-348.2-311z"/>
+                    <path fill="#BCBCBC" stroke="#FF0D0D" stroke-width="1.5" d="M-348.2-310.3h8c1.8,0,3.3,1.5,3.3,3.3v3.5c0,1.8-1.5,3.3-3.3,3.3h-8
+                        c-1.8,0-3.3-1.5-3.3-3.3v-3.5C-351.4-308.8-350-310.3-348.2-310.3z"/>
+                </g>
+                <!--End of Large Red Gray Chairs-->
+        
+                <!--Acessibility Low Chairs-->
+                <circle id="greenLowChair-6" class="greenLowChair moveable" fill="#BED600" cx="208.1" cy="177.5" r="4.5"/>
+                <circle id="greenLowChair-5" class="greenLowChair moveable" fill="#BED600" cx="219.6" cy="154.5" r="4.5"/>
+                <circle id="greenLowChair-4" class="greenLowChair moveable" fill="#BED600" cx="193.6" cy="157.5" r="4.5"/>
+                <circle id="greenLowChair-3" class="greenLowChair moveable" fill="#BED600" cx="32.1" cy="310" r="4.5"/>
+                <circle id="greenLowChair-2" class="greenLowChair moveable" fill="#BED600" cx="43.6" cy="287" r="4.5"/>
+                <circle id="greenLowChair-1" class="greenLowChair moveable" fill="#BED600" cx="17.6" cy="290" r="4.5"/>
+                <circle id="blueLowChair-1" class="blueLowChair moveable" fill="#4AB9F0" cx="182.6" cy="271.5" r="4.5"/>
+                <!--End Low Chairs-->
+        
+                <!--Black Chairs-->
+                <g id="blackChair-50" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <polygon points="133.6,128 133.6,128 143.1,128 143.1,128"/>
+                    </g>
+                    <g opacity="0.24">
+                        <rect x="135.1" y="129.5" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="133.6" y="136.5" width="9.5" height="1"/>
+                    <path d="M133.6,135.5L133.6,135.5h9.5l0,0V128h-9.5V135.5z M135.1,129.5h6.5v4.5h-6.5V129.5z"/>
+                </g>
+                <g id="blackChair-49" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <polygon points="122.6,128 122.6,128 132.1,128 132.1,128"/>
+                    </g>
+                    <g opacity="0.24">
+                        <rect x="124.1" y="129.5" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="122.6" y="136.5" width="9.5" height="1"/>
+                    <path d="M122.6,135.5L122.6,135.5h9.5l0,0V128h-9.5V135.5z M124.1,129.5h6.5v4.5h-6.5V129.5z"/>
+                </g>
+                <g id="blackChair-48" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <polygon points="111.6,128 111.6,128 121.1,128 121.1,128"/>
+                    </g>
+                    <g opacity="0.24">
+                        <rect x="113.1" y="129.5" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="111.6" y="136.5" width="9.5" height="1"/>
+                    <path d="M111.6,135.5L111.6,135.5h9.5l0,0V128h-9.5V135.5z M113.1,129.5h6.5v4.5h-6.5V129.5z"/>
+                </g>
+                <g id="blackChair-47" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="102.1" y="129.5" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="100.6,128 100.6,128 110.1,128 110.1,128"/>
+                    </g>
+                    <rect x="100.6" y="136.5" width="9.5" height="1"/>
+                    <path d="M100.6,135.5L100.6,135.5h9.5l0,0V128h-9.5V135.5z M102.1,129.5h6.5v4.5h-6.5V129.5z"/>
+                </g>
+                <g id="blackChair-46" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="91.1" y="129.5" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="89.6,128 89.6,128 99.1,128 99.1,128"/>
+                    </g>
+                    <rect x="89.6" y="136.5" width="9.5" height="1"/>
+                    <path d="M89.6,135.5L89.6,135.5h9.5l0,0V128h-9.5V135.5z M91.1,129.5h6.5v4.5h-6.5V129.5z"/>
+                </g>
+                <g id="blackChair-45" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="135.1" y="113" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="133.6,111.5 133.6,111.5 143.1,111.5 143.1,111.5"/>
+                    </g>
+                    <rect x="133.6" y="120" width="9.5" height="1"/>
+                    <path d="M133.6,119L133.6,119h9.5l0,0v-7.5h-9.5V119z M135.1,113h6.5v4.5h-6.5V113z"/>
+                </g>
+                <g id="blackChair-44" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <polygon points="122.6,111.5 122.6,111.5 132.1,111.5 132.1,111.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <rect x="124.1" y="113" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="122.6" y="120" width="9.5" height="1"/>
+                    <path d="M122.6,119L122.6,119h9.5l0,0v-7.5h-9.5V119z M124.1,113h6.5v4.5h-6.5V113z"/>
+                </g>
+                <g id="blackChair-43" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="113.1" y="113" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="111.6,111.5 111.6,111.5 121.1,111.5 121.1,111.5"/>
+                    </g>
+                    <rect x="111.6" y="120" width="9.5" height="1"/>
+                    <path d="M111.6,119L111.6,119h9.5l0,0v-7.5h-9.5V119z M113.1,113h6.5v4.5h-6.5V113z"/>
+                </g>
+                <g id="blackChair-42" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <polygon points="100.6,111.5 100.6,111.5 110.1,111.5 110.1,111.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <rect x="102.1" y="113" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="100.6" y="120" width="9.5" height="1"/>
+                    <path d="M100.6,119L100.6,119h9.5l0,0v-7.5h-9.5V119z M102.1,113h6.5v4.5h-6.5V113z"/>
+                </g>
+                <g id="blackChair-41" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="91.1" y="113" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="89.6,111.5 89.6,111.5 99.1,111.5 99.1,111.5"/>
+                    </g>
+                    <rect x="89.6" y="120" width="9.5" height="1"/>
+                    <path d="M89.6,119L89.6,119h9.5l0,0v-7.5h-9.5V119z M91.1,113h6.5v4.5h-6.5V113z"/>
+                </g>
+                <g id="blackChair-40" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <polygon points="133.6,95 133.6,95 143.1,95 143.1,95"/>
+                    </g>
+                    <g opacity="0.24">
+                        <rect x="135.1" y="96.5" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="133.6" y="103.5" width="9.5" height="1"/>
+                    <path d="M133.6,102.5L133.6,102.5h9.5l0,0V95h-9.5V102.5z M135.1,96.5h6.5v4.5h-6.5V96.5z"/>
+                </g>
+                <g id="blackChair-39" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="124.1" y="96.5" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="122.6,95 122.6,95 132.1,95 132.1,95"/>
+                    </g>
+                    <rect x="122.6" y="103.5" width="9.5" height="1"/>
+                    <path d="M122.6,102.5L122.6,102.5h9.5l0,0V95h-9.5V102.5z M124.1,96.5h6.5v4.5h-6.5V96.5z"/>
+                </g>
+                <g id="blackChair-38" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="113.1" y="96.5" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="111.6,95 111.6,95 121.1,95 121.1,95"/>
+                    </g>
+                    <rect x="111.6" y="103.5" width="9.5" height="1"/>
+                    <path d="M111.6,102.5L111.6,102.5h9.5l0,0V95h-9.5V102.5z M113.1,96.5h6.5v4.5h-6.5V96.5z"/>
+                </g>
+                <g id="blackChair-37" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="102.1" y="96.5" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="100.6,95 100.6,95 110.1,95 110.1,95"/>
+                    </g>
+                    <rect x="100.6" y="103.5" width="9.5" height="1"/>
+                    <path d="M100.6,102.5L100.6,102.5h9.5l0,0V95h-9.5V102.5z M102.1,96.5h6.5v4.5h-6.5V96.5z"/>
+                </g>
+                <g id="blackChair-36" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <polygon points="89.6,95 89.6,95 99.1,95 99.1,95"/>
+                    </g>
+                    <g opacity="0.24">
+                        <rect x="91.1" y="96.5" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="89.6" y="103.5" width="9.5" height="1"/>
+                    <path d="M89.6,102.5L89.6,102.5h9.5l0,0V95h-9.5V102.5z M91.1,96.5h6.5v4.5h-6.5V96.5z"/>
+                </g>
+                <g id="blackChair-35" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="134.6" y="80" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="133.1,78.5 133.1,78.5 142.6,78.5 142.6,78.5"/>
+                    </g>
+                    <rect x="133.1" y="87" width="9.5" height="1"/>
+                    <path d="M133.1,86L133.1,86h9.5l0,0v-7.5h-9.5V86z M134.6,80h6.5v4.5h-6.5V80z"/>
+                </g>
+                <g id="blackChair-34" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="123.6" y="80" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="122.1,78.5 122.1,78.5 131.6,78.5 131.6,78.5"/>
+                    </g>
+                    <rect x="122.1" y="87" width="9.5" height="1"/>
+                    <path d="M122.1,86L122.1,86h9.5l0,0v-7.5h-9.5V86z M123.6,80h6.5v4.5h-6.5V80z"/>
+                </g>
+                <g id="blackChair-33" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <polygon points="111.1,78.5 111.1,78.5 120.6,78.5 120.6,78.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <rect x="112.6" y="80" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="111.1" y="87" width="9.5" height="1"/>
+                    <path d="M111.1,86L111.1,86h9.5l0,0v-7.5h-9.5V86z M112.6,80h6.5v4.5h-6.5V80z"/>
+                </g>
+                <g id="blackChair-32" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="101.6" y="80" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="100.1,78.5 100.1,78.5 109.6,78.5 109.6,78.5"/>
+                    </g>
+                    <rect x="100.1" y="87" width="9.5" height="1"/>
+                    <path d="M100.1,86L100.1,86h9.5l0,0v-7.5h-9.5V86z M101.6,80h6.5v4.5h-6.5V80z"/>
+                </g>
+                <g id="blackChair-31" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <polygon points="89.1,78.5 89.1,78.5 98.6,78.5 98.6,78.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <rect x="90.6" y="80" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="89.1" y="87" width="9.5" height="1"/>
+                    <path d="M89.1,86L89.1,86h9.5l0,0v-7.5h-9.5V86z M90.6,80h6.5v4.5h-6.5V80z"/>
+                </g>
+                <g id="blackChair-30" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="134.6" y="63.5" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="133.1,62 133.1,62 142.6,62 142.6,62"/>
+                    </g>
+                    <rect x="133.1" y="70.5" width="9.5" height="1"/>
+                    <path d="M133.1,69.5L133.1,69.5h9.5l0,0V62h-9.5V69.5z M134.6,63.5h6.5V68h-6.5V63.5z"/>
+                </g>
+                <g id="blackChair-29" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <polygon points="122.1,62 122.1,62 131.6,62 131.6,62"/>
+                    </g>
+                    <g opacity="0.24">
+                        <rect x="123.6" y="63.5" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="122.1" y="70.5" width="9.5" height="1"/>
+                    <path d="M122.1,69.5L122.1,69.5h9.5l0,0V62h-9.5V69.5z M123.6,63.5h6.5V68h-6.5V63.5z"/>
+                </g>
+                <g id="blackChair-28" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="112.6" y="63.5" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="111.1,62 111.1,62 120.6,62 120.6,62"/>
+                    </g>
+                    <rect x="111.1" y="70.5" width="9.5" height="1"/>
+                    <path d="M111.1,69.5L111.1,69.5h9.5l0,0V62h-9.5V69.5z M112.6,63.5h6.5V68h-6.5V63.5z"/>
+                </g>
+                <g id="blackChair-27" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <polygon points="100.1,62 100.1,62 109.6,62 109.6,62"/>
+                    </g>
+                    <g opacity="0.24">
+                        <rect x="101.6" y="63.5" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="100.1" y="70.5" width="9.5" height="1"/>
+                    <path d="M100.1,69.5L100.1,69.5h9.5l0,0V62h-9.5V69.5z M101.6,63.5h6.5V68h-6.5V63.5z"/>
+                </g>
+                <g id="blackChair-26" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="90.6" y="63.5" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="89.1" y="70.5" width="9.5" height="1"/>
+                    <path d="M89.1,62v7.5h9.5V62H89.1z M97.1,68h-6.5v-4.5h6.5V68z"/>
+                </g>
+                <g id="blackChair-25" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="62.1" y="129.5" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="60.6" y="136.5" width="9.5" height="1"/>
+                    <path d="M60.6,128v7.5h9.5V128H60.6z M68.6,134h-6.5v-4.5h6.5V134z"/>
+                </g>
+                <g id="blackChair-24" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <polygon points="49.6,128 49.6,128 59.1,128 59.1,128"/>
+                    </g>
+                    <g opacity="0.24">
+                        <rect x="51.1" y="129.5" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="49.6" y="136.5" width="9.5" height="1"/>
+                    <path d="M49.6,135.5L49.6,135.5h9.5l0,0V128h-9.5V135.5z M51.1,129.5h6.5v4.5h-6.5V129.5z"/>
+                </g>
+                <g id="blackChair-23" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="40.1" y="129.5" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="38.6,128 38.6,128 48.1,128 48.1,128"/>
+                    </g>
+                    <rect x="38.6" y="136.5" width="9.5" height="1"/>
+                    <path d="M38.6,135.5L38.6,135.5h9.5l0,0V128h-9.5V135.5z M40.1,129.5h6.5v4.5h-6.5V129.5z"/>
+                </g>
+                <g id="blackChair-22" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="29.1" y="129.5" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="27.6,128 27.6,128 37.1,128 37.1,128"/>
+                    </g>
+                    <rect x="27.6" y="136.5" width="9.5" height="1"/>
+                    <path d="M27.6,135.5L27.6,135.5h9.5l0,0V128h-9.5V135.5z M29.1,129.5h6.5v4.5h-6.5V129.5z"/>
+                </g>
+                <g id="blackChair-21" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <polygon points="16.6,128 16.6,128 26.1,128 26.1,128"/>
+                    </g>
+                    <g opacity="0.24">
+                        <rect x="18.1" y="129.5" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="16.6" y="136.5" width="9.5" height="1"/>
+                    <path d="M16.6,135.5L16.6,135.5h9.5l0,0V128h-9.5V135.5z M18.1,129.5h6.5v4.5h-6.5V129.5z"/>
+                </g>
+                <g id="blackChair-20" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="62.1" y="113" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="60.6,111.5 60.6,111.5 70.1,111.5 70.1,111.5"/>
+                    </g>
+                    <rect x="60.6" y="120" width="9.5" height="1"/>
+                    <path d="M60.6,119L60.6,119h9.5l0,0v-7.5h-9.5V119z M62.1,113h6.5v4.5h-6.5V113z"/>
+                </g>
+                <g id="blackChair-19" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="51.1" y="113" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="49.6,111.5 49.6,111.5 59.1,111.5 59.1,111.5"/>
+                    </g>
+                    <rect x="49.6" y="120" width="9.5" height="1"/>
+                    <path d="M49.6,119L49.6,119h9.5l0,0v-7.5h-9.5V119z M51.1,113h6.5v4.5h-6.5V113z"/>
+                </g>
+                <g id="blackChair-18" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="40.1" y="113" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="38.6,111.5 38.6,111.5 48.1,111.5 48.1,111.5"/>
+                    </g>
+                    <rect x="38.6" y="120" width="9.5" height="1"/>
+                    <path d="M38.6,119L38.6,119h9.5l0,0v-7.5h-9.5V119z M40.1,113h6.5v4.5h-6.5V113z"/>
+                </g>
+                <g id="blackChair-17" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <polygon points="27.6,111.5 27.6,111.5 37.1,111.5 37.1,111.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <rect x="29.1" y="113" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="27.6" y="120" width="9.5" height="1"/>
+                    <path d="M27.6,119L27.6,119h9.5l0,0v-7.5h-9.5V119z M29.1,113h6.5v4.5h-6.5V113z"/>
+                </g>
+                <g id="blackChair-16" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="18.1" y="113" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="16.6,111.5 16.6,111.5 26.1,111.5 26.1,111.5"/>
+                    </g>
+                    <rect x="16.6" y="120" width="9.5" height="1"/>
+                    <path d="M16.6,119L16.6,119h9.5l0,0v-7.5h-9.5V119z M18.1,113h6.5v4.5h-6.5V113z"/>
+                </g>
+                <g id="blackChair-15" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <polygon points="60.6,95 60.6,95 70.1,95 70.1,95"/>
+                    </g>
+                    <g opacity="0.24">
+                        <rect x="62.1" y="96.5" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="60.6" y="103.5" width="9.5" height="1"/>
+                    <path d="M60.6,102.5L60.6,102.5h9.5l0,0V95h-9.5V102.5z M62.1,96.5h6.5v4.5h-6.5V96.5z"/>
+                </g>
+                <g id="blackChair-14" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <polygon points="49.6,95 49.6,95 59.1,95 59.1,95"/>
+                    </g>
+                    <g opacity="0.24">
+                        <rect x="51.1" y="96.5" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="49.6" y="103.5" width="9.5" height="1"/>
+                    <path d="M49.6,102.5L49.6,102.5h9.5l0,0V95h-9.5V102.5z M51.1,96.5h6.5v4.5h-6.5V96.5z"/>
+                </g>
+                <g id="blackChair-13" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <polygon points="38.6,95 38.6,95 48.1,95 48.1,95"/>
+                    </g>
+                    <g opacity="0.24">
+                        <rect x="40.1" y="96.5" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="38.6" y="103.5" width="9.5" height="1"/>
+                    <path d="M38.6,102.5L38.6,102.5h9.5l0,0V95h-9.5V102.5z M40.1,96.5h6.5v4.5h-6.5V96.5z"/>
+                </g>
+                <g id="blackChair-12" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <polygon points="27.6,95 27.6,95 37.1,95 37.1,95"/>
+                    </g>
+                    <g opacity="0.24">
+                        <rect x="29.1" y="96.5" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="27.6" y="103.5" width="9.5" height="1"/>
+                    <path d="M27.6,102.5L27.6,102.5h9.5l0,0V95h-9.5V102.5z M29.1,96.5h6.5v4.5h-6.5V96.5z"/>
+                </g>
+                <g id="blackChair-11" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="18.1" y="96.5" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="16.6,95 16.6,95 26.1,95 26.1,95"/>
+                    </g>
+                    <rect x="16.6" y="103.5" width="9.5" height="1"/>
+                    <path d="M16.6,102.5L16.6,102.5h9.5l0,0V95h-9.5V102.5z M18.1,96.5h6.5v4.5h-6.5V96.5z"/>
+                </g>
+                <g id="blackChair-10" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="61.6" y="80" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="60.1,78.5 60.1,78.5 69.6,78.5 69.6,78.5"/>
+                    </g>
+                    <rect x="60.1" y="87" width="9.5" height="1"/>
+                    <path d="M60.1,86L60.1,86h9.5l0,0v-7.5h-9.5V86z M61.6,80h6.5v4.5h-6.5V80z"/>
+                </g>
+                <g id="blackChair-9" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <polygon points="49.1,78.5 49.1,78.5 58.6,78.5 58.6,78.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <rect x="50.6" y="80" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="49.1" y="87" width="9.5" height="1"/>
+                    <path d="M49.1,86L49.1,86h9.5l0,0v-7.5h-9.5V86z M50.6,80h6.5v4.5h-6.5V80z"/>
+                </g>
+                <g id="blackChair-8" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="39.6" y="80" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="38.1,78.5 38.1,78.5 47.6,78.5 47.6,78.5"/>
+                    </g>
+                    <rect x="38.1" y="87" width="9.5" height="1"/>
+                    <path d="M38.1,86L38.1,86h9.5l0,0v-7.5h-9.5V86z M39.6,80h6.5v4.5h-6.5V80z"/>
+                </g>
+                <g id="blackChair-7" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <polygon points="27.1,78.5 27.1,78.5 36.6,78.5 36.6,78.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <rect x="28.6" y="80" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="27.1" y="87" width="9.5" height="1"/>
+                    <path d="M27.1,86L27.1,86h9.5l0,0v-7.5h-9.5V86z M28.6,80h6.5v4.5h-6.5V80z"/>
+                </g>
+                <g id="blackChair-6" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="17.6" y="80" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="16.1,78.5 16.1,78.5 25.6,78.5 25.6,78.5"/>
+                    </g>
+                    <rect x="16.1" y="87" width="9.5" height="1"/>
+                    <path d="M16.1,86L16.1,86h9.5l0,0v-7.5h-9.5V86z M17.6,80h6.5v4.5h-6.5V80z"/>
+                </g>
+                <g id="blackChair-5" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <polygon points="60.1,62 60.1,62 69.6,62 69.6,62"/>
+                    </g>
+                    <g opacity="0.24">
+                        <rect x="61.6" y="63.5" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="60.1" y="70.5" width="9.5" height="1"/>
+                    <path d="M60.1,69.5L60.1,69.5h9.5l0,0V62h-9.5V69.5z M61.6,63.5h6.5V68h-6.5V63.5z"/>
+                </g>
+                <g id="blackChair-4" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="50.6" y="63.5" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="49.1,62 49.1,62 58.6,62 58.6,62"/>
+                    </g>
+                    <rect x="49.1" y="70.5" width="9.5" height="1"/>
+                    <path d="M49.1,69.5L49.1,69.5h9.5l0,0V62h-9.5V69.5z M50.6,63.5h6.5V68h-6.5V63.5z"/>
+                </g>
+                <g id="blackChair-3" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="39.6" y="63.5" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="38.1,62 38.1,62 47.6,62 47.6,62"/>
+                    </g>
+                    <rect x="38.1" y="70.5" width="9.5" height="1"/>
+                    <path d="M38.1,69.5L38.1,69.5h9.5l0,0V62h-9.5V69.5z M39.6,63.5h6.5V68h-6.5V63.5z"/>
+                </g>
+                <g id="blackChair-2" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <polygon points="27.1,62 27.1,62 36.6,62 36.6,62"/>
+                    </g>
+                    <g opacity="0.24">
+                        <rect x="28.6" y="63.5" width="6.5" height="4.5"/>
+                    </g>
+                    <rect x="27.1" y="70.5" width="9.5" height="1"/>
+                    <path d="M27.1,69.5L27.1,69.5h9.5l0,0V62h-9.5V69.5z M28.6,63.5h6.5V68h-6.5V63.5z"/>
+                </g>
+                <g id="blackChair-1" class="blackChair moveable">
+                    <g opacity="0.24">
+                        <rect x="17.6" y="63.5" width="6.5" height="4.5"/>
+                    </g>
+                    <g opacity="0.24">
+                        <polygon points="16.1,62 16.1,62 25.6,62 25.6,62"/>
+                    </g>
+                    <rect x="16.1" y="70.5" width="9.5" height="1"/>
+                    <path d="M16.1,69.5L16.1,69.5h9.5l0,0V62h-9.5V69.5z M17.6,63.5h6.5V68h-6.5V63.5z"/>
+                </g>
+                <!--End of Black Chairs-->
+        
+                <!--Circle Corner Tables-->
+                <circle id="circleCornerTable-2" class="circleCornerTable moveable" fill="#FFFFFF" stroke="#FF0D0D" stroke-width="1.5" cx="100.3" cy="425.8" r="9"/>
+                <circle id="circleCornerTable-1" class="circleCornerTable moveable" fill="#FFFFFF" stroke="#FF0D0D" stroke-width="1.5" cx="55.3" cy="412.6" r="9"/>
+                <!--End of Circle Corner Tables-->
+        
+                <!--36" Accesibility Tables-->
+                <circle id="thirtySixInchLowTable-1"" fill="#FFFFFF" stroke="#0094B3" stroke-width="0.5" stroke-miterlimit="10" cx="207.8" cy="162.8" r="9"/>
+                <circle id="thirtySixInchLowTable-2" fill="#FFFFFF" stroke="#0094B3" stroke-width="0.5" stroke-miterlimit="10" cx="31.8" cy="295.3" r="9"/>
+                <circle id="thirtySixInchLowTable-3" fill="#FFFFFF" stroke="#0094B3" stroke-width="0.5" stroke-miterlimit="10" cx="78.4" cy="21.8" r="9"/>
+                <!--End of Accesibility Tables-->
+        
+                <!--Red Stools-->
+                <g id="redStool-9" class="redStool moveable">
+                    <path fill="#FF0D0D" d="M91.7,17.9c-1.8,0-3.3,1.9-3.3,4.1c0,2.3,1.5,4.1,3.4,4.1c1.2,0,2.3-0.8,2.8-2l0-4.3
+                    C94,18.7,92.9,17.9,91.7,17.9z"/>
+                        <rect x="95.1" y="18.1" transform="matrix(1 -5.374227e-03 5.374227e-03 1 -0.1166 0.5147)" fill="#FFFFFF" width="1.3" height="7.7"/>
+                    <path fill="#FF0D0D" d="M96.9,26.3l0-8.7l-2.3,0l0,2.2l0,4.3l0,2.2L96.9,26.3z M96.3,18.1l0,7.7l-1.3,0l0-7.7L96.3,18.1z"/>
+                </g>
+                <g id="redStool-8" class="redStool moveable">
+                    <path fill="#FF0D0D" d="M80.6,6l-4.3,0c-1.2,0.6-2,1.7-2,2.9c0,1.8,1.9,3.3,4.1,3.3c2.3,0,4.1-1.5,4.1-3.4
+                        C82.6,7.6,81.8,6.6,80.6,6z"/>
+                        <rect x="74.6" y="4.3" transform="matrix(1 -5.563900e-03 5.563900e-03 1 -2.599371e-02 0.4365)" fill="#FFFFFF" width="7.7" height="1.3"/>
+                    <path fill="#FF0D0D" d="M82.8,6l0-2.3l-8.7,0l0,2.3l2.2,0l4.3,0L82.8,6z M74.6,4.3l7.7,0l0,1.3l-7.7,0L74.6,4.3z"/>
+                </g>
+                <g id="redStool-7" class="redStool moveable">
+                    <path fill="#FF0D0D" d="M65.5,17.8c-1.2,0-2.3,0.8-2.8,2l0,4.3c0.6,1.2,1.7,2,2.9,2c1.8,0,3.3-1.9,3.3-4.1
+                        C68.8,19.7,67.3,17.8,65.5,17.8z"/>
+                        <rect x="60.9" y="18.1" transform="matrix(1 -5.437451e-03 5.437451e-03 1 -0.1186 0.3348)" fill="#FFFFFF" width="1.3" height="7.7"/>
+                    <path fill="#FF0D0D" d="M62.6,17.6l-2.3,0l0,8.7l2.3,0l0-2.2l0-4.3L62.6,17.6z M60.9,25.8l0-7.7l1.3,0l0,7.7L60.9,25.8z"/>
+                </g>
+                <g id="redStool-6" class="redStool moveable">
+                    <path fill="#FF0D0D" d="M113.2,421.5c-1.8,0-3.3,1.9-3.3,4.1c0,2.3,1.5,4.1,3.4,4.1c1.2,0,2.3-0.8,2.8-2l0-4.3
+                        C115.5,422.3,114.5,421.5,113.2,421.5z"/>
+                        <rect x="116.6" y="421.8" transform="matrix(1 -5.374227e-03 5.374227e-03 1 -2.2858 0.6363)" fill="#FFFFFF" width="1.3" height="7.7"/>
+                    <path fill="#FF0D0D" d="M118.4,430l0-8.7l-2.3,0l0,2.2l0,4.3l0,2.2L118.4,430z M117.9,421.8l0,7.7l-1.3,0l0-7.7L117.9,421.8z"/>
+                </g>
+                <g id="redStool-5" class="redStool moveable">
+                    <path fill="#FF0D0D" d="M104.4,438.7c0-1.8-1.9-3.3-4.1-3.3c-2.3,0-4.1,1.5-4.1,3.4c0,1.2,0.8,2.3,2,2.8l4.3,0
+                        C103.6,441,104.4,439.9,104.4,438.7z"/>
+                        <rect x="96.5" y="442.1" transform="matrix(1 -5.563900e-03 5.563900e-03 1 -2.4617 0.5651)" fill="#FFFFFF" width="7.7" height="1.3"/>
+                    <path fill="#FF0D0D" d="M104.7,441.6l-2.2,0l-4.3,0l-2.2,0l0,2.3l8.7,0L104.7,441.6z M104.2,443.3l-7.7,0l0-1.3l7.7,0L104.2,443.3
+                        z"/>
+                </g>
+                <g id="redStool-4" class="redStool moveable">
+                    <path fill="#FF0D0D" d="M87,421.5c-1.2,0-2.3,0.8-2.8,2l0,4.3c0.6,1.2,1.7,2,2.9,2c1.8,0,3.3-1.9,3.3-4.1
+                        C90.4,423.3,88.9,421.5,87,421.5z"/>
+                        <rect x="82.4" y="421.8" transform="matrix(1 -5.437451e-03 5.437451e-03 1 -2.3132 0.4579)" fill="#FFFFFF" width="1.3" height="7.7"/>
+                    <path fill="#FF0D0D" d="M84.2,421.3l-2.3,0l0,8.7l2.3,0l0-2.2l0-4.3L84.2,421.3z M82.4,429.5l0-7.7l1.3,0l0,7.7L82.4,429.5z"/>
+                </g>
+                <g id="redStool-3" class="redStool moveable">
+                    <path fill="#FF0D0D" d="M68.3,408.3c-1.8,0-3.3,1.9-3.3,4.1c0,2.3,1.5,4.1,3.4,4.1c1.2,0,2.3-0.8,2.8-2l0-4.3
+                        C70.5,409.1,69.5,408.3,68.3,408.3z"/>
+                        <rect x="71.6" y="408.5" transform="matrix(1 -5.437451e-03 5.437451e-03 1 -2.2414 0.3991)" fill="#FFFFFF" width="1.3" height="7.7"/>
+                    <path fill="#FF0D0D" d="M73.4,416.8l0-8.7l-2.3,0l0,2.2l0,4.3l0,2.2L73.4,416.8z M72.9,408.5l0,7.7l-1.3,0l0-7.7L72.9,408.5z"/>
+                </g>
+                <g id="redStool-2" class="redStool moveable">
+                    <path fill="#FF0D0D" d="M59.4,425.5c0-1.8-1.9-3.3-4.1-3.3c-2.3,0-4.1,1.5-4.1,3.4c0,1.2,0.8,2.3,2,2.8l4.3,0
+                        C58.7,427.7,59.5,426.7,59.4,425.5z"/>
+                        <rect x="51.5" y="428.9" transform="matrix(1 -5.563900e-03 5.563900e-03 1 -2.3888 0.3146)" fill="#FFFFFF" width="7.7" height="1.3"/>
+                    <path fill="#FF0D0D" d="M59.7,428.3l-2.2,0l-4.3,0l-2.2,0l0,2.3l8.7,0L59.7,428.3z M59.2,430.1l-7.7,0l0-1.3l7.7,0L59.2,430.1z"/>
+                </g>
+                <g id="redStool-1" class="redStool moveable">
+                    <path fill="#FF0D0D" d="M42.1,408.3c-1.2,0-2.3,0.8-2.8,2l0,4.3c0.6,1.2,1.7,2,2.9,2c1.8,0,3.3-1.9,3.3-4.1
+                        C45.4,410.1,43.9,408.3,42.1,408.3z"/>
+                        <rect x="37.4" y="408.6" transform="matrix(1 -5.374227e-03 5.374227e-03 1 -2.2159 0.2106)" fill="#FFFFFF" width="1.3" height="7.7"/>
+                    <path fill="#FF0D0D" d="M39.2,408.1l-2.3,0l0,8.7l2.3,0l0-2.2l0-4.3L39.2,408.1z M37.5,416.3l0-7.7l1.3,0l0,7.7L37.5,416.3z"/>
+                </g>
+                <!--End of Red Stools-->
+        
+                <!--Circle Corner Chairs-->
+                <g id="emporerChair-1" class="emporerChair moveable">
+                    <path fill="#BCBCBC" d="M93.1,481c0.1-0.6-0.2-1.1-0.7-1.4c-1.3-0.6-2.9-1-4.6-1c-1.5,0-2.8,0.3-4.1,0.8c-0.6,0.2-0.9,0.8-0.8,1.4
+                        c0.2,1.8-0.2,3.6-1.3,5.1c-0.5,0.6-1.1,1.2-1.8,1.6c-0.6,0.4-0.8,1.2-0.5,1.8c1.4,2.7,4.7,4.6,8.5,4.6c3.8,0,7-1.8,8.4-4.5
+                        c0.3-0.6,0.1-1.3-0.4-1.7c0,0,0,0,0,0C93.8,486.1,92.9,483.6,93.1,481z"/>
+                </g>
+                <g id="emporerChair-2" class="emporerChair moveable">
+                    <path fill="#BCBCBC" d="M19.2,432.2c0.6,0.1,1.1-0.2,1.4-0.7c0.6-1.3,1-2.9,1-4.6c0-1.5-0.3-2.8-0.8-4.1c-0.2-0.6-0.8-0.9-1.4-0.8
+                        c-1.8,0.2-3.6-0.2-5.1-1.3c-0.6-0.5-1.2-1.1-1.6-1.8c-0.4-0.6-1.2-0.8-1.8-0.5c-2.7,1.4-4.6,4.7-4.6,8.5c0,3.8,1.8,7,4.5,8.4
+                        c0.6,0.3,1.3,0.1,1.7-0.4c0,0,0,0,0,0C14,432.8,16.5,431.9,19.2,432.2z"/>
+                </g>
+                <g id="emporerChair-3" class="emporerChair moveable">
+                    <path fill="#BCBCBC" d="M67.9,480.9c0.1-0.6-0.2-1.1-0.7-1.4c-1.3-0.6-2.9-1-4.6-1c-1.5,0-2.8,0.3-4.1,0.8
+                        c-0.6,0.2-0.9,0.8-0.8,1.4c0.2,1.8-0.2,3.6-1.3,5.1c-0.5,0.6-1.1,1.2-1.8,1.6c-0.6,0.4-0.8,1.2-0.5,1.8c1.4,2.7,4.7,4.6,8.5,4.6
+                        c3.8,0,7-1.8,8.4-4.5c0.3-0.6,0.1-1.3-0.4-1.7c0,0,0,0,0,0C68.6,486.1,67.6,483.6,67.9,480.9z"/>
+                </g>
+                <g id="emporerChair-4" class="emporerChair moveable">
+                    <path fill="#BCBCBC" d="M19.1,411.1c0.6,0.1,1.1-0.2,1.4-0.7c0.6-1.3,1-2.9,1-4.6c0-1.5-0.3-2.8-0.8-4.1c-0.2-0.6-0.8-0.9-1.4-0.8
+                        c-1.8,0.2-3.6-0.2-5.1-1.3c-0.6-0.5-1.2-1.1-1.6-1.8c-0.4-0.6-1.2-0.8-1.8-0.5c-2.7,1.4-4.6,4.7-4.6,8.5c0,3.8,1.8,7,4.5,8.4
+                        c0.6,0.3,1.3,0.1,1.7-0.4c0,0,0,0,0,0C14,411.7,16.5,410.8,19.1,411.1z"/>
+                </g>
+                <!--End of Circle Corner Chairs-->
+        
+                <!--Laptop Stand-->
+                <path id="laptopStand" fill="#FFFFFF" stroke="#0094B3" stroke-width="0.5" stroke-miterlimit="10" d="M182.6,10.8h-5
+                    c-1.8,0-3.3-1.5-3.3-3.2v0c0-1.8,1.5-3.2,3.3-3.2h5c1.8,0,3.2,1.5,3.2,3.2v0C185.8,9.3,184.4,10.8,182.6,10.8z"/>
+                <!--End of Laptop Stand-->
+        
+                <!--Dividers-->
+                <polygon id="divider-6" class="divider moveable" fill="#72F2F2" points="351.5,349.7 351.5,354.4 330.4,354.4 330.4,349.7 328.9,349.7 328.9,359.5 
+                    330.4,359.5 330.4,354.9 351.5,354.9 351.5,359.5 352.9,359.5 352.9,349.7"/>
+                <polygon id="divider-5" class="divider moveable" fill="#72F2F2" points="281.6,349.7 281.6,354.4 260.5,354.4 260.5,349.7 259,349.7 259,359.5 260.5,359.5 
+                    260.5,354.9 281.6,354.9 281.6,359.5 283,359.5 283,349.7"/>
+                <polygon id="divider-4" class="divider moveable" fill="#0094B3" points="339.1,101.8 339.1,106.4 323.2,106.4 323.2,101.8 322.1,101.8 322.1,111.5 
+                    323.2,111.5 323.2,106.9 339.1,106.9 339.1,111.5 340.2,111.5 340.2,101.8"/>
+                <polygon id="greenDivider-3" class="divider moveable" fill="#BED600" points="307,101.8 307,106.4 287.3,106.4 287.3,101.8 285.9,101.8 285.9,111.5 
+                    287.3,111.5 287.3,106.9 307,106.9 307,111.5 308.4,111.5 308.4,101.8"/>
+                <polygon id="greenDivider-2" class="divider moveable" fill="#BED600" points="284.4,101.8 284.4,106.4 264.6,106.4 264.6,101.8 263.2,101.8 263.2,111.5 
+                    264.6,111.5 264.6,106.9 284.4,106.9 284.4,111.5 285.8,111.5 285.8,101.8"/>
+                <polygon id="greenDivider-1" class="divider moveable" fill="#BED600" points="261.8,101.8 261.8,106.4 242,106.4 242,101.8 240.7,101.8 240.7,111.5 
+                    242,111.5 242,106.9 261.8,106.9 261.8,111.5 263.2,111.5 263.2,101.8"/>
+                <!--End of Dividers-->
+        
+                <!--Stools around Colab Couch-->
+                <g id="couchStool-6" class="couchStool moveable">
+                    <path fill="#FF0D0D" d="M353.6,308.7c0.2-0.6,0.1-1.3-0.2-1.9l-3.3-6.2v0l0,0c-0.3-0.6-0.8-1-1.5-1.2c-0.6-0.2-1.3-0.1-1.9,0.2
+                        l-1.6,0.8l-0.2,0.1l0.6,1.1l1.8-0.9c0.2-0.1,0.4-0.1,0.6-0.1c0.1,0,0.2,0,0.4,0.1c0.3,0.1,0.6,0.3,0.7,0.6v0l3.3,6.2
+                        c0.2,0.3,0.2,0.6,0.1,1c-0.1,0.3-0.3,0.6-0.6,0.7l-1.8,0.9l0.6,1.1l1.8-0.9C353,309.9,353.4,309.4,353.6,308.7z"/>
+                    <polygon fill="#6F6E6E" points="351.2,308.6 347.5,301.5 343.6,308.1"/>
+                </g>
+                <g id="couchStool-5" class="couchStool moveable">
+                    <path fill="#FF0D0D" d="M344.5,295.4l-1.8,0.9l0.6,1.1l1.8-0.9c0.6-0.3,1-0.8,1.2-1.5c0.2-0.6,0.1-1.3-0.2-1.9l-3.3-6.2v0l0,0
+                        c-0.6-1.2-2.2-1.7-3.4-1l-1.8,0.9l0.6,1.1l1.8-0.9c0.2-0.1,0.4-0.1,0.6-0.1c0.4,0,0.9,0.2,1.1,0.7l3.3,6.2c0.2,0.3,0.2,0.6,0.1,1
+                        S344.8,295.3,344.5,295.4z"/>
+                    <polygon fill="#6F6E6E" points="344,294.9 340.2,287.8 336.3,294.4"/>
+                </g>
+                <g id="couchStool-4" class="couchStool moveable">
+                    <path fill="#FF0D0D" d="M320.8,277v-2c0-1.4-1.1-2.5-2.5-2.5h-7c-1.4,0-2.5,1.1-2.5,2.5v2h1.3v-2c0-0.7,0.6-1.3,1.3-1.3h7
+                        c0.7,0,1.3,0.6,1.3,1.3v2H320.8z"/>
+                    <polygon fill="#6F6E6E" points="318.8,275.2 310.8,275.2 314.8,281.7"/>
+                </g>
+                <g id="couchStool-3" class="couchStool moveable">
+                    <path fill="#FF0D0D" d="M305.3,277v-2c0-1.4-1.1-2.5-2.5-2.5h-7c-1.4,0-2.5,1.1-2.5,2.5v2h1.3v-2c0-0.7,0.6-1.3,1.3-1.3h7
+                        c0.7,0,1.3,0.6,1.3,1.3v2H305.3z"/>
+                    <polygon fill="#6F6E6E" points="303.3,275.2 295.3,275.2 299.3,281.7"/>
+                </g>
+                <g id="couchStool-2" class="couchStool moveable">
+                    <path fill="#FF0D0D" d="M273.3,286.6c0.3-0.6,1.1-0.8,1.7-0.5l1.7,1l0.6-1.1l-1.7-1c-1.2-0.7-2.7-0.3-3.4,0.9l-3.4,5.9l-0.1,0.2
+                        c-0.7,1.2-0.3,2.7,0.9,3.4l1.7,1l0.6-1.1l-1.7-1c-0.6-0.3-0.8-1.1-0.5-1.7L273.3,286.6z"/>
+                    <polygon fill="#6F6E6E" points="274.8,287 270.8,293.9 278.4,293.7"/>
+                </g>
+                <g id="couchStool-1" class="couchStool moveable">
+                    <path fill="#FF0D0D" d="M265.5,300.1c0.2-0.3,0.4-0.5,0.8-0.6c0.1,0,0.2,0,0.3,0c0.2,0,0.4,0.1,0.6,0.2l1.7,1l0.6-1.1l-1.7-1
+                        c-0.6-0.3-1.3-0.4-1.9-0.3c-0.6,0.2-1.2,0.6-1.5,1.2l-3.5,6.1c-0.3,0.6-0.4,1.3-0.2,1.9c0.2,0.6,0.6,1.2,1.2,1.5l1.7,1l0.6-1.1
+                        l-1.7-1c-0.3-0.2-0.5-0.4-0.6-0.8c-0.1-0.3,0-0.7,0.1-0.9L265.5,300.1z"/>
+                    <polygon fill="#6F6E6E" points="267.1,300.4 263.1,307.3 270.7,307.1"/>
+                </g>
+                <!--End of Colab Couch Stools-->
+        
+                <!--30" Rounded Corner Tables-->
+                <g id="roundCornerTable-3" class="roundCornerTable moveable" transform="translate(971 545)">
+                    <path fill="#FFFFFF" d="M-585.7-281.5h27c0.8,0,1.5,0.7,1.5,1.5v27c0,0.8-0.7,1.5-1.5,1.5h-27c-0.8,0-1.5-0.7-1.5-1.5v-27
+                        C-587.2-280.9-586.5-281.5-585.7-281.5z"/>
+                    <path fill="none" stroke="#0094B3" stroke-width="0.5" d="M-585.7-281.3h27c0.7,0,1.3,0.6,1.3,1.3v27c0,0.7-0.6,1.3-1.3,1.3h-27
+                        c-0.7,0-1.3-0.6-1.3-1.3v-27C-586.9-280.7-586.4-281.3-585.7-281.3z"/>
+                </g>
+                <g id="roundCornerTable-2" class="roundCornerTable moveable" transform="translate(340 598)">
+                    <path fill="#FFFFFF" d="M-270.2-308h27c0.8,0,1.5,0.7,1.5,1.5v27c0,0.8-0.7,1.5-1.5,1.5h-27c-0.8,0-1.5-0.7-1.5-1.5v-27
+                        C-271.7-307.4-271-308-270.2-308z"/>
+                    <path fill="none" stroke="#0094B3" stroke-width="0.5" d="M-270.2-307.8h27c0.7,0,1.3,0.6,1.3,1.3v27c0,0.7-0.6,1.3-1.3,1.3h-27
+                        c-0.7,0-1.3-0.6-1.3-1.3v-27C-271.4-307.2-270.9-307.8-270.2-307.8z"/>
+                </g>
+                <g id="roundCornerTable-1" class="roundCornerTable moveable" transform="translate(340 439)">
+                    <path fill="#FFFFFF" d="M-270.2-228.5h27c0.8,0,1.5,0.7,1.5,1.5v27c0,0.8-0.7,1.5-1.5,1.5h-27c-0.8,0-1.5-0.7-1.5-1.5v-27
+                        C-271.7-227.9-271-228.5-270.2-228.5z"/>
+                    <path fill="none" stroke="#0094B3" stroke-width="0.5" d="M-270.2-228.3h27c0.7,0,1.3,0.6,1.3,1.3v27c0,0.7-0.6,1.3-1.3,1.3h-27
+                        c-0.7,0-1.3-0.6-1.3-1.3v-27C-271.4-227.7-270.9-228.3-270.2-228.3z"/>
+                </g>
+                <!--End of 30" Corner Tables-->
+        
+                <!--Small Tables in Circle Corner-->
+                <path id="smallTable-3" class="smallTable moveable" fill="none" stroke="#0094B3" stroke-width="0.5" stroke-miterlimit="10" d="M90.6,475.3h-5
+                    c-1.8,0-3.3-1.5-3.3-3.3l0,0c0-1.8,1.5-3.3,3.3-3.3h5c1.8,0,3.3,1.5,3.3,3.3l0,0C93.8,473.8,92.4,475.3,90.6,475.3z"/>
+                <path id="smallTable-2" class="smallTable moveable" fill="none" stroke="#0094B3" stroke-width="0.5" stroke-miterlimit="10" d="M29.8,464.4l-2.8-4.1
+                    c-1-1.5-0.6-3.5,0.9-4.5h0c1.5-1,3.5-0.6,4.5,0.9l2.8,4.1c1,1.5,0.6,3.5-0.9,4.5h0C32.8,466.3,30.8,465.9,29.8,464.4z"/>
+                <path id="smallTable-1" class="smallTable moveable" fill="none" stroke="#0094B3" stroke-width="0.5" stroke-miterlimit="10" d="M29.8,403.5v5
+                    c0,1.8-1.5,3.3-3.2,3.3h0c-1.8,0-3.2-1.5-3.2-3.3v-5c0-1.8,1.5-3.3,3.2-3.3h0C28.4,400.3,29.8,401.7,29.8,403.5z"/>
+                <!--End of Small Tables in Circle Corner-->
+        
+                <!--Laptop Stand-->
+                <path id="latop-stand" class="moveable" fill="#FFFFFF" stroke="#0094B3" stroke-width="0.5" stroke-miterlimit="10" d="M169.1,15.6h-7.2
+                    c-1.2,0-2.1-1-2.1-2.1V6.2c0-1.2,1-2.1,2.1-2.1h7.2c1.2,0,2.1,1,2.1,2.1v7.2C171.2,14.6,170.2,15.6,169.1,15.6z"/>
+                <!--End of Laptop Stand-->
+            </g> <!--End of Mobeable Layer-->
+        
+            <g id="stationaryObjects"> <!--Layer for Stationary Objects -->
+        
+                <g id="walls" class="stationary">
+                    <polygon fill="#0094B3" points="3.8,238.2 4.8,238.2 4.8,224.7 7.3,224.7 7.3,223.7 1.3,223.7 1.3,224.7 3.8,224.7"/>
+                    <rect x="410.2" y="222.1" fill="#0094B3" width="54.5" height="1"/>
+                    <polygon fill="#0094B3" points="213.6,100.8 207.2,100.8 207.2,3 206.2,3 206.2,101.7 206.6,101.7 206.6,101.8 213.6,101.8 213.6,104.6 214.6,104.6 214.6,98.6 213.6,98.6"/>
+                    <polygon fill="#0094B3" points="233.6,104.6 234.6,104.6 234.6,101.8 389.3,101.8 389.3,222.7 390.3,222.7 390.3,100.8 389.6,100.8 389.6,100.8 234.6,100.8 234.6,98.6 233.6,98.6 233.6,100.8 233.6,100.8 233.6,101.8 233.6,101.8"/>
+                    <polygon fill="#0094B3" points="56.9,3.6 196.3,3.6 196.3,2.6 56.9,2.6 56.9,0 55.9,0 55.9,6 56.9,6"/>
+                    <rect x="409.1" y="219.6" fill="#0094B3" width="1" height="6"/>
+                    <polygon fill="#0094B3" points="461.1,241.1 461.1,242.1 463.8,242.1 463.8,359.5 377.1,359.5 377.1,357.1 376.1,357.1 376.1,363.1 377.1,363.1 377.1,360.5 464.6,360.5 464.6,359.9 464.8,359.9 464.8,242.1 467.1,242.1 467.1,241.1"/>
+                    <polygon fill="#0094B3" points="356.1,359.5 256.6,359.5 256.6,357.1 255.6,357.1 255.6,363.1 256.6,363.1 256.6,360.5 356.1,360.5 356.1,363.1 357.1,363.1 357.1,357.1 356.1,357.1"/>
+                    <polygon fill="#0094B3" points="235.6,359.5 217.8,359.5 217.8,360.2 217.8,360.5 217.8,440.6 218.8,440.6 218.8,360.5 235.6,360.5 235.6,363.1 236.6,363.1 236.6,357.1 235.6,357.1"/>
+                    <polygon fill="#0094B3" points="107.6,494.6 45.9,494.6 4.7,439.6 4.7,274.2 7.3,274.2 7.3,273.2 1.3,273.2 1.3,274.2 3.7,274.2 3.7,440.4 4,440.4 45.2,495.3 45.6,495 45.6,495.6 107.6,495.6 107.6,498.2 108.6,498.2 108.6,479.5 107.6,479.5"/>
+                    <polygon fill="#0094B3" points="197.6,440.3 164.9,440.3 164.9,440.7 164.7,440.7 164.7,495.2 165.7,495.2 165.7,441.3 197.6,441.3 197.6,443.6 198.6,443.6 198.6,437.6 197.6,437.6"/>
+                    <rect x="1.3" y="186.7" fill="#0094B3" width="6" height="1"/>
+                    <polygon fill="#0094B3" points="7.3,137.2 4.7,137.2 4.7,3 3.7,3 3.7,137.2 1.3,137.2 1.3,138.2 7.3,138.2"/>
+                </g>
+                
+                <g id="pillars" class="stationary">
+                    <rect id="right-pillar" x="307.3" y="219" fill="#0094B3" width="8" height="8"/>
+                    <rect id="bottom-pillar" x="135.8" y="366.5" fill="#0094B3" width="8" height="8"/>
+                    <rect id="top-pillar" x="143.3" y="70" fill="#0094B3" width="8" height="8"/>
+                    <rect id="central-pillar" x="143.3" y="219" fill="#0094B3" width="8" height="8"/>
+                </g>
+                
+                <g id="bottom-right-cornerTable" class="stationary">
+                    <path fill="#FAF5F0" d="M433.8,327.7c0-9.9,12.3-18,27.8-18.7C446.1,309.7,433.8,317.8,433.8,327.7c0,10.4,13.4,18.8,30,18.8v0 C447.3,346.5,433.8,338,433.8,327.7z"/>
+                    <path fill="#FAF5F0" d="M434.3,327.7c0,10.1,13.2,18.2,29.5,18.3v-36.5C447.6,309.5,434.3,317.6,434.3,327.7z"/>
+                    <path fill="#0094B3" d="M433.8,327.7c0,10.3,13.5,18.7,30,18.8V346c-16.3,0-29.5-8.2-29.5-18.3s13.2-18.2,29.5-18.3V309h0 c-0.7,0-1.5,0-2.2,0.1C446.1,309.7,433.8,317.8,433.8,327.7z"/>
+                </g>
+                
+                <g id="northwest-couches" class="stationary">
+                    <rect x="377.3" y="150.5" fill="#FF0D0D" width="10" height="32.5"/>
+                    <rect x="377.3" y="205" fill="#FF0D0D" width="10" height="17.5"/>
+                    <rect x="377.3" y="101.5" fill="#FF0D0D" width="10" height="16"/>
+                    <rect x="377.3" y="123" fill="#FF0D0D" width="10" height="22"/>
+                    <rect x="377.3" y="188.5" fill="#FF0D0D" width="10" height="11"/>
+                    <polygon fill="#333333" points="387.3,101.5 387.3,117.5 377.3,117.5 377.3,123 387.3,123 387.3,145 377.3,145 377.3,150.5 387.3,150.5 387.3,183 377.3,183 377.3,188.5 387.3,188.5 387.3,199.5 377.3,199.5 377.3,205 387.3,205 387.3,222.5 389.6,222.5 389.6,101.5"/>
+                </g>
+                
+                <g id="colab-couch" class="stationary">
+                    <rect x="292.3" y="282" fill="#FFFFFF" width="30" height="5"/>
+                    <rect x="291.8" y="281.5" fill="#FFFFFF" width="0" height="5.5"/>
+                    <path fill="#6F6E6E" d="M322.8,287v-5.5h-31v0v5.5H322.8z M322.3,287h-30v-5h30V287z"/>
+                    <rect x="261.7" y="300" transform="matrix(0.5 -0.866 0.866 0.5 -123.5194 390.8647)" fill="#FFFFFF" width="30" height="4.8"/>
+                    <polygon fill="#FFFFFF" points="286.5,290.2 286.5,290.2 282,287.5 266.5,314.4 266.5,314.4 282,287.5"/>
+                    <polygon fill="#6F6E6E" points="271.3,316.6 267.2,314.2 282.2,288.2 286.3,290.6 286.5,290.2 282,287.5 266.5,314.4 266.5,314.4 271,317"/>
+                    <polygon fill="#FFFFFF" points="347.7,314.4 337.5,296.7 347.7,314.4"/>
+                    <rect x="335" y="287.4" transform="matrix(0.866 -0.5 0.5 0.866 -105.9903 209.2021)" fill="#FFFFFF" width="4.8" height="30"/>
+                    <polygon fill="#6F6E6E" points="327.8,290.6 332,288.2 347,314.2 342.8,316.6 343.1,317 347.7,314.4 347.7,314.4 337.5,296.7 332.2,287.5 327.6,290.2"/>
+                    <polygon fill="#FF0D0D" points="342.8,316.6 327.8,290.6 327.6,290.2 326.1,287.5 326.1,287.3 323.7,291.1 323.3,290.8 325.6,287 326.1,287.2 326.1,287 322.8,287 291.8,287 291.8,287 288.5,287 290.7,290.9 290.3,291.1 288.1,287.2 288.5,287 288.1,287 288.1,287.5 286.5,290.2 286.5,290.2 286.3,290.6 271.3,316.6 271,317 268.8,320.8 269.2,321 269.2,320.6 273.5,320.8 290.7,291 
+                        323.4,291 340.9,321.2 340.9,321 345.1,320.6 343.1,317"/>
+                    <polygon fill="#6F6E6E" points="325.6,287 323.3,290.8 323.7,291.1 326.1,287.3 326.1,287.2 326.1,287.2"/>
+                    <polygon fill="#6F6E6E" points="290.3,291.1 290.7,290.9 288.5,287 288.5,286.9 288.5,287 288.1,287.2"/>
+                    <polygon fill="#FF0D0D" points="341,321.5 338.7,329.8 338.7,329.9 342.6,330.9 345.2,321"/>
+                    <polygon fill="#FF0D0D" points="345.2,321 345.3,320.9 345.3,320.8 345.3,320.8 345.3,320.8 345.3,320.8 345.2,320.7"/>
+                    <polygon fill="#FF0D0D" points="273.5,321.3 269.3,321.1 271.9,330.9 274.1,330.3 275.8,329.9"/>
+                    <polygon fill="#6F6E6E" points="340.9,321 340.9,321.2 323.4,291 290.7,291 273.5,320.8 273.5,320.8 273.5,321.3 273.5,321.3 
+                        275.8,329.9 274.1,330.3 274.1,330.3 284.2,327.6 283.2,324 296.3,301.5 317.9,301.5 331.2,324.6 330.4,327.6 338.7,329.8 
+                        341,321.5 345.2,321 345.2,321 345.2,321 345.2,320.7 345.2,320.5 345.1,320.6"/>
+                    <polygon fill="#707070" points="273.5,321.3 273.5,321.3 273.5,320.8 273.5,320.8 269.2,320.6 269.2,321 269.2,321.1 269.3,321.1"/>
+                    <circle fill="#FAF5F0" cx="307.3" cy="317.5" r="10"/>
+                    <path fill="#FAF5F0" d="M307.3,328c-5.8,0-10.5-4.7-10.5-10.5c0-5.4,4.1-9.9,9.4-10.4c-5.3,0.5-9.4,5-9.4,10.4
+                        C296.8,323.3,301.5,328,307.3,328c5.5,0,10-4.2,10.5-9.6C317.3,323.7,312.8,328,307.3,328z"/>
+                    <path fill="#FAF5F0" d="M317.8,316.4c-0.5-4.9-4.4-8.9-9.4-9.4C313.3,307.5,317.3,311.4,317.8,316.4z"/>
+                    <path fill="#6F6E6E" d="M317.8,316.4c-0.5-4.9-4.4-8.9-9.4-9.4c-0.4,0-0.7-0.1-1.1-0.1c-0.4,0-0.7,0-1.1,0.1
+                        c-5.3,0.5-9.4,5-9.4,10.4c0,5.8,4.7,10.5,10.5,10.5c5.5,0,10-4.2,10.5-9.6c0-0.3,0-0.6,0-0.9C317.8,317.1,317.8,316.7,317.8,316.4
+                        z M307.3,327.5c-5.5,0-10-4.5-10-10s4.5-10,10-10s10,4.5,10,10S312.8,327.5,307.3,327.5z"/>
+                </g>
+                
+                <g id="central-desk" class="stationary">
+                    <rect x="140.8" y="227.5" fill="#FAF5F0" width="13.5" height="33.5"/>
+                    <polygon fill="#FAF5F0" points="140.3,261 140.3,227 140.3,227 140.3,261 140.3,261"/>
+                    <path fill="#707070" d="M154.8,227h-14.5v0v34v0v5v7.5h33h0V261h-18.5V227z M140.8,227.5h13.5V261h-13.5V227.5z M172.8,273h-32
+                        v-7.5v-4h32V273z"/>
+                    <rect x="175.8" y="231" fill="#FAF5F0" width="7.5" height="34.5"/>
+                    <polygon fill="#FAF5F0" points="175.3,266 175.3,230.5 175.3,230.5 175.3,266 183.3,266 183.3,266"/>
+                    <polygon fill="#707070" points="183.3,266 183.3,265.5 175.8,265.5 175.8,231 183.3,231 183.3,230.5 175.3,230.5 175.3,230.5 
+                        175.3,266"/>
+                    <polygon fill="#FAF5F0" points="184.8,227 184.8,227 184.8,266 199.3,266 199.3,266 184.8,266"/>
+                    <rect x="185.3" y="227.5" fill="#FAF5F0" width="13.5" height="38"/>
+                    <path fill="#707070" d="M199.3,227h-14.5v0v39h14.5h0V227z M198.8,265.5h-13.5v-38h13.5V265.5z"/>
+                    <polygon fill="#FFFFFF" points="140.3,266 140.3,261 140.3,261 140.3,266 140.3,273.5 173.3,273.5 173.3,273.5 140.3,273.5"/>
+                    <polygon fill="#FFFFFF" points="140.8,261.5 140.8,265.5 140.8,273 172.8,273 172.8,261.5"/>
+                    <polygon fill="#6F6E6E" points="183.3,227 183.3,230.5 183.3,231 183.3,265.5 183.3,266 183.3,266 184.3,266 184.8,266 184.8,227"/>
+                </g>
+                
+                <g id="bottom-table" class="stationary">
+                    <polygon fill="#FAF5F0" points="87.8,359.5 87.8,359.5 87.8,383.5 135.8,383.5 135.8,383.5 87.8,383.5"/>
+                    <rect x="88.3" y="360" fill="#FAF5F0" width="47" height="23"/>
+                    <path fill="#0094B3" d="M135.8,359.5h-48v0v24h48h0V359.5z M135.3,383h-47v-23h47V383z"/>
+                </g>
+                
+                <g id="middle-table" class="stationary">
+                    <polygon fill="#FAF5F0" points="259.3,211 259.3,211 259.3,235 307.3,235 307.3,235 259.3,235"/>
+                    <rect x="259.8" y="211.5" fill="#FAF5F0" width="47" height="23"/>
+                    <path fill="#0094B3" d="M259.3,211L259.3,211v24h48h0v-24H259.3z M306.8,234.5h-47v-23h47V234.5z"/>
+                </g>
+                
+                <g id="top-table" class="stationary">
+                    <polygon fill="#FAF5F0" points="259.3,146.5 259.3,146.5 259.3,170.5 307.3,170.5 307.3,170.5 259.3,170.5"/>
+                    <rect x="259.8" y="147" fill="#FAF5F0" width="47" height="23"/>
+                    <path fill="#0094B3" d="M259.3,146.5L259.3,146.5v24h48h0v-24H259.3z M306.8,170h-47v-23h47V170z"/>
+                </g>
+                
+                <rect id="east-shelf" class="stationary" x="290.8" y="351.4" fill="#FAF5F0" width="33" height="7.8"/>
+                
+                <rect id="couch-tv" class="stationary" x="291.8" y="358.5" fill="#231F20" width="30.9" height="1.1"/>
+                
+                <rect id="north-tv" class="stationary" x="448" y="327.3" transform="matrix(-1.836970e-16 1 -1 -1.836970e-16 791.3828 -135.6211)" fill="#231F20" width="30.9" height="1.1"/>
+                
+                <rect id="projector" class="stationary" x="74.2" y="3.8" fill="#E2E8B3" width="49.5" height="1.1"/>
+                
+                <rect id="se-tv" class="stationary" x="8.8" y="463.8" transform="matrix(0.6023 0.7983 -0.7983 0.6023 380.1187 165.6232)" fill="#231F20" width="30" height="1"/>
+            </g> <!--End of Stationary Layer-->  
+            </svg> <!--End of SVG -->
+        </div> <!--End of "floor-map"-->
+        
+        <div class="right-gutter"></div> <!--end of "right-gutter"-->
+
+
+      </div> <!--end of "grid-container"-->
+
+</body>
 </html>
