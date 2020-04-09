@@ -62,25 +62,25 @@
                         </li>
                         <!-------DATE------->
                         <li>
-                            <a href="#">
+                            <a href="#" data-toggle="modal" data-target="#date-modal">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="34" height="50.624" viewBox="0 0 34 50.624" class="svg-icon" id="date"><defs><style>.a,.b{fill:#fff;}.a{font-size:13px;font-family:UniversLTStd, Univers LT Std;}</style></defs><g transform="translate(-209 -286.937)"><text class="a text date-text" transform="translate(209 333.561)"><tspan x="0" y="0">DATE</tspan></text><path class="b path date-path" d="M23.118,15.958l-1.576-1.576-7.256,7.256-3.152-3.152L9.557,20.062l4.728,4.728,8.832-8.832ZM26.79,3.974H25.3V1H22.33V3.974h-11.9V1H7.461V3.974H5.974A2.96,2.96,0,0,0,3.015,6.948L3,27.764a2.973,2.973,0,0,0,2.974,2.974H26.79a2.983,2.983,0,0,0,2.974-2.974V6.948A2.983,2.983,0,0,0,26.79,3.974Zm0,23.79H5.974V11.408H26.79Z" transform="translate(209 285.937)"/></g></svg>
                             </a>
                         </li>
                         <!-------RESET------->
                         <li>
-                            <a href="#">
+                            <a href="#" data-toggle="modal" data-target="#reset-modal">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="42" height="50.423" viewBox="0 0 42 50.423" class="svg-icon" id="reset"><defs><style>.a,.b{fill:#fff;}.a{font-size:13px;font-family:UniversLTStd, Univers LT Std;}</style></defs><g transform="translate(-205 -431.169)"><g transform="translate(-3)"><text class="a text reset-text" transform="translate(208 477.592)"><tspan x="0" y="0">RESET</tspan></text></g><path class="b path reset-path" d="M15.92,5.47V1L9.96,6.96l5.96,5.96V8.45a8.947,8.947,0,0,1,8.94,8.94,8.747,8.747,0,0,1-1.043,4.172l2.175,2.175A11.9,11.9,0,0,0,15.92,5.47Zm0,20.86a8.947,8.947,0,0,1-8.94-8.94,8.747,8.747,0,0,1,1.043-4.172L5.848,11.043A11.9,11.9,0,0,0,15.92,29.311v4.47l5.96-5.96-5.96-5.96Z" transform="translate(210 430.169)"/></g></svg>
                             </a>
                         </li>
                         <!-------CLEAR------->
                         <li>
-                            <a href="#">
+                            <a href="#" data-toggle="modal" data-target="#clear-modal">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="42" height="45.182" viewBox="0 0 42 45.182" class="svg-icon" id="clear"><defs><style>.a,.b{fill:#fff;}.a{font-size:13px;font-family:UniversLTStd, Univers LT Std;}</style></defs><g transform="translate(-205 -504.818)"><text class="a text clear-text" transform="translate(205 546)"><tspan x="0" y="0">CLEAR</tspan></text><path class="b path clear-path" d="M14.448,2A12.448,12.448,0,1,0,26.9,14.448,12.485,12.485,0,0,0,14.448,2ZM4.49,14.448A9.988,9.988,0,0,1,14.448,4.49a9.811,9.811,0,0,1,6.1,2.116L6.606,20.548A9.811,9.811,0,0,1,4.49,14.448Zm9.959,9.959a9.811,9.811,0,0,1-6.1-2.116L22.291,8.349a9.811,9.811,0,0,1,2.116,6.1A9.988,9.988,0,0,1,14.448,24.407Z" transform="translate(211 502.818)"/></g></svg>
                             </a>
                         </li>
                         <!-------NEXT------->
                         <li>
-                            <a href="#">
+                            <a href="#" data-toggle="modal" data-target="#next-modal">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="45.395" viewBox="0 0 36 45.395" class="svg-icon" id="next"><defs><style>.a,.b{fill:#fff;}.a{font-size:13px;font-family:UniversLTStd, Univers LT Std;}</style></defs><g transform="translate(-208 -573.498)"><text class="a text next-text" transform="translate(208 614.893)"><tspan x="0" y="0">NEXT</tspan></text><path class="b path next-path" d="M16.033,4,13.913,6.121l8.393,8.408H4v3.008H22.306l-8.393,8.408,2.121,2.121L28.067,16.033Z" transform="translate(209 569.498)"/></g></svg>
                             </a>
                         </li>
@@ -193,31 +193,127 @@
 
         <div class="floor-map">
 
-            <!-----MODALS----->
+        <!-----NAME MODAL----->
         <div class="modal fade" id="name-modal" role="dialog">
             <div class="modal-dialog modal-dialog-centered">
-            
             <!-- Modal content-->
-            <div class="modal-content">
+                <div class="modal-content">
 
-                <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
 
-                <div class="modal-body">
-                <h3>Event Name: <input type="name" /></h3>
-                </div>
+                    <div class="modal-body">
+                    <h3>EVENT NAME: <input type="name" /></h3>
+                    </div>
 
-                <div class="modal-footer">
-                <button type="button" class="btn enter">Enter</button>
+                    <div class="modal-footer">
+                    <button type="button" class="btn enter">Enter</button>
+                    </div>
+
                 </div>
+            </div>
+        </div>
+
+        <!-----DATE MODAL----->
+        <div class="modal fade" id="date-modal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+            <!-- Modal content-->
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                    <h1>EVENT DATE:</h1>
+                    <input type="date" />
+                    </div>
+
+                    <div class="modal-footer">
+                    <button type="button" class="btn enter">Enter</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-----RESET MODAL----->
+        <div class="modal fade yesOrNo" id="reset-modal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+            <!-- Modal content-->
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                    <h3>ARE YOU SURE?</h3>
+                    <input type="radio" id="no" name="reset-sure" value="no" checked>
+                    <label for="no">No</label><br>
+                    <input type="radio" id="yes" name="reset-sure" value="yes" unchecked>
+                    <label for="yes">Yes</label>
+                    </div>
+
+                    <div class="modal-footer">
+                    <button type="button" class="btn enter proceed">Proceed</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-----CLEAR MODAL----->
+        <div class="modal fade yesOrNo" id="clear-modal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+            <!-- Modal content-->
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                    <h3>ARE YOU SURE?</h3>
+                    <input type="radio" id="no" name="clear-sure" value="no" checked>
+                    <label for="no">No</label><br>
+                    <input type="radio" id="yes" name="clear-sure" value="yes" unchecked>
+                    <label for="yes">Yes</label>
+                    </div>
+
+                    <div class="modal-footer">
+                    <button type="button" class="btn enter proceed">Proceed</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-----NEXT MODAL----->
+        <div class="modal fade" id="next-modal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+            <!-- Modal content-->
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h1>YOU'RE ALMOST DONE!</h1>
+                    <p>Just fill out this form and hit submit. You will be sent a confirmation email.</p>
+                    </div>
+
+                    <div class="modal-body">
+                    <h4>EVENT NAME: <span id="nextModalEventName"></span></h4>
+                    <h4>EVENT DATE: <span id="nextModalEventDate"></span></h4>
+                    <button type="button" class="btn enter reserve">Reserve</button>
+                    </div>
 
                 </div>
             </div>
         </div>
 
 
-            <!----- FLOOR PLAN SVG (masterPlan) ----->
+            <!----- FLOOR PLAN SVG (#masterPlan) ----->
                 <svg version="1.1" id="masterPlan" class="clippingMask" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 469 499" enable-background="new 0 0 469 499" xml:space="preserve">
             <g id="text"> <!--Layer for Text -->
