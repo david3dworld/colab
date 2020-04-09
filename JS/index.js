@@ -18,11 +18,22 @@ $(document).ready(function() {
         $('.circleCafe').click(function(){
             $('#masterPlan').attr('viewBox' , '0,275,200,225');
         });
+//----------- modals --------------
+
+        //$('#ex1').modal();
+
+       /*$('a[data-modal]').click(function(event) {
+        $(this).modal();
+        return false;
+        }); */
 
 //----------- toggle menus --------------
         //variables...
         //button actions 
         var leftToggleButton = $('.left-toggle-button');
+
+        //modal
+        nameModal = $('#name-modal');
             
         //general icons
          svgIcon = $('.svg-icon');
@@ -112,7 +123,8 @@ $(document).ready(function() {
         });
 
         //name...
-        nameIcon.on('click touch', function() {
+        nameIcon.on('click touch', function() {            
+
             namePath.toggleClass('active');
             nameText.toggleClass('active');
 

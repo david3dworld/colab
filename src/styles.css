@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+  }
+
 body {
     color: #0094B3;
     font-family: 'Open Sans', sans-serif;
@@ -120,10 +124,6 @@ a:active svg path, a:active svg text, a:active svg rect
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.84);
 }
 
-.present {
-
-}
-
 .box {
     width: 90px;
     height: 52px;
@@ -154,34 +154,50 @@ a:active svg path, a:active svg text, a:active svg rect
     background-color:#BED600;
   }
 
-.right-nav {
-    display: grid;
-    grid-area: right-nav;
-}
-
-.floor-map {
-    display: grid;
-    grid-area: floor-map;
-  /* rotate: -90deg; */
-}
-
- .moveable {
-    cursor: move;
-}
-
-#moveableObjects {
-    position: inherit;
-}
-
-.right-gutter {
-    display: grid;
-    grid-area: right-gutter;
-}
-
-.moveable {
-    touch-action: none;
-    user-select: none;
+  .modal {
+      color: white;
+      background-color: rgba(0,148,179,0.15);
+      z-index: 1000;
   }
+
+  .modal .modal-content {
+      display: grid;
+      position: relative;
+      /* width: 623px;
+      height: 113px; */
+   /*   margin-top: 500px; */
+      background-color: #0094B3;
+      vertical-align: center;
+  }
+
+    .right-nav {
+        display: grid;
+        grid-area: right-nav;
+    }
+
+    .floor-map {
+        display: grid;
+        grid-area: floor-map;
+    /* rotate: -90deg; */
+    }
+
+    .moveable {
+        cursor: move;
+    }
+
+    #moveableObjects {
+        position: inherit;
+    }
+
+    .right-gutter {
+        display: grid;
+        grid-area: right-gutter;
+    }
+
+    .moveable {
+        touch-action: none;
+        user-select: none;
+    }
   
 
   
