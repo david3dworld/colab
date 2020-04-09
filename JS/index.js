@@ -16,7 +16,7 @@ $(document).ready(function() {
         });
 
 //----------- toggle menus --------------
-
+        //variables...
         //button actions 
         var leftToggleButton = $('.left-toggle-button');
             
@@ -32,6 +32,11 @@ $(document).ready(function() {
          nextIcon = $('#next');
          selectIcon = $('#select');
          groupIcon = $('#group');
+         moveIcon = $('#move');
+         editIcon = $('#edit');
+         chairIcon = $('#chairs');
+         tableIcon = $('#tables');
+         stoolIcon = $('#stools');
 
         //general SVG paths
          text = $('.text');
@@ -64,11 +69,31 @@ $(document).ready(function() {
          groupRect = $('.group-rect');
          groupText = $('.group-text');
 
+         movePath = $('.move-path');
+         moveText = $('.move-text');
+
+         editPath = $('.edit-path');
+         editText = $('.edit-text');
+         editRect = $('.edit-rect');
+
+         chairPath = $('.chair-path');
+         chairText = $('.chair-text');
+
+         tablePath = $('.table-path');
+         tableText = $('.table-text');
+
+         stoolPath = $('.stool-path');
+         stoolText = $('.stool-text');
+
         //menu functions
         leftToggleButton.on('click touch', function() {
         $('.left-gap').toggle();
+       /* if (svgIcon.not(this)){
+            $('.left-gap').toggle();
+        } */ //collapse if any other menu button is touched?....
         });
 
+        //area...
         areaIcon.on('click touch', function() {
             areaPath.toggleClass('active');
             areaText.toggleClass('active');
@@ -82,66 +107,63 @@ $(document).ready(function() {
             }
         });
 
+        //name...
         nameIcon.on('click touch', function() {
             namePath.toggleClass('active');
             nameText.toggleClass('active');
 
-            if (text.not(this).hasClass('active') && path.not(this).hasClass('active')){
+            if (text.not(this).hasClass('active') || path.not(this).hasClass('active') || rect.not(this).hasClass('active')){
                 text.not(this).removeClass('active');
                 path.not(this).removeClass('active');
+                rect.not(this).removeClass('active');
                 namePath.addClass('active');
                 nameText.addClass('active');
             }
         });
 
+        //date...
         dateIcon.on('click touch', function() {
             datePath.toggleClass('active');
             dateText.toggleClass('active');
 
-            if (text.not(this).hasClass('active') && path.not(this).hasClass('active')){
+            if (text.not(this).hasClass('active') || path.not(this).hasClass('active') || rect.not(this).hasClass('active')){
                 text.not(this).removeClass('active');
                 path.not(this).removeClass('active');
+                rect.not(this).removeClass('active');
                 datePath.addClass('active');
                 dateText.addClass('active');
             }
         });
 
+        //reset...
         resetIcon.on('click touch', function() {
             resetPath.toggleClass('active');
             resetText.toggleClass('active');
 
-            if (text.not(this).hasClass('active') && path.not(this).hasClass('active')){
+            if (text.not(this).hasClass('active') || path.not(this).hasClass('active') || rect.not(this).hasClass('active')){
                 text.not(this).removeClass('active');
                 path.not(this).removeClass('active');
+                rect.not(this).removeClass('active');
                 resetPath.addClass('active');
                 resetText.addClass('active');
             }
         });
 
+        //clear...
         clearIcon.on('click touch', function() {
             clearPath.toggleClass('active');
             clearText.toggleClass('active');
 
-            if (text.not(this).hasClass('active') && path.not(this).hasClass('active')){
+            if (text.not(this).hasClass('active') || path.not(this).hasClass('active') || rect.not(this).hasClass('active')){
                 text.not(this).removeClass('active');
                 path.not(this).removeClass('active');
+                rect.not(this).removeClass('active');
                 clearPath.addClass('active');
                 clearText.addClass('active');
             }
         });
 
-        nextIcon.on('click touch', function() {
-            nextPath.toggleClass('active');
-            nextText.toggleClass('active');
-
-            if (text.not(this).hasClass('active') && path.not(this).hasClass('active')){
-                text.not(this).removeClass('active');
-                path.not(this).removeClass('active');
-                nextPath.addClass('active');
-                nextText.addClass('active');
-            }
-        });
-
+        //next...
         nextIcon.on('click touch', function() { //not working....
             nextPath.toggleClass('active');
             nextText.toggleClass('active');
@@ -155,6 +177,22 @@ $(document).ready(function() {
             }
         });
 
+        //select...
+        selectIcon.on('click touch', function() { //this one has a rectangle
+            selectPath.toggleClass('active');
+            selectText.toggleClass('active');
+
+            if (text.not(this).hasClass('active') || path.not(this).hasClass('active') || rect.not(this).hasClass('active')){
+                text.not(this).removeClass('active');
+                path.not(this).removeClass('active');
+                rect.not(this).removeClass('active');
+                selectPath.addClass('active');
+                selectText.addClass('active');
+            }
+        });
+
+
+        //group...
         groupIcon.on('click touch', function() { //this one has a rectangle
             groupPath.toggleClass('active');
             groupText.toggleClass('active');
@@ -169,6 +207,79 @@ $(document).ready(function() {
                 groupRect.addclass('active');
             }
         });
+
+        //move...
+        moveIcon.on('click touch', function() { 
+            movePath.toggleClass('active');
+            moveText.toggleClass('active');
+
+            if (text.not(this).hasClass('active') || path.not(this).hasClass('active') || rect.not(this).hasClass('active')){
+                text.not(this).removeClass('active');
+                path.not(this).removeClass('active');
+                rect.not(this).removeClass('active');
+                movePath.addClass('active');
+                moveText.addClass('active');
+            }
+        });
+
+        //edit...
+        editIcon.on('click touch', function() { //this one has a rectangle
+            editPath.toggleClass('active');
+            editText.toggleClass('active');
+            editRect.toggleClass('active');
+
+            if (text.not(this).hasClass('active') || path.not(this).hasClass('active') || rect.not(this).hasClass('active')){
+                text.not(this).removeClass('active');
+                path.not(this).removeClass('active');
+                rect.not(this).removeClass('active');
+                editPath.addClass('active');
+                editText.addClass('active');
+                editRect.addClass('active');
+            }
+        });
+
+        //chairs...
+        chairIcon.on('click touch', function() { 
+            chairPath.toggleClass('active');
+            chairText.toggleClass('active');
+
+            if (text.not(this).hasClass('active') || path.not(this).hasClass('active') || rect.not(this).hasClass('active')){
+                text.not(this).removeClass('active');
+                path.not(this).removeClass('active');
+                rect.not(this).removeClass('active');
+                chairPath.addClass('active');
+                chairText.addClass('active');
+            }
+        });
+
+        //tables...
+        tableIcon.on('click touch', function() { 
+            tablePath.toggleClass('active');
+            tableText.toggleClass('active');
+
+            if (text.not(this).hasClass('active') || path.not(this).hasClass('active') || rect.not(this).hasClass('active')){
+                text.not(this).removeClass('active');
+                path.not(this).removeClass('active');
+                rect.not(this).removeClass('active');
+                tablePath.addClass('active');
+                tableText.addClass('active');
+            }
+        });
+
+        //stools...
+        stoolIcon.on('click touch', function() { 
+            stoolPath.toggleClass('active');
+            stoolText.toggleClass('active');
+
+            if (text.not(this).hasClass('active') || path.not(this).hasClass('active') || rect.not(this).hasClass('active')){
+                text.not(this).removeClass('active');
+                path.not(this).removeClass('active');
+                rect.not(this).removeClass('active');
+                stoolPath.addClass('active');
+                stoolText.addClass('active');
+            }
+        });
+
 
 
 //----------- plain draggable --------------
