@@ -10,6 +10,10 @@ $(document).ready(function() {
         $('.present').click(function(){
             $('#masterPlan').attr('viewBox' , '0,0,200,225');
         });
+
+        $('.couchCorner').click(function(){
+            $('#masterPlan').attr('viewBox' , '250,170,200,225');
+        });
     
         $('.circleCafe').click(function(){
             $('#masterPlan').attr('viewBox' , '0,275,200,225');
