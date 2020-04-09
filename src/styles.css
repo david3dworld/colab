@@ -158,6 +158,8 @@ a:active svg path, a:active svg text, a:active svg rect
       color: white;
       background-color: rgba(0,148,179,0.15);
       z-index: 1000;
+      padding: 0px;
+      margin: 10px;
   }
 
   .modal .modal-content {
@@ -165,9 +167,59 @@ a:active svg path, a:active svg text, a:active svg rect
       position: relative;
       /* width: 623px;
       height: 113px; */
-   /*   margin-top: 500px; */
       background-color: #0094B3;
       vertical-align: center;
+      padding: 0px;
+      margin: 10px;
+      margin-top: 250px;
+  }
+
+  .modal #name-modal {
+      width: 623px;
+      height: 113px;
+  }
+
+  .modal .btn.focus, .modal .btn:focus, .modal .btn:hover {
+	color: #BED600;
+	text-decoration: none;
+}
+
+  .modal .modal-header {
+      border-bottom: none;
+      padding: 0px;
+      margin: 10px;
+  }
+
+  .modal .modal-body {
+      display: inline-block;
+      padding: 0px;
+      margin: 10px;
+      text-align: center;
+  }
+
+  .modal .modal-footer {
+    border-top: none;
+    padding: 0px;
+}
+
+  #name-modal .modal-body input {
+      color: #003D4C;
+      float: right;
+      width: 400px;
+  }
+
+  .modal .close {
+      color: white;
+  }
+
+  #name-modal .enter {
+      color:white;
+      background-color: #003D4C;
+      width: 113px;
+      height: 31px;
+      border-radius: 15px;
+      border: none;
+      margin: 10px;
   }
 
     .right-nav {
