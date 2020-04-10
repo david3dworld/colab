@@ -11,7 +11,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 59px 102px 900px 102px 59px 1fr;
     grid-template-rows: 68px 746px;
-    grid-template-areas: "header header header header header header header""leftGutter leftNav left-gap floor-map right-gap right-nav right-gutter";
+    grid-template-areas: "header header header header header header header""leftGutter leftNav leftGap floorMap right-gap rightNav right-gutter";
     /*  grid-gap: 10px; */
 }
 
@@ -73,12 +73,12 @@ a:active svg rect {
 }
 
 .leftNav ul li,
-.right-nav ul li {
+.rightNav ul li {
     list-style-type: none;
 }
 
 .leftNav ul li a,
-.right-nav ul li a {
+.rightNav ul li a {
     display: block;
 }
 
@@ -93,7 +93,7 @@ a:active svg rect {
     grid-area: leftNav;
 }
 
-.left-gap {
+.leftGap {
     display: grid;
     z-index: 1;
     background: rgba(0, 149, 179, 0.4);
@@ -109,7 +109,7 @@ a:active svg rect {
 }
 
 
-.left-gap figure {
+.leftGap figure {
     display: grid;
     grid-gap: 5px;
     padding: 0;
@@ -223,11 +223,11 @@ a:active svg rect {
     margin: 0 auto;
 } */
 
-#next-modal .modal-content {
+#nextModal .modal-content {
     margin-top: 225px;
 }
 
-#next-modal .modal-body {
+#nextModal .modal-body {
     text-align: left;
     display: grid;
     grid-template-rows: 236px;
@@ -235,11 +235,9 @@ a:active svg rect {
     grid-template-areas: "leftSide" "rightSide"
 }
 
-#next-modal .modal-header {
+#nextModal .modal-header {
     text-align: center;
 }
-
-
 
 #nameModal .modal-body input {
     color: #003D4C;
@@ -300,14 +298,14 @@ a:active svg rect {
     text-align: center;
 }
 
-.right-nav {
+.rightNav {
     display: grid;
-    grid-area: right-nav;
+    grid-area: rightNav;
 }
 
-.floor-map {
+.floorMap {
     display: grid;
-    grid-area: floor-map;
+    grid-area: floorMap;
     /* rotate: -90deg; */
 }
 
@@ -319,7 +317,7 @@ a:active svg rect {
     position: inherit;
 }
 
-.right-gutter {
+.rightGutter {
     display: grid;
     grid-area: right-gutter;
 }

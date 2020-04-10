@@ -62,49 +62,49 @@ $(document).ready(function() {
          areaPath = $('.areaPath');
          areaText = $('.areaText');
 
-         namePath = $('.name-path');
+         namePath = $('.namePath');
          nameText = $('.nameText');
 
-         datePath = $('.date-path');
-         dateText = $('.date-text');
+         datePath = $('.datePath');
+         dateText = $('.dateText');
 
-         resetPath = $('.reset-path');
-         resetText = $('.reset-text');
+         resetPath = $('.resetPath');
+         resetText = $('.resetText');
 
-         clearPath = $('.clear-path');
-         clearText = $('.clear-text');
+         clearPath = $('.clearPath');
+         clearText = $('.clearText');
 
-         nextPath = $('.next-path');
-         nextText = $('.next-text');
+         nextPath = $('.nextPath');
+         nextText = $('.nextText');
 
-         selectPath = $('.select-path');
-         selectText = $('.select-text');
+         selectPath = $('.selectPath');
+         selectText = $('.selectText');
 
-         groupPath = $('.group-path');
-         groupRect = $('.group-rect');
-         groupText = $('.group-text');
+         groupPath = $('.groupPath');
+         groupRect = $('.groupRect');
+         groupText = $('.groupText');
 
-         movePath = $('.move-path');
-         moveText = $('.move-text');
+         movePath = $('.movePath');
+         moveText = $('.moveText');
 
-         editPath = $('.edit-path');
+         editPath = $('.editPath');
          editText = $('.edit-text');
-         editRect = $('.edit-rect');
+         editRect = $('.editRect');
 
-         chairPath = $('.chair-path');
-         chairText = $('.chair-text');
+         chairPath = $('.chairPath');
+         chairText = $('.chairText');
 
-         tablePath = $('.table-path');
-         tableText = $('.table-text');
+         tablePath = $('.tablePath');
+         tableText = $('.tableText');
 
-         stoolPath = $('.stool-path');
-         stoolText = $('.stool-text');
+         stoolPath = $('.stoolPath');
+         stoolText = $('.stoolText');
 
         //menu functions
         leftToggleButton.on('click touch', function() {
-        $('.left-gap').toggle();
+        $('.leftGap').toggle();
        /* if (svgIcon.not(this)){
-            $('.left-gap').toggle();
+            $('.leftGap').toggle();
         } */ //collapse if any other menu button is touched?....
         });
 
@@ -300,39 +300,39 @@ $(document).ready(function() {
 
 //----------- plain draggable --------------
 
-     draggable = new PlainDraggable(document.getElementById('southEastCouch-1'));
-     draggable = new PlainDraggable(document.getElementById('southEastCouch-2'));
+     draggable = new PlainDraggable(document.getElementById('southEastCouch1'));
+     draggable = new PlainDraggable(document.getElementById('southEastCouch2'));
 
-     draggable = new PlainDraggable(document.getElementById('twentytwoInchTable-1'));
-     draggable = new PlainDraggable(document.getElementById('twentytwoInchTable-2'));
-     draggable = new PlainDraggable(document.getElementById('twentytwoInchTable-3'));
-     draggable = new PlainDraggable(document.getElementById('twentytwoInchTable-4'));
-     draggable = new PlainDraggable(document.getElementById('twentytwoInchTable-5'));
-     draggable = new PlainDraggable(document.getElementById('twentytwoInchTable-6'));
-     draggable = new PlainDraggable(document.getElementById('twentytwoInchTable-7'));
+     draggable = new PlainDraggable(document.getElementById('twentytwoInchTable1'));
+     draggable = new PlainDraggable(document.getElementById('twentytwoInchTable2'));
+     draggable = new PlainDraggable(document.getElementById('twentytwoInchTable3'));
+     draggable = new PlainDraggable(document.getElementById('twentytwoInchTable4'));
+     draggable = new PlainDraggable(document.getElementById('twentytwoInchTable5'));
+     draggable = new PlainDraggable(document.getElementById('twentytwoInchTable6'));
+     draggable = new PlainDraggable(document.getElementById('twentytwoInchTable7'));
 
-     draggable = new PlainDraggable(document.getElementById('blueStool-1'));
-     draggable = new PlainDraggable(document.getElementById('blueStool-2'));
-     draggable = new PlainDraggable(document.getElementById('blueStool-3'));
-     draggable = new PlainDraggable(document.getElementById('blueStool-4'));
-     draggable = new PlainDraggable(document.getElementById('blueStool-5'));
-     draggable = new PlainDraggable(document.getElementById('blueStool-6'));
-     draggable = new PlainDraggable(document.getElementById('blueStool-7'));
-     draggable = new PlainDraggable(document.getElementById('blueStool-8'));
-     draggable = new PlainDraggable(document.getElementById('blueStool-9'));
-     draggable = new PlainDraggable(document.getElementById('blueStool-10'));
-     draggable = new PlainDraggable(document.getElementById('blueStool-11'));
-     draggable = new PlainDraggable(document.getElementById('blueStool-12'));
-     draggable = new PlainDraggable(document.getElementById('blueStool-13'));
-     draggable = new PlainDraggable(document.getElementById('blueStool-14'));
-     draggable = new PlainDraggable(document.getElementById('blueStool-15'));
-     draggable = new PlainDraggable(document.getElementById('blueStool-16'));
-     draggable = new PlainDraggable(document.getElementById('blueStool-17'));
-     draggable = new PlainDraggable(document.getElementById('blueStool-18'));
-     draggable = new PlainDraggable(document.getElementById('blueStool-19'));
-     draggable = new PlainDraggable(document.getElementById('blueStool-20'));
-     draggable = new PlainDraggable(document.getElementById('blueStool-21'));
-     draggable = new PlainDraggable(document.getElementById('blueStool-22'));
+     draggable = new PlainDraggable(document.getElementById('blueStool1'));
+     draggable = new PlainDraggable(document.getElementById('blueStool2'));
+     draggable = new PlainDraggable(document.getElementById('blueStool3'));
+     draggable = new PlainDraggable(document.getElementById('blueStool4'));
+     draggable = new PlainDraggable(document.getElementById('blueStool5'));
+     draggable = new PlainDraggable(document.getElementById('blueStool6'));
+     draggable = new PlainDraggable(document.getElementById('blueStool7'));
+     draggable = new PlainDraggable(document.getElementById('blueStool8'));
+     draggable = new PlainDraggable(document.getElementById('blueStool9'));
+     draggable = new PlainDraggable(document.getElementById('blueStool10'));
+     draggable = new PlainDraggable(document.getElementById('blueStool11'));
+     draggable = new PlainDraggable(document.getElementById('blueStool12'));
+     draggable = new PlainDraggable(document.getElementById('blueStool13'));
+     draggable = new PlainDraggable(document.getElementById('blueStool14'));
+     draggable = new PlainDraggable(document.getElementById('blueStool15'));
+     draggable = new PlainDraggable(document.getElementById('blueStool16'));
+     draggable = new PlainDraggable(document.getElementById('blueStool17'));
+     draggable = new PlainDraggable(document.getElementById('blueStool18'));
+     draggable = new PlainDraggable(document.getElementById('blueStool19'));
+     draggable = new PlainDraggable(document.getElementById('blueStool20'));
+     draggable = new PlainDraggable(document.getElementById('blueStool21'));
+     draggable = new PlainDraggable(document.getElementById('blueStool22'));
 
      draggable = new PlainDraggable(document.getElementById('thirtySixInchTable'));
 
@@ -340,7 +340,7 @@ $(document).ready(function() {
     //jquery ui
     
    /* var outerDragStartPos,start, contentWidth = 0;
-    var outerDrag = $('.floor-map');
+    var outerDrag = $('.floorMap');
 
     $(".moveable").draggable({
          containement: "parent",
