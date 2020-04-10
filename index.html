@@ -271,15 +271,17 @@
                 <div class="modal-content">
 
                     <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <div class="circle">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
                     </div>
 
                     <div class="modal-body">
-                    <h3>ARE YOU SURE?</h3>
-                    <input type="radio" id="no" name="clear-sure" value="no" checked>
-                    <label for="no">No</label><br>
-                    <input type="radio" id="yes" name="clear-sure" value="yes" unchecked>
-                    <label for="yes">Yes</label>
+                    <h3>CLEAR FURNITURE?</h3><br>
+                    <label for="no">No:</label>
+                    <input type="checkbox" id="no" name="clear-sure" value="no" checked><br><br>
+                    <label for="yes">Yes:</label>
+                    <input type="checkbox" id="yes" name="clear-sure" value="yes" unchecked>
                     </div>
 
                     <div class="modal-footer">
