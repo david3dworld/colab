@@ -7,11 +7,11 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-.grid-container {
+.gridContainer {
     display: grid;
     grid-template-columns: 1fr 59px 102px 900px 102px 59px 1fr;
     grid-template-rows: 68px 746px;
-    grid-template-areas: "header header header header header header header""left-gutter left-nav left-gap floor-map right-gap right-nav right-gutter";
+    grid-template-areas: "header header header header header header header""leftGutter leftNav left-gap floor-map right-gap right-nav right-gutter";
     /*  grid-gap: 10px; */
 }
 
@@ -43,12 +43,12 @@ body {
     text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.84);
 }
 
-.left-gutter {
+.leftGutter {
     display: grid;
-    grid-area: left-gutter;
+    grid-area: leftGutter;
 }
 
-.parent-ul {
+.parentUL {
     display: grid;
     text-align: center;
     background: #0094B3;
@@ -72,12 +72,12 @@ a:active svg rect {
     fill: #FECB00 !important;
 }
 
-.left-nav ul li,
+.leftNav ul li,
 .right-nav ul li {
     list-style-type: none;
 }
 
-.left-nav ul li a,
+.leftNav ul li a,
 .right-nav ul li a {
     display: block;
 }
@@ -88,9 +88,9 @@ a:active svg rect {
     margin: 0 auto;
 }
 
-.left-nav {
+.leftNav {
     display: grid;
-    grid-area: left-nav;
+    grid-area: leftNav;
 }
 
 .left-gap {
@@ -178,19 +178,19 @@ a:active svg rect {
     margin-top: 370px;
 }
 
-#name-modal .modal {
+#nameModal .modal {
     width: 623px;
     height: 113px;
     margin-top: 300px;
 }
 
-#date-modal .modal-content {
+#dateModal .modal-content {
     width: 483px;
     height: 313px;
     margin-top: 300px;
 }
 
-#date-modal .modal-content input {
+#dateModal .modal-content input {
     color: #003D4C;
     margin-top: 20px;
 }
@@ -208,7 +208,7 @@ a:active svg rect {
     margin: 5px;
 }
 
-#date-modal .modal-header {
+#dateModal .modal-header {
     height: 0px;
 }
 
@@ -219,7 +219,7 @@ a:active svg rect {
     text-align: center;
 }
 
-/* #name-modal #date-modal .modal-body {
+/* #nameModal #dateModal .modal-body {
     margin: 0 auto;
 } */
 
@@ -241,7 +241,7 @@ a:active svg rect {
 
 
 
-#name-modal .modal-body input {
+#nameModal .modal-body input {
     color: #003D4C;
     float: right;
     width: 375px;
@@ -252,7 +252,7 @@ a:active svg rect {
     padding: 0px;
 }
 
-#date-modal .modal-footer {
+#dateModal .modal-footer {
     height: 0px;
     text-align: center;
 }

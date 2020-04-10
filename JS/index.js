@@ -30,13 +30,13 @@ $(document).ready(function() {
 //----------- toggle menus --------------
         //variables...
         //button actions 
-        var leftToggleButton = $('.left-toggle-button');
+        var leftToggleButton = $('.leftToggleButton');
 
         //modal
-        nameModal = $('#name-modal');
+        nameModal = $('#nameModal');
             
         //general icons
-         svgIcon = $('.svg-icon');
+         svgIcon = $('.svgIcon');
          
         //menu icons 
          areaIcon = $('#area');
@@ -59,11 +59,11 @@ $(document).ready(function() {
          rect = $('.rect');
         
         //individual SVG paths
-         areaPath = $('.area-path');
-         areaText = $('.area-text');
+         areaPath = $('.areaPath');
+         areaText = $('.areaText');
 
          namePath = $('.name-path');
-         nameText = $('.name-text');
+         nameText = $('.nameText');
 
          datePath = $('.date-path');
          dateText = $('.date-text');
