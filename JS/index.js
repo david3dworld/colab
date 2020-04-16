@@ -1,6 +1,7 @@
 
 $(document).ready(function() {
 
+
 //----------- room shortcuts --------------
 
         $('.colab').click(function(){
@@ -295,4 +296,5 @@ $(document).ready(function() {
                 stoolText.addClass('active');
             }
         });
+
 }); 

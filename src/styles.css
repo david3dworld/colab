@@ -1,21 +1,17 @@
-* {
-    box-sizing: border-box;
-}
-
 body {
     color: #0094B3;
     font-family: 'Open Sans', sans-serif;
 }
 
-.gridContainer {
+.grid-container {
     display: grid;
     grid-template-columns: 1fr 59px 102px 900px 102px 59px 1fr;
     grid-template-rows: 68px 746px;
-    grid-template-areas: "header header header header header header header""leftGutter leftNav leftGap floorMap right-gap rightNav right-gutter";
-    /*  grid-gap: 10px; */
-}
-
-.header {
+    grid-template-areas: "header header header header header header header" "left-gutter left-nav left-gap floor-map right-gap right-nav right-gutter";
+  /*  grid-gap: 10px; */
+  }
+  
+.header { 
     color: white;
     display: inline-flex;
     grid-template-columns: 100%;
@@ -43,79 +39,73 @@ body {
     text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.84);
 }
 
-.leftGutter {
+.left-gutter {
     display: grid;
-    grid-area: leftGutter;
+    grid-area: left-gutter;
 }
 
-.parentUL {
+.parent-ul {
     display: grid;
     text-align: center;
     background: #0094B3;
-    height: 550px;
+    height: 500px;
     padding: 20px 0 20px 0;
     margin-top: 65px;
     grid-gap: 23px;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.84);
 }
 
-a:hover svg path,
-a:hover svg text,
-a:hover svg rect,
-a:active svg path,
-a:active svg text,
-a:active svg rect {
+a:hover svg path, a:hover svg text, a:hover svg rect,
+a:active svg path, a:active svg text, a:active svg rect
+    {
+     fill: #FECB00 !important;
+    }
+    
+a:active {
     fill: #FECB00 !important;
 }
 
-.active {
-    fill: #FECB00 !important;
+.left-nav ul li, .right-nav ul li {
+  list-style-type: none;
 }
 
-.leftNav ul li,
-.rightNav ul li {
-    list-style-type: none;
-}
-
-.leftNav ul li a,
-.rightNav ul li a {
+.left-nav ul li a, .right-nav ul li a {
     display: block;
 }
 
-#left,
-#right {
+#left, #right {
     width: 59px;
     margin: 0 auto;
 }
 
-.leftNav {
+.left-nav {
     display: grid;
-    grid-area: leftNav;
+    grid-area: left-nav;
 }
 
-.leftGap {
+.left-gap {
     display: grid;
     z-index: 1;
-    background: rgba(0, 149, 179, 0.4);
+    background:rgba(0, 149, 179, 0.4);
     grid-gap: 0;
-    height: 550px;
+    height: 500px;
     padding: 20px 0 20px 0;
     margin-top: 65px;
     grid-gap: 23px;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.84);
     transition: .25s;
-    /*   margin-right: 102px; */
+ /*   margin-right: 102px; */
     display: none;
 }
 
 
-.leftGap figure {
+.left-gap figure {
     display: grid;
     grid-gap: 5px;
     padding: 0;
     margin: 4px;
-    /* margin-right: 102px; */
-
+   /* margin-right: 102px; */
+   
 }
 
 #areas {
@@ -130,53 +120,17 @@ a:active svg rect {
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.84);
 }
 
-.box {
-    width: 90px;
-    height: 52px;
+.right-nav {
     display: grid;
-    vertical-align: top;
-    margin-top: 5px;
+    grid-area: right-nav;
 }
 
-.overlay {
-    position: relative;
-}
-
-.overlay:after {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-}
-
-.overlay:hover:after {
-    opacity: .35;
-}
-
-.green:after {
-    background-color: #BED600;
-}
-
-.modal {
-    color: white;
-    background-color: rgba(0, 148, 179, 0.15);
-    z-index: 1000;
-    padding: 0px;
-    margin: 10px;
-}
-
-.modal .modal-content {
+.floor-map {
     display: grid;
-    position: relative;
-    background-color: #0094B3;
-    vertical-align: center;
-    padding: 0px;
-    margin: 10px;
-    margin-top: 370px;
+    grid-area: floor-map;
+  /* rotate: -90deg; */
 }
+
 
 #nameModal .modal {
     width: 623px;
@@ -325,15 +279,11 @@ a:active svg rect {
     /* rotate: -90deg; */
 }
 
-.moveable {
-    cursor: move;
-}
-
 #moveableObjects {
     position: inherit;
 }
 
-.rightGutter {
+.right-gutter {
     display: grid;
     grid-area: right-gutter;
 }
@@ -341,4 +291,8 @@ a:active svg rect {
 .moveable {
     touch-action: none;
     user-select: none;
-}
+  }
+  
+
+  
+ 
