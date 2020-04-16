@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     color: #0094B3;
     font-family: 'Open Sans', sans-serif;
@@ -7,11 +11,11 @@ body {
     display: grid;
     grid-template-columns: 1fr 59px 102px 900px 102px 59px 1fr;
     grid-template-rows: 68px 746px;
-    grid-template-areas: "header header header header header header header" "left-gutter left-nav left-gap floor-map right-gap right-nav right-gutter";
-  /*  grid-gap: 10px; */
-  }
-  
-.header { 
+    grid-template-areas: "header header header header header header header""left-gutter left-nav left-gap floor-map right-gap right-nav right-gutter";
+    /*  grid-gap: 10px; */
+}
+
+.header {
     color: white;
     display: inline-flex;
     grid-template-columns: 100%;
@@ -48,32 +52,38 @@ body {
     display: grid;
     text-align: center;
     background: #0094B3;
-    height: 500px;
+    height: 550px;
     padding: 20px 0 20px 0;
     margin-top: 65px;
     grid-gap: 23px;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.84);
 }
 
-a:hover svg path, a:hover svg text, a:hover svg rect,
-a:active svg path, a:active svg text, a:active svg rect
-    {
-     fill: #FECB00 !important;
-    }
-    
-a:active {
+a:hover svg path,
+a:hover svg text,
+a:hover svg rect,
+a:active svg path,
+a:active svg text,
+a:active svg rect {
     fill: #FECB00 !important;
 }
 
-.left-nav ul li, .right-nav ul li {
-  list-style-type: none;
+.active {
+    fill: #FECB00 !important;
 }
 
-.left-nav ul li a, .right-nav ul li a {
+.left-nav ul li,
+.right-nav ul li {
+    list-style-type: none;
+}
+
+.left-nav ul li a,
+.right-nav ul li a {
     display: block;
 }
 
-#left, #right {
+#left,
+#right {
     width: 59px;
     margin: 0 auto;
 }
@@ -86,15 +96,15 @@ a:active {
 .left-gap {
     display: grid;
     z-index: 1;
-    background:rgba(0, 149, 179, 0.4);
+    background: rgba(0, 149, 179, 0.4);
     grid-gap: 0;
-    height: 500px;
+    height: 550px;
     padding: 20px 0 20px 0;
     margin-top: 65px;
     grid-gap: 23px;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.84);
     transition: .25s;
- /*   margin-right: 102px; */
+    /*   margin-right: 102px; */
     display: none;
 }
 
@@ -104,8 +114,8 @@ a:active {
     grid-gap: 5px;
     padding: 0;
     margin: 4px;
-   /* margin-right: 102px; */
-   
+    /* margin-right: 102px; */
+
 }
 
 #areas {
@@ -120,31 +130,67 @@ a:active {
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.84);
 }
 
-.right-nav {
+.box {
+    width: 90px;
+    height: 52px;
     display: grid;
-    grid-area: right-nav;
+    vertical-align: top;
+    margin-top: 5px;
 }
 
-.floor-map {
-    display: grid;
-    grid-area: floor-map;
-  /* rotate: -90deg; */
+.overlay {
+    position: relative;
 }
 
+.overlay:after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
 
-#nameModal .modal {
+.overlay:hover:after {
+    opacity: .35;
+}
+
+.green:after {
+    background-color: #BED600;
+}
+
+.modal {
+    color: white;
+    background-color: rgba(0, 148, 179, 0.15);
+    z-index: 1000;
+    padding: 0px;
+    margin: 10px;
+}
+
+.modal .modal-content {
+    display: grid;
+    position: relative;
+    background-color: #0094B3;
+    vertical-align: center;
+    padding: 0px;
+    margin: 10px;
+    margin-top: 370px;
+}
+
+#name-modal .modal {
     width: 623px;
     height: 113px;
     margin-top: 300px;
 }
 
-#dateModal .modal-content {
+#date-modal .modal-content {
     width: 483px;
     height: 313px;
     margin-top: 300px;
 }
 
-#dateModal .modal-content input {
+#date-modal .modal-content input {
     color: #003D4C;
     margin-top: 20px;
 }
@@ -162,7 +208,7 @@ a:active {
     margin: 5px;
 }
 
-#dateModal .modal-header {
+#date-modal .modal-header {
     height: 0px;
 }
 
@@ -173,15 +219,15 @@ a:active {
     text-align: center;
 }
 
-/* #nameModal #dateModal .modal-body {
+/* #name-modal #date-modal .modal-body {
     margin: 0 auto;
 } */
 
-#nextModal .modal-content {
+#next-modal .modal-content {
     margin-top: 225px;
 }
 
-#nextModal .modal-body {
+#next-modal .modal-body {
     text-align: left;
     display: grid;
     grid-template-rows: 236px;
@@ -189,11 +235,13 @@ a:active {
     grid-template-areas: "leftSide" "rightSide"
 }
 
-#nextModal .modal-header {
+#next-modal .modal-header {
     text-align: center;
 }
 
-#nameModal .modal-body input {
+
+
+#name-modal .modal-body input {
     color: #003D4C;
     float: right;
     width: 375px;
@@ -204,7 +252,7 @@ a:active {
     padding: 0px;
 }
 
-#dateModal .modal-footer {
+#date-modal .modal-footer {
     height: 0px;
     text-align: center;
 }
@@ -224,24 +272,12 @@ a:active {
 }
 
 .yesOrNo .modal-header {
-    height: 5px;
+    height: 0px;
 }
-
-.yesOrNo .modal-header .close {
-    margin: 10px 20px 0 0;
-}
-
-/* .yesOrNo .modal-header .circle {
-    border-radius: 50%;
-    background-color: white;
-    height: 5px;
-    width: 5px;
-    z-index: -1;
-} */
 
 .yesOrNo .modal-content {
-    width: 300px;
-    height: 300px;
+    width: 229px;
+    height: 223px;
     text-align: center;
     margin: 315px auto;
 }
@@ -250,33 +286,33 @@ a:active {
     margin: 0 auto;
 }
 
-.yesOrNo .modal-body label {
-    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.58);
-}
-
 .yesOrNo .modal-content input {
-	float: right;
-	margin-right: 80px;
+    float: left;
+    margin-left: 70px;
 }
 
 .yesOrNo .modal-content label {
-	margin-left: 70px;
-	text-align: left;
+    margin-right: 70px;
+    text-align: left;
 }
 
 .yesOrNo .modal-footer {
     text-align: center;
 }
 
-.rightNav {
+.right-nav {
     display: grid;
-    grid-area: rightNav;
+    grid-area: right-nav;
 }
 
-.floorMap {
+.floor-map {
     display: grid;
-    grid-area: floorMap;
+    grid-area: floor-map;
     /* rotate: -90deg; */
+}
+
+.moveable {
+    cursor: move;
 }
 
 #moveableObjects {
@@ -291,8 +327,4 @@ a:active {
 .moveable {
     touch-action: none;
     user-select: none;
-  }
-  
-
-  
- 
+}
