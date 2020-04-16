@@ -64,7 +64,7 @@ $(document).ready(function(){
   };
   
   // double click activating/deactivating the drag method
-  subjx(".drag-svg").on("mousedown", e => {
+  subjx(".drag-svg").on("click", e => {
     if (e.currentTarget.classList.contains("sjx-drag")) return;
     const [xDraggable] = subjx(e.currentTarget).drag(svgParameters, obs);
     svgDraggables.push(xDraggable);
