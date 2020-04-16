@@ -18,11 +18,6 @@ $(document).ready(function() {
        $('.left-gap').toggle();
        $('.svg-icon').toggleClass('active');
      });
-    
-     //added to initiate the floor-map.
-     setTimeout(function() {
-      $('.colab').trigger('click');
-  },10);
 
      /*
      svg path
