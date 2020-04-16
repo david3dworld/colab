@@ -131,8 +131,152 @@ a:active {
   /* rotate: -90deg; */
 }
 
- .moveable {
-    cursor: move;
+
+#nameModal .modal {
+    width: 623px;
+    height: 113px;
+    margin-top: 300px;
+}
+
+#dateModal .modal-content {
+    width: 483px;
+    height: 313px;
+    margin-top: 300px;
+}
+
+#dateModal .modal-content input {
+    color: #003D4C;
+    margin-top: 20px;
+}
+
+.modal .btn.focus,
+.modal .btn:focus,
+.modal .btn:hover {
+    color: #BED600;
+    text-decoration: none;
+}
+
+.modal .modal-header {
+    border-bottom: none;
+    padding: 0px;
+    margin: 5px;
+}
+
+#dateModal .modal-header {
+    height: 0px;
+}
+
+.modal .modal-body {
+    display: inline-block;
+    padding: 0px;
+    margin: 10px;
+    text-align: center;
+}
+
+/* #nameModal #dateModal .modal-body {
+    margin: 0 auto;
+} */
+
+#nextModal .modal-content {
+    margin-top: 225px;
+}
+
+#nextModal .modal-body {
+    text-align: left;
+    display: grid;
+    grid-template-rows: 236px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "leftSide" "rightSide"
+}
+
+#nextModal .modal-header {
+    text-align: center;
+}
+
+#nameModal .modal-body input {
+    color: #003D4C;
+    float: right;
+    width: 375px;
+}
+
+.modal .modal-footer {
+    border-top: none;
+    padding: 0px;
+}
+
+#dateModal .modal-footer {
+    height: 0px;
+    text-align: center;
+}
+
+.modal .close {
+    color: white;
+}
+
+.modal .enter {
+    color: white;
+    background-color: #003D4C;
+    width: 113px;
+    height: 31px;
+    border-radius: 15px;
+    border: none;
+    margin: 10px;
+}
+
+.yesOrNo .modal-header {
+    height: 5px;
+}
+
+.yesOrNo .modal-header .close {
+    margin: 10px 20px 0 0;
+}
+
+/* .yesOrNo .modal-header .circle {
+    border-radius: 50%;
+    background-color: white;
+    height: 5px;
+    width: 5px;
+    z-index: -1;
+} */
+
+.yesOrNo .modal-content {
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    margin: 315px auto;
+}
+
+.yesOrNo .modal-body {
+    margin: 0 auto;
+}
+
+.yesOrNo .modal-body label {
+    text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.58);
+}
+
+.yesOrNo .modal-content input {
+	float: right;
+	margin-right: 80px;
+}
+
+.yesOrNo .modal-content label {
+	margin-left: 70px;
+	text-align: left;
+}
+
+.yesOrNo .modal-footer {
+    text-align: center;
+}
+
+.rightNav {
+    display: grid;
+    grid-area: rightNav;
+}
+
+.floorMap {
+    display: grid;
+    grid-area: floorMap;
+    /* rotate: -90deg; */
 }
 
 #moveableObjects {

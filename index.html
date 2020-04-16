@@ -9,13 +9,20 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" /> 
         <link rel="stylesheet" href="https://use.typekit.net/vge4ncm.css" />
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+
+        <!-- Bootstrap Modal -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <script src="./JS/index.js"></script>
+
         <link rel="stylesheet" href="JS/subjx/dist/style/subjx.css" />
-        <script src="src/jquery-3.4.1.js"></script>
         <script src="src/index.js"></script>
         <script src="js/subjx/dist/js/subjx.js"></script>
         
-       <script src="./JS/index.js"></script>
-       <!-- <script src="./JS/interact.js" type="module"></script> -->
+
         
         <title>JCCC CoLab Event Planner</title>
       </head>
@@ -172,7 +179,134 @@
                         </li>
                     </ul> <!--end of parent-ul -->
                 </nav>
+
+            </div> <!--end of "rightNav"-->
+
+        <div class="floorMap">
+
+        <!-----NAME MODAL----->
+        <div class="modal fade" id="nameModal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+            <!-- Modal content-->
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                    <h3>EVENT NAME: <input type="name" /></h3>
+                    </div>
+
+                    <div class="modal-footer">
+                    <button type="button" class="btn enter">Enter</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-----DATE MODAL----->
+        <div class="modal fade" id="dateModal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+            <!-- Modal content-->
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                    <h1>EVENT DATE:</h1>
+                    <input type="date" />
+                    </div>
+
+                    <div class="modal-footer">
+                    <button type="button" class="btn enter">Enter</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-----RESET MODAL----->
+        <div class="modal fade yesOrNo" id="resetModal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+            <!-- Modal content-->
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body">
+                    <h3>ARE YOU SURE?</h3>
+                    <input type="radio" id="no" name="reset-sure" value="no" checked>
+                    <label for="no">No</label><br>
+                    <input type="radio" id="yes" name="reset-sure" value="yes" unchecked>
+                    <label for="yes">Yes</label>
+                    </div>
+
+                    <div class="modal-footer">
+                    <button type="button" class="btn enter proceed">Proceed</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-----CLEAR MODAL----->
+        <div class="modal fade yesOrNo" id="clearModal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+            <!-- Modal content-->
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <div class="circle">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                    </div>
+
+                    <div class="modal-body">
+                    <h3>CLEAR FURNITURE?</h3><br>
+                    <label for="no">No:</label>
+                    <input type="checkbox" id="no" name="clear-sure" value="no" checked><br><br>
+                    <label for="yes">Yes:</label>
+                    <input type="checkbox" id="yes" name="clear-sure" value="yes" unchecked>
+                    </div>
+
+                    <div class="modal-footer">
+                    <button type="button" class="btn enter proceed">Proceed</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-----NEXT MODAL----->
+        <div class="modal fade" id="nextModal" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+            <!-- Modal content-->
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h1>YOU'RE ALMOST DONE!</h1>
+                    <p>Just fill out this form and hit submit. You will be sent a confirmation email.</p>
+                    </div>
+
+                    <div class="modal-body">
+                    <h4>EVENT NAME: <span id="nextModalEventName"></span></h4>
+                    <h4>EVENT DATE: <span id="nextModalEventDate"></span></h4>
+                    <button type="button" class="btn enter reserve">Reserve</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
             </div> <!--end of "right-nav"-->
+
 
         <div class="floor-map" id="floor-map">
                 <svg version="1.1" id="masterPlan" class="clippingMask" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
