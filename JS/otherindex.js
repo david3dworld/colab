@@ -35,6 +35,14 @@ $(document).ready(function() {
         return false;
         }); */
 
+//----------- object constraints ------------
+
+
+
+
+
+
+
 //----------- toggle menus --------------
         //variables...
         //button actions 

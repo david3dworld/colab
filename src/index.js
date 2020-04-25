@@ -12,7 +12,7 @@ $(document).ready(function(){
   const methods = {
     onInit(el) {
       this.on("drag", args => {
-        console.log(args);
+        // console.log(args);
       });
   
       const $controls = subjx(this.controls);
@@ -56,9 +56,9 @@ $(document).ready(function(){
       rotate: true
     },
     snap: {
-      x: 20,
-      y: 20,
-      angle: 25
+      x: 5,
+      y: 5,
+      angle: 25,
     },
     ...methods
   };
@@ -73,8 +73,8 @@ $(document).ready(function(){
   // svgDraggables.push(...subjx(".drag-svg").drag(svgParameters, obs));
   
   // SVG panning and zoom
-  const svgImage = document.getElementById("masterPlan");
-  const svgContainer = document.getElementById("floor-map");
+  const svgImage = document.getElementById('masterPlan');
+  const svgContainer = document.getElementById('floor-map');
   
   let viewBox = {
     x: 0,
@@ -169,6 +169,8 @@ $(document).ready(function(){
   svgContainer.onmouseleave = function(e) {
     isPanning = false;
   };
+
+
   
 // const obs = subjx.createObservable();
 // const draggables=document.getElementsByClassName("drag-svg");
@@ -199,25 +201,6 @@ $(document).ready(function(){
 //     onDrop(e, el) {},
 //     onDestroy(el) {},
 // };
-
-// const svgParameters = {
-//     container: "#floor-map",
-//     restrict: "#floor-map",
-//     proportions: true,
-//     // drggable: false,
-//     // resieable: false,
-//     // rotatable: false,
-//     each: {
-//         // resize: true,
-//         // move: true,
-//         rotate: true,
-//     },
-//     snap: {
-//         x: 10,
-//         y: 10,
-//         angle: 25
-//     },
-//     ...methods
 
 // };
 
@@ -331,4 +314,4 @@ $(document).ready(function(){
 //     isPanning = false;
 //   };
 
-})
+});

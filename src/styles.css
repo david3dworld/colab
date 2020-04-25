@@ -328,3 +328,13 @@ a:active svg rect {
     touch-action: none;
     user-select: none;
 }
+/* this is for another library */
+.drag {
+    position:absolute;
+    /* left:100px;
+    width:150px;
+    height:50px;
+    background:#F60;
+    border-radius:10px;
+    color:black; */
+  }

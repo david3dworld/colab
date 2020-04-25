@@ -1,0 +1,23 @@
+{
+  "name": "colab2",
+  "version": "1.0.0",
+  "description": "This is a project that we are working on to create a webapp that will allow people to request a certain layout for their event that will take place at the JCCC CoLab.",
+  "main": "index.js",
+  "dependencies": {
+    "jshint": "^2.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Colab-JCCC-Team/colab.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Colab-JCCC-Team/colab/issues"
+  },
+  "homepage": "https://github.com/Colab-JCCC-Team/colab#readme"
+}
