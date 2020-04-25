@@ -37,8 +37,94 @@ $(document).ready(function() {
 
 //----------- object constraints ------------
 
+        const items = Array.from(document.querySelectorAll('.item'))
+        .map(element => new PlainDraggable(element, {onDrag(moveTo)
+        {
+        const that = this,
+        xDir = moveTo.left > that.left ? 1 : moveTo.left < that.left ? -1 : 0,
+        yDir = moveTo.top > that.top ? 1 : moveTo.top < that.top ? -1 : 0;
+        while (items.some(item => {
+        if (item === that || !(
+        moveTo.left + that.rect.width > item.left && moveTo.left < item.rect.right &&
+        moveTo.top + that.rect.height > item.top && moveTo.top < item.rect.bottom
+        )) { return false; }
+        const
+        xBackLen =
+        xDir > 0 ? moveTo.left - (item.left - that.rect.width) :
+        xDir < 0 ? item.rect.right - moveTo.left :
+        that.rect.width + that.rect.height + item.rect.width + item.rect.height, // Max length
+        yBackLen =
+        yDir > 0 ? moveTo.top - (item.top - that.rect.height) :
+        yDir < 0 ? item.rect.bottom - moveTo.top :
+        that.rect.width + that.rect.height + item.rect.width + item.rect.height; // Max length
+        if (xBackLen <= yBackLen) {
+        moveTo.left += xBackLen * -xDir;
+        } else {
+        moveTo.top += yBackLen * -yDir;
+        }
+        return true;
+        })) { /* empty */}
+        }}));
+
+        const objects = Array.from(document.querySelectorAll('.stationary'))
+        .map(element => new PlainDraggable(element, {onDrag(stayThere){
+            stayThere.remove();
+        }}));
+
+        var remove = document.querySelectorAll('.drag-svg');
+
+// -----clear modal function -------
+
+        //hide modal if no
+        $(document).on('change','#no', function(){ //don't necessarily want to do it on the change only...
+
+            const radio = $(this);
+
+            if (radio.is(':checked')) {
+                $('#clear-button').click(function(){
+                    $('.modal').modal('hide');
+                });
+                $('#reset-button').click(function(){
+                    $('.modal').modal('hide');
+                });
+            }
+        });
+
+        //clear floor if yes
+        $(document).on('change','#yes', function(){ //don't necessarily want to do it on the change only...
+
+            const radio = $(this);
+
+            if (radio.is(':checked')) {
+                $('#clear-button').click(function(){
+                    $('.drag-svg').remove();
+                    $('.modal').modal('hide');
+                });
+                $('#reset-button').click(function(){
+                    window.location.reload();
+                    $('.modal').modal('hide');
+                });
+            }
+        });
 
 
+
+        // $('#clear-button').click(function(){
+        //     if($("#yes").is(':checked')){
+        //         $('.drag-svg').remove();
+        //     }
+        // });
+
+        // $('input[name="reset-clear"]').change(function(){
+        //     if($('#yes').is('checked')){
+        //         $('#clear-button').click(function(){
+        //             $('.drag-svg').remove();
+        //             // $('.modal').modal('hide');
+        //         });
+        //     }else{
+        //         $('.modal').modal('hide');
+        //     }
+        // });
 
 
 
