@@ -76,7 +76,7 @@ $(document).ready(function() {
 // -----clear modal function -------
 
         //hide modal if no
-        $(document).on('change','#no', function(){ //don't necessarily want to do it on the change only...
+        $(document).on('change','#no', function(){ //don't necessarily want to do it on the change only. this is the suggested modern method..
 
             const radio = $(this);
 
@@ -91,7 +91,7 @@ $(document).ready(function() {
         });
 
         //clear floor if yes
-        $(document).on('change','#yes', function(){ //don't necessarily want to do it on the change only...
+        $(document).on('change','#yes', function(){ //don't necessarily want to do it on the change only. this is the suggested modern method. 
 
             const radio = $(this);
 
