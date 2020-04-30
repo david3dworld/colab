@@ -178,23 +178,6 @@ a:active svg rect {
     margin-top: 370px;
 }
 
-#name-modal .modal {
-    width: 623px;
-    height: 113px;
-    margin-top: 300px;
-}
-
-#date-modal .modal-content {
-    width: 483px;
-    height: 313px;
-    margin-top: 300px;
-}
-
-#date-modal .modal-content input {
-    color: #003D4C;
-    margin-top: 20px;
-}
-
 .modal .btn.focus,
 .modal .btn:focus,
 .modal .btn:hover {
@@ -206,10 +189,6 @@ a:active svg rect {
     border-bottom: none;
     padding: 0px;
     margin: 5px;
-}
-
-#date-modal .modal-header {
-    height: 0px;
 }
 
 .modal .modal-body {
@@ -240,21 +219,9 @@ a:active svg rect {
 }
 
 
-
-#name-modal .modal-body input {
-    color: #003D4C;
-    float: right;
-    width: 375px;
-}
-
 .modal .modal-footer {
     border-top: none;
     padding: 0px;
-}
-
-#date-modal .modal-footer {
-    height: 0px;
-    text-align: center;
 }
 
 .modal .close {
@@ -328,3 +295,39 @@ a:active svg rect {
     touch-action: none;
     user-select: none;
 }
+/* this is for another library */
+.drag {
+    position:absolute;
+    /* left:100px;
+    width:150px;
+    height:50px;
+    background:#F60;
+    border-radius:10px;
+    color:black; */
+  }
+
+  * { user-select: none; }
+  
+  .drag-svg {
+    position: absolute;
+    /* display: flex;
+    justify-content: center; */
+    border: 0;
+  }
+  
+  .drag-svg:focus {
+    border: 1px solid blue;
+  }
+  
+  @for $i from 1 through 200 { 
+    .drag-svg:nth-child(#{$i}) {
+      background: hsla(random(360), 90%, 50%, 1);
+      top: random(75) * 1%;
+      left: random(95) * 1%;
+    }
+  }
+  
+  .ds-selected {
+    outline: 0.5px dotted #FECB00;
+    outline-offset: 0.5px;
+  }
