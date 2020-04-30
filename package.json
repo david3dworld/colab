@@ -4,7 +4,8 @@
   "description": "This is a project that we are working on to create a webapp that will allow people to request a certain layout for their event that will take place at the JCCC CoLab.",
   "main": "index.js",
   "dependencies": {
-    "jshint": "^2.11.0"
+    "jshint": "^2.11.0",
+    "prettier": "^2.0.5"
   },
   "devDependencies": {},
   "scripts": {

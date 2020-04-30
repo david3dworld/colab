@@ -178,23 +178,6 @@ a:active svg rect {
     margin-top: 370px;
 }
 
-#name-modal .modal {
-    width: 623px;
-    height: 113px;
-    margin-top: 300px;
-}
-
-#date-modal .modal-content {
-    width: 483px;
-    height: 313px;
-    margin-top: 300px;
-}
-
-#date-modal .modal-content input {
-    color: #003D4C;
-    margin-top: 20px;
-}
-
 .modal .btn.focus,
 .modal .btn:focus,
 .modal .btn:hover {
@@ -206,10 +189,6 @@ a:active svg rect {
     border-bottom: none;
     padding: 0px;
     margin: 5px;
-}
-
-#date-modal .modal-header {
-    height: 0px;
 }
 
 .modal .modal-body {
@@ -240,21 +219,9 @@ a:active svg rect {
 }
 
 
-
-#name-modal .modal-body input {
-    color: #003D4C;
-    float: right;
-    width: 375px;
-}
-
 .modal .modal-footer {
     border-top: none;
     padding: 0px;
-}
-
-#date-modal .modal-footer {
-    height: 0px;
-    text-align: center;
 }
 
 .modal .close {

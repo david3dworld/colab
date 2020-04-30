@@ -1,7 +1,6 @@
 
 $(document).ready(function() {
 
-
 //----------- room shortcuts --------------
 
         $('.colab').click(function(){
@@ -19,21 +18,11 @@ $(document).ready(function() {
         $('.circleCafe').click(function(){
             $('#masterPlan').attr('viewBox' , '0,275,200,225');
         });
-
-       
        
         //added to initiate the floor-map.
         setTimeout(function() {
          $('.colab').trigger('click');
      },10);
-//----------- modals --------------
-
-        //$('#ex1').modal();
-
-       /*$('a[data-modal]').click(function(event) {
-        $(this).modal();
-        return false;
-        }); */
 
 //----------- object constraints ------------
 
@@ -73,61 +62,25 @@ $(document).ready(function() {
 
         var remove = document.querySelectorAll('.drag-svg');
 
-// -----clear modal function -------
+// ----- clear modal function -------
 
-        //hide modal if no
-        $(document).on('change','#no', function(){ //don't necessarily want to do it on the change only. this is the suggested modern method..
-
-            const radio = $(this);
-
-            if (radio.is(':checked')) {
-                $('#clear-button').click(function(){
-                    $('.modal').modal('hide');
-                });
-                $('#reset-button').click(function(){
-                    $('.modal').modal('hide');
-                });
+        $('#clear-button').click(function(){
+            if($("#clearYes").is(':checked')){
+                $('.drag-svg').remove();
+                $('.modal').modal('hide');
+            } else if ($("#clearNo").is(':checked')){
+                $('.modal').modal('hide');
             }
         });
 
-        //clear floor if yes
-        $(document).on('change','#yes', function(){ //don't necessarily want to do it on the change only. this is the suggested modern method. 
-
-            const radio = $(this);
-
-            if (radio.is(':checked')) {
-                $('#clear-button').click(function(){
-                    $('.drag-svg').remove();
-                    $('.modal').modal('hide');
-                });
-                $('#reset-button').click(function(){
-                    window.location.reload();
-                    $('.modal').modal('hide');
-                });
+        $('#reset-button').click(function(){
+            if($("#resetYes").is(':checked')){
+                window.location.reload();
+                $('.modal').modal('hide');
+            } else if ($("#resetNo").is(':checked')){
+                $('.modal').modal('hide');
             }
         });
-
-
-
-        // $('#clear-button').click(function(){
-        //     if($("#yes").is(':checked')){
-        //         $('.drag-svg').remove();
-        //     }
-        // });
-
-        // $('input[name="reset-clear"]').change(function(){
-        //     if($('#yes').is('checked')){
-        //         $('#clear-button').click(function(){
-        //             $('.drag-svg').remove();
-        //             // $('.modal').modal('hide');
-        //         });
-        //     }else{
-        //         $('.modal').modal('hide');
-        //     }
-        // });
-
-
-
 
 //----------- toggle menus --------------
         //variables...
@@ -142,15 +95,9 @@ $(document).ready(function() {
          
         //menu icons 
          areaIcon = $('#area');
-         nameIcon = $('#name');
-         dateIcon = $('#date');
          resetIcon = $('#reset');
          clearIcon = $('#clear');
          nextIcon = $('#next');
-         selectIcon = $('#select');
-         groupIcon = $('#group');
-         moveIcon = $('#move');
-         editIcon = $('#edit');
          chairIcon = $('#chairs');
          tableIcon = $('#tables');
          stoolIcon = $('#stools');
@@ -164,12 +111,6 @@ $(document).ready(function() {
          areaPath = $('.area-path');
          areaText = $('.area-text');
 
-         namePath = $('.name-path');
-         nameText = $('.name-text');
-
-         datePath = $('.date-path');
-         dateText = $('.date-text');
-
          resetPath = $('.reset-path');
          resetText = $('.reset-text');
 
@@ -178,20 +119,6 @@ $(document).ready(function() {
 
          nextPath = $('.next-path');
          nextText = $('.next-text');
-
-         selectPath = $('.select-path');
-         selectText = $('.select-text');
-
-         groupPath = $('.group-path');
-         groupRect = $('.group-rect');
-         groupText = $('.group-text');
-
-         movePath = $('.move-path');
-         moveText = $('.move-text');
-
-         editPath = $('.edit-path');
-         editText = $('.edit-text');
-         editRect = $('.edit-rect');
 
          chairPath = $('.chair-path');
          chairText = $('.chair-text');
@@ -224,35 +151,6 @@ $(document).ready(function() {
             }
         });
 
-        //name...
-        nameIcon.on('click touch', function() {            
-
-            namePath.toggleClass('active');
-            nameText.toggleClass('active');
-
-            if (text.not(this).hasClass('active') || path.not(this).hasClass('active') || rect.not(this).hasClass('active')){
-                text.not(this).removeClass('active');
-                path.not(this).removeClass('active');
-                rect.not(this).removeClass('active');
-                namePath.addClass('active');
-                nameText.addClass('active');
-            }
-        });
-
-        //date...
-        dateIcon.on('click touch', function() {
-            datePath.toggleClass('active');
-            dateText.toggleClass('active');
-
-            if (text.not(this).hasClass('active') || path.not(this).hasClass('active') || rect.not(this).hasClass('active')){
-                text.not(this).removeClass('active');
-                path.not(this).removeClass('active');
-                rect.not(this).removeClass('active');
-                datePath.addClass('active');
-                dateText.addClass('active');
-            }
-        });
-
         //reset...
         resetIcon.on('click touch', function() {
             resetPath.toggleClass('active');
@@ -282,7 +180,7 @@ $(document).ready(function() {
         });
 
         //next...
-        nextIcon.on('click touch', function() { //not working....
+        nextIcon.on('click touch', function() {
             nextPath.toggleClass('active');
             nextText.toggleClass('active');
 
@@ -292,67 +190,6 @@ $(document).ready(function() {
                 rect.not(this).removeClass('active');
                 nextPath.addClass('active');
                 nextText.addClass('active');
-            }
-        });
-
-        //select...
-        selectIcon.on('click touch', function() { //this one has a rectangle
-            selectPath.toggleClass('active');
-            selectText.toggleClass('active');
-
-            if (text.not(this).hasClass('active') || path.not(this).hasClass('active') || rect.not(this).hasClass('active')){
-                text.not(this).removeClass('active');
-                path.not(this).removeClass('active');
-                rect.not(this).removeClass('active');
-                selectPath.addClass('active');
-                selectText.addClass('active');
-            }
-        });
-
-
-        //group...
-        groupIcon.on('click touch', function() { //this one has a rectangle
-            groupPath.toggleClass('active');
-            groupText.toggleClass('active');
-            groupRect.toggleClass('active');
-
-            if (text.not(this).hasClass('active') || path.not(this).hasClass('active') || rect.not(this).hasClass('active')){
-                text.not(this).removeClass('active');
-                path.not(this).removeClass('active');
-                rect.not(this).removeClass('active');
-                groupPath.addClass('active');
-                groupText.addClass('active');
-                groupRect.addclass('active');
-            }
-        });
-
-        //move...
-        moveIcon.on('click touch', function() { 
-            movePath.toggleClass('active');
-            moveText.toggleClass('active');
-
-            if (text.not(this).hasClass('active') || path.not(this).hasClass('active') || rect.not(this).hasClass('active')){
-                text.not(this).removeClass('active');
-                path.not(this).removeClass('active');
-                rect.not(this).removeClass('active');
-                movePath.addClass('active');
-                moveText.addClass('active');
-            }
-        });
-
-        //edit...
-        editIcon.on('click touch', function() { //this one has a rectangle
-            editPath.toggleClass('active');
-            editText.toggleClass('active');
-            editRect.toggleClass('active');
-
-            if (text.not(this).hasClass('active') || path.not(this).hasClass('active') || rect.not(this).hasClass('active')){
-                text.not(this).removeClass('active');
-                path.not(this).removeClass('active');
-                rect.not(this).removeClass('active');
-                editPath.addClass('active');
-                editText.addClass('active');
-                editRect.addClass('active');
             }
         });
 
@@ -398,4 +235,4 @@ $(document).ready(function() {
             }
         });
 
-}); 
+});
