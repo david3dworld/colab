@@ -62,6 +62,22 @@ $(document).ready(function() {
 
         var remove = document.querySelectorAll('.drag-svg');
 
+        // const selectables = Array.from(items) 
+        // .map(element => new DragSelect({
+        //     selectables: document.querySelectorAll('.item'),
+        //     callback: e => console.log(e)
+        //   }));
+
+        new DragSelect({
+            selectables: document.querySelectorAll('.drag-svg'),
+            callback: e => console.log(e)
+          });
+
+        // delete item when drag select   
+        // while Dragselect is selected add a <g></g> tag with a class of "item";
+        // hold shift + click to remove item from the group (or array)...
+        
+
 // ----- clear modal function -------
 
         $('#clear-button').click(function(){
