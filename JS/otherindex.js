@@ -62,20 +62,48 @@ $(document).ready(function() {
 
         var remove = document.querySelectorAll('.drag-svg');
 
-        // const selectables = Array.from(items) 
-        // .map(element => new DragSelect({
-        //     selectables: document.querySelectorAll('.item'),
-        //     callback: e => console.log(e)
-        //   }));
+
+// ----- DragSelect Functions -------
 
         new DragSelect({
             selectables: document.querySelectorAll('.drag-svg'),
+            area: document.getElementById('floor-map'),
+
+            onDragStart: function(group) {
+                group = $('.shadowGroup');
+                dragSVG = $('.drag-svg');
+                dragSVG.appendTo(group);
+                // dragSVG.removeClass('item'); //this isnt working.
+            },
             callback: e => console.log(e)
           });
 
-        // delete item when drag select   
-        // while Dragselect is selected add a <g></g> tag with a class of "item";
-        // hold shift + click to remove item from the group (or array)...
+          
+
+            // var svg; // if you have variable declared and not assigned value.
+            // // then you make a mistake by appending elements to that before creating element    
+            // svg.appendChild(document.createElement("g"));
+            // // at some point you assign to svg
+            // svg = document.createElementNS('http://www.w3.org/2000/svg', "svg")
+            // // then you put it in DOM
+            // document.getElementById("myDiv").appendChild(svg)
+            // // it wont render unless you manually change myDiv DOM with DevTools
+
+            // // to fix assign before you append
+            // var svg = createElement("svg", [
+            //     ["version", "1.2"],
+            //     ["xmlns:xlink", "http://www.w3.org/1999/xlink"],
+            //     ["aria-labelledby", "title"],
+            //     ["role", "img"],
+            //     ["class", "graph"]
+            // ]);
+            // function createElement(tag, attributeArr) {
+            //     // .createElementNS  NS is must! Does not draw without
+            //     let elem = document.createElementNS('http://www.w3.org/2000/svg', tag);             
+            //     attributeArr.forEach(element => elem.setAttribute(element[0], element[1]));
+            //     return elem;
+            // }
+            // // extra: <circle> for example requires attributes to render. Check if missing.
         
 
 // ----- clear modal function -------
