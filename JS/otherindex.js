@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
 
 //----------- room shortcuts --------------
@@ -60,8 +59,6 @@ $(document).ready(function() {
             stayThere.remove();
         }}));
 
-        var remove = document.querySelectorAll('.drag-svg');
-
 
 // ----- DragSelect Functions -------
 
@@ -69,16 +66,14 @@ $(document).ready(function() {
             selectables: document.querySelectorAll('.drag-svg'),
             area: document.getElementById('floor-map'),
 
-            onDragStart: function(group) {
+            onDragStart: function(group) { 
                 group = $('.shadowGroup');
-                dragSVG = $('.drag-svg');
-                dragSVG.appendTo(group);
-                // dragSVG.removeClass('item'); //this isnt working.
+                dragSVG = $('.drag-svg'); 
+                dragSVG.appendTo(group); //for each item that is selected then append one by one
+                dragSVG.removeClass('item'); //this isnt working. for each item when this happens individually....
             },
-            callback: e => console.log(e)
+            callback: e => console.log(e) 
           });
-
-          
 
             // var svg; // if you have variable declared and not assigned value.
             // // then you make a mistake by appending elements to that before creating element    
