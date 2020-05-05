@@ -1,5 +1,5 @@
-
 $(document).ready(function() {
+
 
 //----------- room shortcuts --------------
 
@@ -26,7 +26,7 @@ $(document).ready(function() {
 
 //----------- object constraints ------------
 
-        const items = Array.from(document.querySelectorAll('.item'))
+        const items = Array.from(document.querySelectorAll(".item"))
         .map(element => new PlainDraggable(element, {onDrag(moveTo)
         {
         const that = this,
@@ -55,27 +55,84 @@ $(document).ready(function() {
         })) { /* empty */}
         }}));
 
+        // const groups = Array.from(document.getElementById("shadowGroup"))
+        // .map(element => new PlainDraggable(element, {onDrag(moveTo)
+        // {
+        // const that = this,
+        // xDir = moveTo.left > that.left ? 1 : moveTo.left < that.left ? -1 : 0,
+        // yDir = moveTo.top > that.top ? 1 : moveTo.top < that.top ? -1 : 0;
+        // while (groups.some(group => {
+        // if (group === that || !(
+        // moveTo.left + that.rect.width > group.left && moveTo.left < group.rect.right &&
+        // moveTo.top + that.rect.height > group.top && moveTo.top < group.rect.bottom
+        // )) { return false; }
+        // const
+        // xBackLen =
+        // xDir > 0 ? moveTo.left - (group.left - that.rect.width) :
+        // xDir < 0 ? group.rect.right - moveTo.left :
+        // that.rect.width + that.rect.height + group.rect.width + group.rect.height, // Max length
+        // yBackLen =
+        // yDir > 0 ? moveTo.top - (group.top - that.rect.height) :
+        // yDir < 0 ? group.rect.bottom - moveTo.top :
+        // that.rect.width + that.rect.height + group.rect.width + group.rect.height; // Max length
+        // if (xBackLen <= yBackLen) {
+        // moveTo.left += xBackLen * -xDir;
+        // } else {
+        // moveTo.top += yBackLen * -yDir;
+        // }
+        // return true;
+        // })) { /* empty */}
+        // }}));
+
         const objects = Array.from(document.querySelectorAll('.stationary'))
         .map(element => new PlainDraggable(element, {onDrag(stayThere){
             stayThere.remove();
         }}));
 
-        var remove = document.querySelectorAll('.drag-svg');
 
-        // const selectables = Array.from(items) 
-        // .map(element => new DragSelect({
-        //     selectables: document.querySelectorAll('.item'),
-        //     callback: e => console.log(e)
-        //   }));
+// ----- DragSelect Functions -------
 
-        new DragSelect({
+        // var group = $('#shadowGroup');
+        var masterPlan = $('#masterPlan');
+        var dragSVG = $('.drag-svg');
+        var item = $('.item');
+        let grouping = $('<g class=“drag-svg item”></g>');
+
+
+        var ds = new DragSelect({
             selectables: document.querySelectorAll('.drag-svg'),
-            callback: e => console.log(e)
-          });
+            area: document.getElementById('floor-map'),
 
-        // delete item when drag select   
-        // while Dragselect is selected add a <g></g> tag with a class of "item";
-        // hold shift + click to remove item from the group (or array)...
+            multiSelectKeys: ['ctrlKey','shiftKey'],
+
+            multiSelectMode: false, //set this to true to keep the box on
+
+            onElementSelect: function() {
+                console.log(this, 'selected');
+                var data = $(this).data('selected');
+            },
+
+            onElementUnselect: function(element) {
+                const item = items.find(i => i.element === element);
+                if (item) item.disabled = false;
+
+                $(element).insertAfter($(element).parent());
+
+                },
+
+            callback: function (elements) {
+                elements.forEach((e) => {
+                const item = items.find((i) =>i && i.element === e);
+                item.disabled = true;
+                });
+                // $(elements).removeClass("drag-svg item");
+                $(elements).appendTo("#shadowGroup");
+                console.log(e);
+            },
+
+            });
+
+            
         
 
 // ----- clear modal function -------
