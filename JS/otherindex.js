@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+
 //----------- room shortcuts --------------
 
         $('.colab').click(function(){
@@ -25,7 +26,7 @@ $(document).ready(function() {
 
 //----------- object constraints ------------
 
-        const items = Array.from(document.querySelectorAll('.item'))
+        const items = Array.from(document.querySelectorAll(".item"))
         .map(element => new PlainDraggable(element, {onDrag(moveTo)
         {
         const that = this,
@@ -54,6 +55,35 @@ $(document).ready(function() {
         })) { /* empty */}
         }}));
 
+        // const groups = Array.from(document.getElementById("shadowGroup"))
+        // .map(element => new PlainDraggable(element, {onDrag(moveTo)
+        // {
+        // const that = this,
+        // xDir = moveTo.left > that.left ? 1 : moveTo.left < that.left ? -1 : 0,
+        // yDir = moveTo.top > that.top ? 1 : moveTo.top < that.top ? -1 : 0;
+        // while (groups.some(group => {
+        // if (group === that || !(
+        // moveTo.left + that.rect.width > group.left && moveTo.left < group.rect.right &&
+        // moveTo.top + that.rect.height > group.top && moveTo.top < group.rect.bottom
+        // )) { return false; }
+        // const
+        // xBackLen =
+        // xDir > 0 ? moveTo.left - (group.left - that.rect.width) :
+        // xDir < 0 ? group.rect.right - moveTo.left :
+        // that.rect.width + that.rect.height + group.rect.width + group.rect.height, // Max length
+        // yBackLen =
+        // yDir > 0 ? moveTo.top - (group.top - that.rect.height) :
+        // yDir < 0 ? group.rect.bottom - moveTo.top :
+        // that.rect.width + that.rect.height + group.rect.width + group.rect.height; // Max length
+        // if (xBackLen <= yBackLen) {
+        // moveTo.left += xBackLen * -xDir;
+        // } else {
+        // moveTo.top += yBackLen * -yDir;
+        // }
+        // return true;
+        // })) { /* empty */}
+        // }}));
+
         const objects = Array.from(document.querySelectorAll('.stationary'))
         .map(element => new PlainDraggable(element, {onDrag(stayThere){
             stayThere.remove();
@@ -62,43 +92,47 @@ $(document).ready(function() {
 
 // ----- DragSelect Functions -------
 
-        new DragSelect({
+        // var group = $('#shadowGroup');
+        var masterPlan = $('#masterPlan');
+        var dragSVG = $('.drag-svg');
+        var item = $('.item');
+        let grouping = $('<g class=“drag-svg item”></g>');
+
+
+        var ds = new DragSelect({
             selectables: document.querySelectorAll('.drag-svg'),
             area: document.getElementById('floor-map'),
 
-            onDragStart: function(group) { 
-                group = $('.shadowGroup');
-                dragSVG = $('.drag-svg'); 
-                dragSVG.appendTo(group); //for each item that is selected then append one by one
-                dragSVG.removeClass('item'); //this isnt working. for each item when this happens individually....
+            multiSelectKeys: ['ctrlKey','shiftKey'],
+
+            multiSelectMode: false, //set this to true to keep the box on
+
+            onElementSelect: function() {
+                console.log(this, 'selected');
+                var data = $(this).data('selected');
             },
-            callback: e => console.log(e) 
-          });
 
-            // var svg; // if you have variable declared and not assigned value.
-            // // then you make a mistake by appending elements to that before creating element    
-            // svg.appendChild(document.createElement("g"));
-            // // at some point you assign to svg
-            // svg = document.createElementNS('http://www.w3.org/2000/svg', "svg")
-            // // then you put it in DOM
-            // document.getElementById("myDiv").appendChild(svg)
-            // // it wont render unless you manually change myDiv DOM with DevTools
+            onElementUnselect: function(element) {
+                const item = items.find(i => i.element === element);
+                if (item) item.disabled = false;
 
-            // // to fix assign before you append
-            // var svg = createElement("svg", [
-            //     ["version", "1.2"],
-            //     ["xmlns:xlink", "http://www.w3.org/1999/xlink"],
-            //     ["aria-labelledby", "title"],
-            //     ["role", "img"],
-            //     ["class", "graph"]
-            // ]);
-            // function createElement(tag, attributeArr) {
-            //     // .createElementNS  NS is must! Does not draw without
-            //     let elem = document.createElementNS('http://www.w3.org/2000/svg', tag);             
-            //     attributeArr.forEach(element => elem.setAttribute(element[0], element[1]));
-            //     return elem;
-            // }
-            // // extra: <circle> for example requires attributes to render. Check if missing.
+                $(element).insertAfter($(element).parent());
+
+                },
+
+            callback: function (elements) {
+                elements.forEach((e) => {
+                const item = items.find((i) =>i && i.element === e);
+                item.disabled = true;
+                });
+                // $(elements).removeClass("drag-svg item");
+                $(elements).appendTo("#shadowGroup");
+                console.log(e);
+            },
+
+            });
+
+            
         
 
 // ----- clear modal function -------
